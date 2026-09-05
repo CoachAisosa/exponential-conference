@@ -1,0 +1,759 @@
+/* ============================================================
+   LIVE EVENT PAGE COMPLETE STYLES
+   EXPONENTIAL CONFERENCE 2026
+   Theme: Navy (#1a2a4a) + White + Orange (#e87a2a)
+   ============================================================ */
+
+/* ============================================================
+   1. LIVE EVENT PAGE LAYOUT
+   ============================================================ */
+
+.liveEventPage {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   2. LIVE HERO SECTION
+   ============================================================ */
+
+.liveHeroSection {
+  background: #1a2a4a;
+  padding: 6rem 2rem 5rem;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.liveHeroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/images/expon\ 3.jfif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  z-index: 0;
+}
+
+.liveHeroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(26, 42, 74, 0.92) 0%, rgba(26, 42, 74, 0.80) 100%);
+  z-index: 1;
+}
+
+.liveHeroContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.liveHeroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.liveStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(232, 122, 42, 0.15);
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(232, 122, 42, 0.2);
+}
+
+.liveStatusIcon {
+  font-size: 0.6rem;
+  color: #e87a2a;
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(0.7);
+  }
+}
+
+.liveStatus span {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #e87a2a;
+}
+
+.liveHeroEyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(232, 122, 42, 0.7);
+  margin-bottom: 0.5rem;
+}
+
+.liveHeroTitle {
+  font-size: 4.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+  line-height: 1.1;
+  letter-spacing: 4px;
+}
+
+.liveHeroSubtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1.5rem;
+}
+
+.liveHeroDescription {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.liveHeroDetails {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.liveHeroDetailItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.liveHeroDetailIcon {
+  font-size: 1.2rem;
+  color: #e87a2a;
+}
+
+.liveHeroDetailItem div {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.liveHeroDetailLabel {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.liveHeroDetailItem p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0;
+}
+
+.liveHeroActions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.liveHeroRegisterButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 0.9rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #e87a2a;
+  text-transform: uppercase;
+}
+
+.liveHeroRegisterButton:hover {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(232, 122, 42, 0.3);
+}
+
+.liveHeroWatchButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: transparent;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+}
+
+.liveHeroWatchButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-3px);
+}
+
+/* ============================================================
+   3. LIVE STREAM SECTION
+   ============================================================ */
+
+.liveStreamSection {
+  padding: 5rem 2rem;
+  background: #f8f9fa;
+}
+
+.liveStreamContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.liveStreamHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.liveStreamStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(232, 122, 42, 0.1);
+  padding: 0.3rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(232, 122, 42, 0.15);
+}
+
+.liveStreamStatusIcon {
+  font-size: 0.6rem;
+  color: #e87a2a;
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+.liveStreamStatus span {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #e87a2a;
+}
+
+.liveStreamEyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #e87a2a;
+  margin-bottom: 0.5rem;
+}
+
+.liveStreamTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  margin-bottom: 0.25rem;
+  letter-spacing: 4px;
+}
+
+.liveStreamSubtitle {
+  font-size: 1.2rem;
+  color: #4a5a7a;
+  font-weight: 400;
+}
+
+.liveVideoWrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(26, 42, 74, 0.12);
+  margin-bottom: 2rem;
+}
+
+.liveVideoContainer {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.liveVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.liveStreamInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 20px rgba(26, 42, 74, 0.04);
+}
+
+.liveStreamInfoContent {
+  flex: 1;
+}
+
+.liveStreamInfoTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin: 0 0 0.25rem 0;
+}
+
+.liveStreamInfoText {
+  font-size: 0.9rem;
+  color: #4a5a7a;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.liveYoutubeButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #ff0000;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.liveYoutubeButton:hover {
+  background: #cc0000;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+}
+
+.liveYoutubeButton svg:first-child {
+  font-size: 1.2rem;
+}
+
+.liveYoutubeButton svg:last-child {
+  font-size: 0.7rem;
+}
+
+/* ============================================================
+   4. LIVE CTA SECTION
+   ============================================================ */
+
+.liveCTASection {
+  padding: 5rem 2rem;
+  background: #1a2a4a;
+}
+
+.liveCTAContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.liveCTAHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.liveCTAEyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(232, 122, 42, 0.6);
+  margin-bottom: 0.5rem;
+}
+
+.liveCTATitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #e87a2a;
+  margin-bottom: 0.5rem;
+  letter-spacing: 4px;
+}
+
+.liveCTADescription {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.liveCTAContent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.liveCTACard {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.liveCTACard:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-8px);
+  border-color: rgba(232, 122, 42, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.liveCTACardIcon {
+  font-size: 2.5rem;
+  color: #e87a2a;
+  margin-bottom: 1rem;
+}
+
+.liveCTACardTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.liveCTACardText {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  margin: 0 0 1.5rem 0;
+}
+
+.liveCTACardButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #e87a2a;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.liveCTACardButton:hover {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(232, 122, 42, 0.2);
+}
+
+.liveCTACardButton svg {
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+}
+
+.liveCTACardButton:hover svg {
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   5. LIVE FINAL CTA
+   ============================================================ */
+
+.liveFinalCTA {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.liveFinalCTAText {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(232, 122, 42, 0.5);
+  margin-bottom: 0.25rem;
+}
+
+.liveFinalCTATitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+}
+
+.liveFinalCTADescription {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0 0 1.5rem 0;
+}
+
+.liveFinalCTAButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 0.9rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #e87a2a;
+  text-transform: uppercase;
+}
+
+.liveFinalCTAButton:hover {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 40px rgba(232, 122, 42, 0.3);
+}
+
+.liveFinalCTAButton svg {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.liveFinalCTAButton:hover svg {
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   6. RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .liveHeroTitle {
+    font-size: 3.5rem;
+  }
+
+  .liveStreamTitle {
+    font-size: 2.8rem;
+  }
+
+  .liveCTATitle {
+    font-size: 2.8rem;
+  }
+
+  .liveCTAContent {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .liveHeroDetails {
+    gap: 1.5rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .liveHeroSection {
+    padding: 4rem 1.5rem 3rem;
+    min-height: auto;
+  }
+
+  .liveHeroTitle {
+    font-size: 2.8rem;
+  }
+
+  .liveHeroSubtitle {
+    font-size: 1.2rem;
+  }
+
+  .liveHeroDescription {
+    font-size: 0.95rem;
+  }
+
+  .liveHeroDetails {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .liveHeroDetailItem {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .liveHeroDetailItem div {
+    text-align: left;
+  }
+
+  .liveHeroActions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .liveHeroRegisterButton,
+  .liveHeroWatchButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .liveStreamSection {
+    padding: 3rem 1.5rem;
+  }
+
+  .liveStreamTitle {
+    font-size: 2.2rem;
+  }
+
+  .liveStreamInfo {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.25rem;
+  }
+
+  .liveYoutubeButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .liveCTASection {
+    padding: 3rem 1.5rem;
+  }
+
+  .liveCTATitle {
+    font-size: 2.2rem;
+  }
+
+  .liveCTADescription {
+    font-size: 1rem;
+  }
+
+  .liveCTAContent {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .liveCTACard {
+    padding: 1.5rem;
+  }
+
+  .liveFinalCTA {
+    padding: 2rem 1.5rem;
+  }
+
+  .liveFinalCTATitle {
+    font-size: 1.4rem;
+  }
+
+  .liveFinalCTAButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .liveHeroEyebrow {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+  }
+
+  .liveStatus span {
+    font-size: 0.55rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .liveHeroTitle {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+  }
+
+  .liveHeroSubtitle {
+    font-size: 1rem;
+  }
+
+  .liveHeroDescription {
+    font-size: 0.9rem;
+  }
+
+  .liveStreamTitle {
+    font-size: 1.8rem;
+  }
+
+  .liveStreamSubtitle {
+    font-size: 1rem;
+  }
+
+  .liveCTATitle {
+    font-size: 1.8rem;
+  }
+
+  .liveFinalCTATitle {
+    font-size: 1.2rem;
+  }
+
+  .liveFinalCTAButton {
+    font-size: 0.75rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .liveCTACardButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .liveHeroDetailItem p {
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,1592 @@
+/* ============================================================
+   ABOUT PAGE COMPLETE STYLES
+   EXPONENTIAL CONFERENCE 2026
+   Theme: Navy (#1a2a4a) + White + Orange (#e87a2a)
+   ============================================================ */
+
+/* ============================================================
+   1. ABOUT HERO SECTION
+   ============================================================ */
+
+.aboutHeroSection {
+  background: #1a2a4a;
+  padding: 6rem 2rem 5rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.aboutHeroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://radicalmentoring.com/wp-content/uploads/2021/01/RadicalMentoring-1536x1025.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  z-index: 0;
+}
+
+.aboutHeroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(26, 42, 74, 0.92) 0%, rgba(26, 42, 74, 0.80) 100%);
+  z-index: 1;
+}
+
+.aboutHeroContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.aboutHeroContent {
+  max-width: 100%;
+}
+
+.aboutHeroEyebrowWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.aboutHeroEyebrowIcon {
+  font-size: 1rem;
+  color: #e87a2a;
+}
+
+.aboutHeroEyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(232, 122, 42, 0.7);
+  margin: 0;
+}
+
+.aboutHeroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.aboutHeroDescription {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.aboutHeroActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.aboutHeroRegisterButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 0.9rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #e87a2a;
+  text-transform: uppercase;
+}
+
+.aboutHeroRegisterButton:hover {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(232, 122, 42, 0.3);
+}
+
+.aboutHeroExploreButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: transparent;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+}
+
+.aboutHeroExploreButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-3px);
+}
+
+.aboutHeroButtonIcon {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.aboutHeroRegisterButton:hover .aboutHeroButtonIcon,
+.aboutHeroExploreButton:hover .aboutHeroButtonIcon {
+  transform: translateX(4px);
+}
+
+/* Hero Visual */
+.aboutHeroVisual {
+  position: relative;
+}
+
+.aboutHeroImageWrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.aboutHeroImage {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.aboutHeroImageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(232, 122, 42, 0.15) 0%, transparent 60%);
+}
+
+.aboutHeroFloatingCard {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.25rem 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.aboutHeroFloatingIcon {
+  width: 48px;
+  height: 48px;
+  background: #f8f9fa;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: #e87a2a;
+}
+
+.aboutHeroFloatingContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutHeroFloatingLabel {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #e87a2a;
+}
+
+.aboutHeroFloatingText {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1a2a4a;
+  margin: 0;
+}
+
+/* ============================================================
+   2. ABOUT INTRODUCTION SECTION
+   ============================================================ */
+
+.aboutIntroductionSection {
+  padding: 5rem 2rem;
+  background: #ffffff;
+}
+
+.aboutIntroductionContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.aboutIntroductionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.aboutIntroductionIcon {
+  display: inline-flex;
+  width: 64px;
+  height: 64px;
+  background: #f8f9fa;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: #e87a2a;
+  margin-bottom: 1rem;
+}
+
+.aboutIntroductionEyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #e87a2a;
+  margin-bottom: 0.5rem;
+}
+
+.aboutIntroductionTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.2;
+}
+
+.aboutIntroductionContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-bottom: 3rem;
+}
+
+.aboutIntroductionText {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.aboutIntroductionParagraph {
+  font-size: 1.05rem;
+  color: #4a5a7a;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.aboutIntroductionCard {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  border-left: 4px solid #e87a2a;
+  transition: all 0.3s ease;
+}
+
+.aboutIntroductionCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(26, 42, 74, 0.08);
+}
+
+.aboutIntroductionCardIcon {
+  font-size: 2rem;
+  color: #e87a2a;
+  margin-bottom: 1rem;
+}
+
+.aboutIntroductionCardLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #e87a2a;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.aboutIntroductionCardTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin-bottom: 0.75rem;
+}
+
+.aboutIntroductionCardText {
+  font-size: 1rem;
+  color: #4a5a7a;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.aboutIntroductionCardArrow {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: #e87a2a;
+}
+
+.aboutIntroductionHighlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.aboutIntroductionHighlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.aboutIntroductionHighlight:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(26, 42, 74, 0.06);
+}
+
+.aboutIntroductionHighlightIcon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: rgba(232, 122, 42, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #e87a2a;
+}
+
+.aboutIntroductionHighlightContent h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin: 0 0 0.25rem 0;
+}
+
+.aboutIntroductionHighlightContent p {
+  font-size: 0.85rem;
+  color: #4a5a7a;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   3. VISION & MISSION SECTION
+   ============================================================ */
+
+.visionMissionSection {
+  padding: 5rem 2rem;
+  background: #f8f9fa;
+}
+
+.visionMissionContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.visionMissionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.visionMissionEyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #e87a2a;
+  margin-bottom: 0.5rem;
+}
+
+.visionMissionTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.2;
+}
+
+.visionMissionGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.visionMissionCard {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(26, 42, 74, 0.04);
+  border-top: 4px solid transparent;
+}
+
+.visionMissionCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 50px rgba(26, 42, 74, 0.08);
+}
+
+.visionMissionCard:nth-child(1) { border-top-color: #1a2a4a; }
+.visionMissionCard:nth-child(2) { border-top-color: #e87a2a; }
+.visionMissionCard:nth-child(3) { border-top-color: #2c3e6b; }
+
+.visionMissionIcon {
+  font-size: 2.5rem;
+  color: #e87a2a;
+  margin-bottom: 1rem;
+}
+
+.visionMissionLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #7a8aaa;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.visionMissionCardTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin-bottom: 0.75rem;
+}
+
+.visionMissionCardText {
+  font-size: 0.95rem;
+  color: #4a5a7a;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================================
+   4. BIBLICAL FOUNDATION SECTION
+   ============================================================ */
+
+.biblicalFoundationSection {
+  padding: 5rem 2rem;
+  background: #ffffff;
+}
+
+.biblicalFoundationContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.biblicalFoundationHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.biblicalFoundationIcon {
+  display: inline-flex;
+  width: 64px;
+  height: 64px;
+  background: #f8f9fa;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: #e87a2a;
+  margin-bottom: 1rem;
+}
+
+.biblicalFoundationEyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #e87a2a;
+  margin-bottom: 0.5rem;
+}
+
+.biblicalFoundationTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  margin-bottom: 0.5rem;
+}
+
+.biblicalFoundationSubtitle {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #4a5a7a;
+  margin-bottom: 0.75rem;
+}
+
+.biblicalFoundationDescription {
+  font-size: 1.05rem;
+  color: #4a5a7a;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.biblicalFoundationScripture {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 2.5rem 3rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  border-left: 4px solid #e87a2a;
+  position: relative;
+}
+
+.biblicalFoundationQuoteIcon {
+  font-size: 1.5rem;
+  color: #e87a2a;
+  opacity: 0.5;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.biblicalFoundationReference {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #e87a2a;
+  margin-bottom: 0.5rem;
+}
+
+.biblicalFoundationQuote {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #1a2a4a;
+  font-style: italic;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.biblicalFoundationChain {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+}
+
+.biblicalFoundationStep {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border-top: 4px solid transparent;
+}
+
+.biblicalFoundationStep:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(26, 42, 74, 0.08);
+}
+
+.biblicalFoundationStep:nth-child(1) { border-top-color: #1a2a4a; }
+.biblicalFoundationStep:nth-child(3) { border-top-color: #2c3e6b; }
+.biblicalFoundationStep:nth-child(5) { border-top-color: #e87a2a; }
+.biblicalFoundationStep:nth-child(7) { border-top-color: #1a2a4a; }
+
+.biblicalFoundationStepIcon {
+  font-size: 1.5rem;
+  color: #e87a2a;
+  margin-bottom: 0.25rem;
+}
+
+.biblicalFoundationStepNumber {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: rgba(26, 42, 74, 0.06);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.biblicalFoundationStepTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin-bottom: 0.5rem;
+}
+
+.biblicalFoundationStepText {
+  font-size: 0.85rem;
+  color: #4a5a7a;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.biblicalFoundationArrow {
+  color: #e87a2a;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.biblicalFoundationBottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #eef0f3;
+}
+
+.biblicalFoundationBottomText {
+  font-size: 1.1rem;
+  color: #1a2a4a;
+  font-weight: 500;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.biblicalFoundationBottomText strong {
+  color: #e87a2a;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+/* ============================================================
+   5. CONFERENCE 2026 SECTION
+   ============================================================ */
+
+.conference2026Section {
+  padding: 5rem 2rem;
+  background: #1a2a4a;
+}
+
+.conference2026Container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.conference2026Header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.conference2026Eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(232, 122, 42, 0.7);
+  margin-bottom: 0.5rem;
+}
+
+.conference2026Title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #e87a2a;
+  margin-bottom: 0.25rem;
+  letter-spacing: 4px;
+}
+
+.conference2026Subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+}
+
+.conference2026Details {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.conference2026Detail {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s ease;
+}
+
+.conference2026Detail:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+}
+
+.conference2026DetailIcon {
+  font-size: 1.5rem;
+  color: #e87a2a;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.conference2026DetailContent {
+  flex: 1;
+}
+
+.conference2026DetailLabel {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.conference2026DetailTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.conference2026Address {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
+  margin: 0.25rem 0 0 0;
+}
+
+.conference2026Actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.conference2026RegisterButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 0.9rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #e87a2a;
+  text-transform: uppercase;
+}
+
+.conference2026RegisterButton:hover {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(232, 122, 42, 0.3);
+}
+
+.conference2026DirectionButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: transparent;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+}
+
+.conference2026DirectionButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-3px);
+}
+
+.conference2026ButtonIcon {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.conference2026RegisterButton:hover .conference2026ButtonIcon,
+.conference2026DirectionButton:hover .conference2026ButtonIcon {
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   6. MORE THAN CONFERENCE SECTION
+   ============================================================ */
+
+.moreThanConferenceSection {
+  padding: 5rem 2rem;
+  background: #f8f9fa;
+}
+
+.moreThanConferenceContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.moreThanConferenceHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.moreThanConferenceEyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #e87a2a;
+  margin-bottom: 0.5rem;
+}
+
+.moreThanConferenceTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  max-width: 700px;
+  margin: 0 auto 1rem;
+  line-height: 1.2;
+}
+
+.moreThanConferenceDescription {
+  font-size: 1.05rem;
+  color: #4a5a7a;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.moreThanConferenceContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.moreThanConferenceImageWrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(26, 42, 74, 0.08);
+}
+
+.moreThanConferenceImage {
+  width: 100%;
+  height: 410px;
+  object-fit: cover;
+  display: block;
+}
+
+.moreThanConferenceImageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(232, 122, 42, 0.1) 0%, transparent 60%);
+}
+
+.moreThanConferenceText {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.moreThanConferenceParagraph {
+  font-size: 1.05rem;
+  color: #4a5a7a;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.moreThanConferenceOutcomes {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+}
+
+.moreThanConferenceOutcome {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(26, 42, 74, 0.04);
+}
+
+.moreThanConferenceOutcome:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(26, 42, 74, 0.08);
+}
+
+.moreThanConferenceOutcomeIcon {
+  font-size: 2rem;
+  color: #e87a2a;
+  margin-bottom: 0.75rem;
+}
+
+.moreThanConferenceOutcomeTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin-bottom: 0.5rem;
+}
+
+.moreThanConferenceOutcomeText {
+  font-size: 0.85rem;
+  color: #4a5a7a;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================================
+   7. WHY EXPONENTIAL SECTION
+   ============================================================ */
+
+.whyExponentialSection {
+  padding: 5rem 2rem;
+  background: #ffffff;
+}
+
+.whyExponentialContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.whyExponentialHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.whyExponentialIcon {
+  display: inline-flex;
+  width: 64px;
+  height: 64px;
+  background: #f8f9fa;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: #e87a2a;
+  margin-bottom: 1rem;
+}
+
+.whyExponentialEyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #e87a2a;
+  margin-bottom: 0.5rem;
+}
+
+.whyExponentialTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  max-width: 700px;
+  margin: 0 auto 1rem;
+  line-height: 1.2;
+}
+
+.whyExponentialDescription {
+  font-size: 1.05rem;
+  color: #4a5a7a;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.whyExponentialContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-bottom: 3rem;
+}
+
+.whyExponentialText {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.whyExponentialParagraph {
+  font-size: 1.05rem;
+  color: #4a5a7a;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.whyExponentialQuestion {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin-top: 0.5rem;
+  border-left: 4px solid #e87a2a;
+}
+
+.whyExponentialQuestionIcon {
+  font-size: 1.2rem;
+  color: #e87a2a;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.whyExponentialQuestion p {
+  font-size: 1rem;
+  color: #4a5a7a;
+  margin: 0.25rem 0;
+  line-height: 1.6;
+}
+
+.whyExponentialQuestion strong {
+  color: #1a2a4a;
+  font-weight: 700;
+}
+
+.whyExponentialCards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.whyExponentialCard {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.whyExponentialCard:hover {
+  background: #ffffff;
+  border-color: rgba(232, 122, 42, 0.2);
+  transform: translateX(5px);
+  box-shadow: 0 8px 30px rgba(26, 42, 74, 0.06);
+}
+
+.whyExponentialCardIcon {
+  font-size: 1.5rem;
+  color: #e87a2a;
+  margin-bottom: 0.5rem;
+}
+
+.whyExponentialCardTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin-bottom: 0.25rem;
+}
+
+.whyExponentialCardText {
+  font-size: 0.9rem;
+  color: #4a5a7a;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.whyExponentialAction {
+  text-align: center;
+}
+
+.whyExponentialButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #1a2a4a;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 0.9rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #1a2a4a;
+  text-transform: uppercase;
+}
+
+.whyExponentialButton:hover {
+  background: transparent;
+  color: #1a2a4a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(26, 42, 74, 0.15);
+}
+
+.whyExponentialButtonIcon {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.whyExponentialButton:hover .whyExponentialButtonIcon {
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   8. ABOUT CTA SECTION
+   ============================================================ */
+
+.aboutCTASection {
+  padding: 5rem 2rem;
+  background: #1a2a4a;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.aboutCTASection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/blogs/17626/images/vlgRY1lETeqC9CjmESws_bible-study-lesson-tips-small-group-leaders-1200x6301.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  z-index: 0;
+}
+
+.aboutCTAOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(26, 42, 74, 0.92) 0%, rgba(26, 42, 74, 0.85) 100%);
+  z-index: 1;
+}
+
+.aboutCTAContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.aboutCTAIcon {
+  display: inline-flex;
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: #e87a2a;
+  margin-bottom: 1.5rem;
+  border: 2px solid rgba(232, 122, 42, 0.2);
+}
+
+.aboutCTAEyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(232, 122, 42, 0.6);
+  margin-bottom: 0.75rem;
+}
+
+.aboutCTATitle {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.aboutCTATitle br {
+  display: block;
+}
+
+.aboutCTADescription {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  line-height: 1.8;
+}
+
+.aboutCTAActions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.aboutCTARegisterButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  padding: 1rem 3rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #e87a2a;
+  text-transform: uppercase;
+}
+
+.aboutCTARegisterButton:hover {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 40px rgba(232, 122, 42, 0.3);
+}
+
+.aboutCTAExploreButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: transparent;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+}
+
+.aboutCTAExploreButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-3px);
+}
+
+.aboutCTAButtonIcon {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.aboutCTARegisterButton:hover .aboutCTAButtonIcon,
+.aboutCTAExploreButton:hover .aboutCTAButtonIcon {
+  transform: translateX(4px);
+}
+
+.aboutCTADate {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* ============================================================
+   9. RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .aboutHeroContainer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .aboutHeroTitle {
+    font-size: 2.5rem;
+  }
+
+  .aboutHeroImage {
+    height: 300px;
+  }
+
+  .aboutHeroFloatingCard {
+    right: 0;
+    bottom: -20px;
+  }
+
+  .aboutIntroductionContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .aboutIntroductionHighlights {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .visionMissionGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .biblicalFoundationChain {
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0.5rem;
+  }
+
+  .biblicalFoundationArrow:nth-child(2),
+  .biblicalFoundationArrow:nth-child(4) {
+    display: none;
+  }
+
+  .conference2026Details {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .moreThanConferenceContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .moreThanConferenceOutcomes {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .whyExponentialContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .whyExponentialCards {
+    flex-direction: row;
+  }
+
+  .whyExponentialCard {
+    flex: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutHeroSection {
+    padding: 4rem 1.5rem 3rem;
+    min-height: auto;
+  }
+
+  .aboutHeroTitle {
+    font-size: 2rem;
+  }
+
+  .aboutHeroDescription {
+    font-size: 0.95rem;
+  }
+
+  .aboutHeroActions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .aboutHeroRegisterButton,
+  .aboutHeroExploreButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .aboutHeroImage {
+    height: 220px;
+  }
+
+  .aboutHeroFloatingCard {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .aboutIntroductionTitle {
+    font-size: 2rem;
+  }
+
+  .aboutIntroductionHighlights {
+    grid-template-columns: 1fr;
+  }
+
+  .visionMissionGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .visionMissionTitle {
+    font-size: 2rem;
+  }
+
+  .biblicalFoundationChain {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .biblicalFoundationArrow {
+    display: none !important;
+  }
+
+  .biblicalFoundationTitle {
+    font-size: 2rem;
+  }
+
+  .biblicalFoundationQuote {
+    font-size: 1rem;
+  }
+
+  .biblicalFoundationScripture {
+    padding: 1.5rem;
+  }
+
+  .conference2026Title {
+    font-size: 2.5rem;
+  }
+
+  .conference2026Details {
+    grid-template-columns: 1fr;
+  }
+
+  .conference2026Actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .conference2026RegisterButton,
+  .conference2026DirectionButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .moreThanConferenceTitle {
+    font-size: 2rem;
+  }
+
+  .moreThanConferenceOutcomes {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .moreThanConferenceImage {
+    height: 220px;
+  }
+
+  .whyExponentialTitle {
+    font-size: 2rem;
+  }
+
+  .whyExponentialCards {
+    flex-direction: column;
+  }
+
+  .whyExponentialButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .aboutCTATitle {
+    font-size: 2.2rem;
+  }
+
+  .aboutCTAActions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .aboutCTARegisterButton,
+  .aboutCTAExploreButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .aboutCTADate {
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutHeroTitle {
+    font-size: 1.6rem;
+  }
+
+  .aboutHeroEyebrow {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+  }
+
+  .aboutIntroductionTitle {
+    font-size: 1.6rem;
+  }
+
+  .visionMissionTitle {
+    font-size: 1.6rem;
+  }
+
+  .visionMissionCard {
+    padding: 1.5rem;
+  }
+
+  .biblicalFoundationTitle {
+    font-size: 1.6rem;
+  }
+
+  .biblicalFoundationSubtitle {
+    font-size: 1rem;
+  }
+
+  .conference2026Title {
+    font-size: 2rem;
+  }
+
+  .conference2026Subtitle {
+    font-size: 1rem;
+  }
+
+  .moreThanConferenceTitle {
+    font-size: 1.6rem;
+  }
+
+  .moreThanConferenceOutcomes {
+    grid-template-columns: 1fr;
+  }
+
+  .whyExponentialTitle {
+    font-size: 1.6rem;
+  }
+
+  .whyExponentialQuestion {
+    padding: 1rem;
+  }
+
+  .aboutCTATitle {
+    font-size: 1.8rem;
+  }
+}

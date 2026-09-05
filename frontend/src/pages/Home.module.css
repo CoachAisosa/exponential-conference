@@ -1,0 +1,879 @@
+/* ============================================================
+   HOME PAGE COMPLETE STYLES
+   EXPONENTIAL CONFERENCE 2026
+   Theme: Navy (#1a2a4a) + White + Orange (#e87a2a)
+   ============================================================ */
+
+   /* ============================================================
+   REACT ICON STYLES
+   ============================================================ */
+
+.heroIcon {
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+  color: #e87a2a;
+}
+
+.heroRegisterButton .heroIcon,
+.heroExploreButton .heroIcon {
+  margin-right: 0.75rem;
+  font-size: 0.85rem;
+  color: inherit;
+}
+
+.heroScriptureReference .heroIcon {
+  margin-right: 0.5rem;
+  color: #e87a2a;
+}
+
+/* ============================================================
+   1. HOME PAGE LAYOUT
+   ============================================================ */
+
+.homePage {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   2. HERO COMPONENT
+   ============================================================ */
+
+.heroSection {
+  background: #1a2a4a;
+  padding: 4rem 2rem 5rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Image with Overlay */
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/images/home\ image.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  z-index: 0;
+}
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(26, 42, 74, 0.92) 0%,
+    rgba(26, 42, 74, 0.85) 50%,
+    rgba(26, 42, 74, 0.75) 100%
+  );
+  z-index: 1;
+}
+
+.heroContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.heroContent {
+  max-width: 800px;
+}
+
+.heroEyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1rem;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+}
+
+.heroTheme {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #e87a2a;
+  margin-bottom: 0.5rem;
+}
+
+.heroSubtitle {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.heroDescription {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  max-width: 650px;
+}
+
+.heroDetails {
+  display: flex;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.heroDetailItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.heroDetailLabel {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.heroDetailItem p {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0;
+}
+
+.heroActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.heroRegisterButton {
+  display: inline-block;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 0.9rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #e87a2a;
+  text-transform: uppercase;
+}
+
+.heroRegisterButton:hover {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(232, 122, 42, 0.3);
+}
+
+.heroExploreButton {
+  display: inline-block;
+  background: transparent;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+}
+
+.heroExploreButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-3px);
+}
+
+.heroScripture {
+  border-left: 3px solid rgba(232, 122, 42, 0.5);
+  padding-left: 1.5rem;
+}
+
+.heroScriptureReference {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #e87a2a;
+  margin-bottom: 0.25rem;
+}
+
+.heroScriptureText {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   3. WELCOME SECTION
+   ============================================================ */
+
+.welcomeSection {
+  padding: 5rem 2rem;
+  background: #ffffff;
+}
+
+.welcomeContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.welcomeContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.welcomeContent p {
+  font-size: 1.05rem;
+  color: #4a5a7a;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.welcomeSubtitle {
+  font-size: 1.2rem;
+  color: #1a2a4a;
+  margin-top: 2rem;
+  margin-bottom: 1.25rem;
+}
+
+.welcomeList {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 2rem;
+}
+
+.welcomeList li {
+  font-size: 1rem;
+  color: #4a5a7a;
+  padding: 0.5rem 0 0.5rem 1.75rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+.welcomeList li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: #e87a2a;
+  font-weight: 700;
+}
+
+/* ============================================================
+   4. WHY MULTIPLIER SECTION
+   ============================================================ */
+
+.whyMultiplierSection {
+  padding: 5rem 2rem;
+  background: #f8f9fa;
+}
+
+.whyMultiplierContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.whyMultiplierContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.whyMultiplierContent p {
+  font-size: 1.05rem;
+  color: #4a5a7a;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.whyMultiplierQuestion {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2.5rem;
+  margin-top: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(26, 42, 74, 0.06);
+}
+
+.whyMultiplierQuestion p {
+  font-size: 1rem;
+  color: #7a8aaa;
+  margin-bottom: 0.5rem;
+}
+
+.whyMultiplierQuestion h3 {
+  font-size: 1.8rem;
+  color: #1a2a4a;
+  margin: 0.5rem 0;
+}
+
+.whyMultiplierQuestion h3:last-of-type {
+  color: #e87a2a;
+}
+
+/* ============================================================
+   5. TIMOTHY MODEL SECTION
+   ============================================================ */
+
+.timothyModelSection {
+  padding: 5rem 2rem;
+  background: #ffffff;
+}
+
+.timothyModelContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.multiplicationModel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0 3rem;
+}
+
+.modelCard {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border-top: 4px solid transparent;
+}
+
+.modelCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(26, 42, 74, 0.08);
+}
+
+.modelCard:nth-child(1) {
+  border-top-color: #1a2a4a;
+}
+
+.modelCard:nth-child(2) {
+  border-top-color: #2c3e6b;
+}
+
+.modelCard:nth-child(3) {
+  border-top-color: #e87a2a;
+}
+
+.modelCard:nth-child(4) {
+  border-top-color: #1a2a4a;
+}
+
+.modelNumber {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: rgba(26, 42, 74, 0.08);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.modelCard h3 {
+  font-size: 1.1rem;
+  color: #1a2a4a;
+  margin-bottom: 0.75rem;
+}
+
+.modelCard p {
+  font-size: 0.9rem;
+  color: #4a5a7a;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.modelConclusion {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #eef0f3;
+}
+
+.modelConclusion p {
+  font-size: 1.1rem;
+  color: #1a2a4a;
+  font-weight: 500;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   6. WHAT TO EXPECT SECTION
+   ============================================================ */
+
+.whatToExpectSection {
+  padding: 5rem 2rem;
+  background: #1a2a4a;
+}
+
+.whatToExpectContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.whatToExpectSection .sectionEyebrow {
+  color: rgba(232, 122, 42, 0.7);
+}
+
+.whatToExpectSection .sectionTitle {
+  color: #ffffff;
+}
+
+.whatToExpectSection .sectionDescription {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.expectGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.expectCard {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.expectCard:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+}
+
+.expectCard h3 {
+  font-size: 1.05rem;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.expectCard p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================================
+   7. WHO SHOULD ATTEND SECTION
+   ============================================================ */
+
+.whoShouldAttendSection {
+  padding: 5rem 2rem;
+  background: #f8f9fa;
+}
+
+.whoShouldAttendContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.attendeeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.attendeeCard {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.75rem 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(26, 42, 74, 0.04);
+  border-left: 4px solid transparent;
+}
+
+.attendeeCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(26, 42, 74, 0.08);
+}
+
+.attendeeCard:nth-child(1) { border-left-color: #1a2a4a; }
+.attendeeCard:nth-child(2) { border-left-color: #2c3e6b; }
+.attendeeCard:nth-child(3) { border-left-color: #e87a2a; }
+.attendeeCard:nth-child(4) { border-left-color: #1a2a4a; }
+.attendeeCard:nth-child(5) { border-left-color: #2c3e6b; }
+.attendeeCard:nth-child(6) { border-left-color: #e87a2a; }
+.attendeeCard:nth-child(7) { border-left-color: #1a2a4a; }
+
+.attendeeCard h3 {
+  font-size: 1rem;
+  color: #1a2a4a;
+  margin-bottom: 0.5rem;
+}
+
+.attendeeCard p {
+  font-size: 0.9rem;
+  color: #4a5a7a;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================================
+   8. CONFERENCE EXPERIENCE SECTION
+   ============================================================ */
+
+.conferenceExperienceSection {
+  padding: 5rem 2rem;
+  background: #ffffff;
+}
+
+.conferenceExperienceContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.experienceGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.experienceCard {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.experienceCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(26, 42, 74, 0.08);
+}
+
+.experienceNumber {
+  display: inline-block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #e87a2a;
+  opacity: 0.2;
+  margin-bottom: 0.5rem;
+}
+
+.experienceCard h3 {
+  font-size: 1.1rem;
+  color: #1a2a4a;
+  margin-bottom: 0.5rem;
+}
+
+.experienceCard p {
+  font-size: 0.9rem;
+  color: #4a5a7a;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================================
+   9. ABOUT ABU SECTION
+   ============================================================ */
+
+.aboutAbuSection {
+  padding: 5rem 2rem;
+  background: #1a2a4a;
+}
+
+.aboutAbuContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  justify-content: center;
+}
+
+.abuLogo img{
+  width: 200px;
+  height: 200px;
+  margin-left: 10px;
+}
+
+.aboutAbuContent {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.aboutAbuContent .sectionEyebrow {
+  color: rgba(232, 122, 42, 0.7);
+}
+
+.aboutAbuContent .sectionTitle {
+  color: #ffffff;
+}
+
+.aboutAbuContent p {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+.aboutAbuButton {
+  display: inline-block;
+  background: transparent;
+  color: #e87a2a;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 0.9rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #e87a2a;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
+
+.aboutAbuButton:hover {
+  background: #e87a2a;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(232, 122, 42, 0.3);
+}
+
+/* ============================================================
+   10. CONFERENCE DETAILS SECTION
+   ============================================================ */
+
+.conferenceDetailsSection {
+  padding: 5rem 2rem;
+  background: #f8f9fa;
+}
+
+.conferenceDetailsContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.conferenceDetailsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto 2.5rem;
+}
+
+.conferenceDetail {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 4px 15px rgba(26, 42, 74, 0.04);
+  transition: all 0.3s ease;
+}
+
+.conferenceDetail:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(26, 42, 74, 0.08);
+}
+
+.conferenceDetailLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #e87a2a;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.conferenceDetail h3 {
+  font-size: 1.1rem;
+  color: #1a2a4a;
+  margin: 0;
+}
+
+.conferenceDetail p {
+  font-size: 0.95rem;
+  color: #4a5a7a;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.conferenceDetailsAction {
+  margin-top: 0.5rem;
+}
+
+.conferenceDirectionsButton {
+  display: inline-block;
+  background: #1a2a4a;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 0.9rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #1a2a4a;
+  text-transform: uppercase;
+}
+
+.conferenceDirectionsButton:hover {
+  background: transparent;
+  color: #1a2a4a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(26, 42, 74, 0.15);
+}
+
+/* ============================================================
+   11. FINAL CTA SECTION
+   ============================================================ */
+
+.finalCtaSection {
+  padding: 5rem 2rem;
+  background: #1a2a4a;
+  text-align: center;
+}
+
+.finalCtaContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.finalCtaContent {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.finalCtaContent .sectionEyebrow {
+  color: rgba(232, 122, 42, 0.7);
+}
+
+.finalCtaTitle {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.finalCtaDescription {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.finalCtaTheme {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.finalCtaTheme h3 {
+  font-size: 2rem;
+  color: #e87a2a;
+  margin-bottom: 0.25rem;
+}
+
+.finalCtaTheme p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0.25rem 0;
+}
+
+.finalCtaButton {
+  display: inline-block;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  padding: 1rem 3.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #e87a2a;
+  text-transform: uppercase;
+}
+
+.finalCtaButton:hover {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 40px rgba(232, 122, 42, 0.3);
+}
+
+/* ============================================================
+   12. RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .heroTitle { font-size: 2.8rem; }
+  .heroTheme { font-size: 2rem; }
+  .multiplicationModel { grid-template-columns: repeat(2, 1fr); }
+  .expectGrid { grid-template-columns: repeat(2, 1fr); }
+  .attendeeGrid { grid-template-columns: repeat(2, 1fr); }
+  .experienceGrid { grid-template-columns: repeat(2, 1fr); }
+  .conferenceDetailsGrid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+}
+
+@media (max-width: 768px) {
+  .sectionTitle { font-size: 2rem; }
+  .heroSection { padding: 6rem 1.5rem 4rem; min-height: auto; }
+  .heroTitle { font-size: 2.2rem; }
+  .heroTheme { font-size: 1.6rem; }
+  .heroSubtitle { font-size: 1.1rem; }
+  .heroDescription { font-size: 0.95rem; }
+  .heroDetails { gap: 1.5rem; }
+  .heroDetailItem p { font-size: 0.85rem; }
+  .heroActions { flex-direction: column; align-items: flex-start; }
+  .heroRegisterButton, .heroExploreButton { width: 100%; text-align: center; }
+  .welcomeList { grid-template-columns: 1fr; }
+  .multiplicationModel { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .modelCard { padding: 1.5rem 1rem; }
+  .expectGrid { grid-template-columns: 1fr; }
+  .attendeeGrid { grid-template-columns: 1fr; }
+  .experienceGrid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .conferenceDetailsGrid { grid-template-columns: 1fr; }
+  .finalCtaTitle { font-size: 2rem; }
+  .finalCtaTheme h3 { font-size: 1.5rem; }
+  .finalCtaButton { width: 100%; text-align: center; padding: 1rem 2rem; }
+  .aboutAbuButton { width: 100%; text-align: center; }
+  .conferenceDirectionsButton { width: 100%; text-align: center; }
+  .whyMultiplierQuestion { padding: 1.5rem; }
+  .whyMultiplierQuestion h3 { font-size: 1.4rem; }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle { font-size: 1.6rem; }
+  .heroTitle { font-size: 1.8rem; }
+  .heroTheme { font-size: 1.3rem; }
+  .heroEyebrow { font-size: 0.6rem; letter-spacing: 2px; }
+  .heroDetails { flex-direction: column; gap: 0.75rem; }
+  .multiplicationModel { grid-template-columns: 1fr; }
+  .experienceGrid { grid-template-columns: 1fr; }
+  .finalCtaTitle { font-size: 1.6rem; }
+  .finalCtaTheme h3 { font-size: 1.2rem; }
+  .modelCard { padding: 1.25rem; }
+  .expectCard { padding: 1.5rem 1rem; }
+  .attendeeCard { padding: 1.25rem 1rem; }
+  .conferenceDetail { padding: 1.25rem 1rem; }
+}

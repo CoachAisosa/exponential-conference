@@ -1,0 +1,1174 @@
+/* ============================================================
+   SPEAKERS PAGE COMPLETE STYLES
+   EXPONENTIAL CONFERENCE 2026
+   Theme: Navy (#1a2a4a) + White + Orange (#e87a2a)
+   ============================================================ */
+
+/* ============================================================
+   1. SPEAKERS HERO SECTION
+   ============================================================ */
+
+.speakersHeroSection {
+  background: #1a2a4a;
+  padding: 6rem 2rem 5rem;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.speakersHeroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/images/expon\ 3.jfif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  z-index: 0;
+}
+
+.speakersHeroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(26, 42, 74, 0.92) 0%, rgba(26, 42, 74, 0.80) 100%);
+  z-index: 1;
+}
+
+.speakersHeroContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.speakersHeroIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6rem;
+  color: #e87a2a;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  border: 3px solid rgba(232, 122, 42, 0.2);
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(232, 122, 42, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 60px rgba(232, 122, 42, 0.2);
+  }
+}
+
+.speakersHeroContent {
+  max-width: 100%;
+}
+
+.speakersHeroEyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(232, 122, 42, 0.7);
+  margin-bottom: 0.5rem;
+}
+
+.speakersHeroTitle {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+  line-height: 1.1;
+}
+
+.speakersHeroTheme {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #e87a2a;
+  margin-bottom: 0.25rem;
+}
+
+.speakersHeroSubtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.speakersHeroDescription {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  max-width: 650px;
+}
+
+.speakersHeroThemeBlock {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+  border-left: 4px solid #e87a2a;
+  max-width: 400px;
+}
+
+.speakersHeroThemeLabel {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.speakersHeroThemeTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #e87a2a;
+  margin: 0;
+}
+
+.speakersHeroThemeText {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+.speakersHeroActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.speakersHeroRegisterButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 0.9rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #e87a2a;
+  text-transform: uppercase;
+}
+
+.speakersHeroRegisterButton:hover {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(232, 122, 42, 0.3);
+}
+
+.speakersHeroExploreButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: transparent;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+}
+
+.speakersHeroExploreButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-3px);
+}
+
+/* ============================================================
+   2. SPEAKER CARD
+   ============================================================ */
+
+.speakerCard {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 20px rgba(26, 42, 74, 0.06);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(26, 42, 74, 0.04);
+}
+
+.speakerCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 60px rgba(26, 42, 74, 0.12);
+  border-color: rgba(232, 122, 42, 0.15);
+}
+
+.speakerCardImageWrapper {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+  background: #f8f9fa;
+}
+
+.speakerCardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.speakerCard:hover .speakerCardImage {
+  transform: scale(1.05);
+}
+
+.speakerCardImageOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(transparent, rgba(26, 42, 74, 0.15));
+}
+
+.speakerCardIcon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  background: rgba(232, 122, 42, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.speakerCard:hover .speakerCardIcon {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.speakerCardContent {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.speakerCardHeader {
+  margin-bottom: 1rem;
+}
+
+.speakerCardRole {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #e87a2a;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.speakerCardName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin: 0 0 0.25rem 0;
+  line-height: 1.3;
+}
+
+.speakerCardTitle {
+  font-size: 0.85rem;
+  color: #4a5a7a;
+  margin: 0;
+  font-weight: 400;
+}
+
+.speakerCardQuoteIcon {
+  font-size: 1.2rem;
+  color: rgba(232, 122, 42, 0.15);
+  margin-bottom: 0.5rem;
+}
+
+.speakerCardBio {
+  font-size: 0.9rem;
+  color: #4a5a7a;
+  line-height: 1.7;
+  margin: 0 0 1rem 0;
+  flex: 1;
+}
+
+.speakerCardFocus {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border-left: 3px solid #e87a2a;
+}
+
+.speakerCardFocusLabel {
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #7a8aaa;
+  display: block;
+  margin-bottom: 0.1rem;
+}
+
+.speakerCardFocusText {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #1a2a4a;
+  margin: 0;
+}
+
+.speakerCardButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #1a2a4a;
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 0.5rem 0;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: auto;
+  width: fit-content;
+}
+
+.speakerCardButton:hover {
+  color: #e87a2a;
+  gap: 1rem;
+}
+
+.speakerCardButton svg {
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+}
+
+.speakerCardButton:hover svg {
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   3. SPEAKER LIST SECTION
+   ============================================================ */
+
+.speakerListSection {
+  padding: 5rem 2rem;
+  background: #f8f9fa;
+}
+
+.speakerListContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.speakerListHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.speakerListLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #e87a2a;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.speakerListTitle {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  max-width: 700px;
+  margin: 0 auto 1rem;
+  line-height: 1.2;
+}
+
+.speakerListDescription {
+  font-size: 1.05rem;
+  color: #4a5a7a;
+  max-width: 750px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.speakerListGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.speakerListItem {
+  height: 100%;
+}
+
+/* ============================================================
+   4. SPEAKER BENEFITS SECTION
+   ============================================================ */
+
+.speakerBenefitsSection {
+  padding: 5rem 2rem;
+  background: #1a2a4a;
+}
+
+.speakerBenefitsContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.speakerBenefitsHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.speakerBenefitsLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(232, 122, 42, 0.7);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.speakerBenefitsTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  max-width: 700px;
+  margin: 0 auto 1rem;
+  line-height: 1.2;
+}
+
+.speakerBenefitsDescription {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 750px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.speakerBenefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.speakerBenefitCard {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.speakerBenefitCard:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+  border-color: rgba(232, 122, 42, 0.2);
+}
+
+.speakerBenefitIcon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background: rgba(232, 122, 42, 0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: #e87a2a;
+}
+
+.speakerBenefitContent {
+  flex: 1;
+}
+
+.speakerBenefitTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+  margin: 0 0 0.25rem 0;
+}
+
+.speakerBenefitDescription {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================================
+   5. SPEAKER EXPERIENCE SECTION
+   ============================================================ */
+
+.speakerExperienceSection {
+  padding: 5rem 2rem;
+  background: #ffffff;
+}
+
+.speakerExperienceContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.speakerExperienceIntro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.speakerExperienceLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #e87a2a;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.speakerExperienceTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.speakerExperienceDescription {
+  font-size: 1.05rem;
+  color: #4a5a7a;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.speakerExperienceQuestion {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin: 1.5rem 0;
+  border-left: 4px solid #e87a2a;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.speakerExperienceQuestionIcon {
+  font-size: 2rem;
+  color: #e87a2a;
+  flex-shrink: 0;
+}
+
+.speakerExperienceQuote {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1a2a4a;
+  font-style: italic;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.speakerExperienceHighlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.speakerExperienceHighlight {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border-top: 4px solid transparent;
+}
+
+.speakerExperienceHighlight:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(26, 42, 74, 0.08);
+}
+
+.speakerExperienceHighlight:nth-child(1) { border-top-color: #1a2a4a; }
+.speakerExperienceHighlight:nth-child(2) { border-top-color: #e87a2a; }
+.speakerExperienceHighlight:nth-child(3) { border-top-color: #2c3e6b; }
+
+.speakerExperienceHighlightIcon {
+  font-size: 2.5rem;
+  color: #e87a2a;
+  margin-bottom: 1rem;
+}
+
+.speakerExperienceHighlightTitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.speakerExperienceHighlightText {
+  font-size: 0.9rem;
+  color: #4a5a7a;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Speaker Ready Section */
+.speakerReadySection {
+  background: #1a2a4a;
+  border-radius: 16px;
+  padding: 3rem;
+  margin-top: 2rem;
+}
+
+.speakerReadyContent {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.speakerReadyLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(232, 122, 42, 0.7);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.speakerReadyTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.speakerReadyDescription {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+}
+
+.speakerReadyAction {
+  margin-top: 2rem;
+}
+
+.speakerReadyButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 0.9rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #e87a2a;
+  text-transform: uppercase;
+}
+
+.speakerReadyButton:hover {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(232, 122, 42, 0.3);
+}
+
+.speakerReadyButton svg {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.speakerReadyButton:hover svg {
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   6. SPEAKERS CTA SECTION
+   ============================================================ */
+
+.speakersCtaSection {
+  padding: 5rem 2rem;
+  background: #1a2a4a;
+  position: relative;
+  overflow: hidden;
+}
+
+.speakersCtaSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/images/speaker\ 1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  z-index: 0;
+}
+
+.speakersCtaOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(26, 42, 74, 0.92) 0%, rgba(26, 42, 74, 0.85) 100%);
+  z-index: 1;
+}
+
+.speakersCtaContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.speakersCtaHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.speakersCtaIcon {
+  display: inline-flex;
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: #e87a2a;
+  margin-bottom: 1rem;
+  border: 2px solid rgba(232, 122, 42, 0.2);
+}
+
+.speakersCtaEyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(232, 122, 42, 0.7);
+  margin-bottom: 0.5rem;
+}
+
+.speakersCtaTitle {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  max-width: 700px;
+  margin: 0 auto 1rem;
+  line-height: 1.2;
+}
+
+.speakersCtaDescription {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.speakersCtaGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.speakersCtaCard {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.speakersCtaCard:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+  border-color: rgba(232, 122, 42, 0.2);
+}
+
+.speakersCtaCardIcon {
+  font-size: 2rem;
+  color: #e87a2a;
+  margin-bottom: 0.75rem;
+}
+
+.speakersCtaCardTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.speakersCtaCardText {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.speakersCtaActions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.speakersCtaPrimaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 0.9rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #e87a2a;
+  text-transform: uppercase;
+}
+
+.speakersCtaPrimaryButton:hover {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(232, 122, 42, 0.3);
+}
+
+.speakersCtaButtonIcon {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.speakersCtaPrimaryButton:hover .speakersCtaButtonIcon {
+  transform: translateX(4px);
+}
+
+.speakersCtaBottom {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.speakersCtaBottomIcon {
+  font-size: 0.9rem;
+  color: #e87a2a;
+}
+
+/* ============================================================
+   7. RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .speakersHeroContainer {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .speakersHeroIcon {
+    width: 150px;
+    height: 150px;
+    font-size: 4rem;
+  }
+
+  .speakersHeroTitle {
+    font-size: 3rem;
+  }
+
+  .speakersHeroDescription {
+    max-width: 100%;
+  }
+
+  .speakersHeroThemeBlock {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .speakersHeroActions {
+    justify-content: center;
+  }
+
+  .speakerListGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .speakerBenefitsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .speakersCtaGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .speakersCtaTitle {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .speakersHeroSection {
+    padding: 4rem 1.5rem 3rem;
+    min-height: auto;
+  }
+
+  .speakersHeroTitle {
+    font-size: 2.5rem;
+  }
+
+  .speakersHeroTheme {
+    font-size: 1.2rem;
+  }
+
+  .speakersHeroActions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .speakersHeroRegisterButton,
+  .speakersHeroExploreButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .speakerListSection {
+    padding: 3rem 1.5rem;
+  }
+
+  .speakerListTitle {
+    font-size: 2rem;
+  }
+
+  .speakerListGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .speakerCardImageWrapper {
+    height: 220px;
+  }
+
+  .speakerBenefitsSection {
+    padding: 3rem 1.5rem;
+  }
+
+  .speakerBenefitsTitle {
+    font-size: 2rem;
+  }
+
+  .speakerBenefitsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .speakerExperienceSection {
+    padding: 3rem 1.5rem;
+  }
+
+  .speakerExperienceTitle {
+    font-size: 2rem;
+  }
+
+  .speakerExperienceQuestion {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+    padding: 1.25rem;
+  }
+
+  .speakerExperienceQuote {
+    font-size: 1rem;
+  }
+
+  .speakerExperienceHighlights {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .speakerReadySection {
+    padding: 2rem 1.5rem;
+  }
+
+  .speakerReadyTitle {
+    font-size: 1.6rem;
+  }
+
+  .speakerReadyButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .speakersCtaSection {
+    padding: 3rem 1.5rem;
+  }
+
+  .speakersCtaTitle {
+    font-size: 1.8rem;
+  }
+
+  .speakersCtaDescription {
+    font-size: 0.95rem;
+  }
+
+  .speakersCtaGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .speakersCtaCard {
+    padding: 1.25rem;
+  }
+
+  .speakersCtaActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .speakersCtaPrimaryButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .speakersCtaBottom {
+    font-size: 0.85rem;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .speakerBenefitsDescription {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .speakersHeroTitle {
+    font-size: 2rem;
+  }
+
+  .speakersHeroEyebrow {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+  }
+
+  .speakersHeroIcon {
+    width: 120px;
+    height: 120px;
+    font-size: 3rem;
+  }
+
+  .speakerListTitle {
+    font-size: 1.6rem;
+  }
+
+  .speakerListDescription {
+    font-size: 0.95rem;
+  }
+
+  .speakerCardName {
+    font-size: 1rem;
+  }
+
+  .speakerBenefitsTitle {
+    font-size: 1.6rem;
+  }
+
+  .speakerExperienceTitle {
+    font-size: 1.6rem;
+  }
+
+  .speakersCtaTitle {
+    font-size: 1.5rem;
+  }
+
+  .speakersCtaGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .speakerReadyTitle {
+    font-size: 1.3rem;
+  }
+
+  .speakerReadyDescription {
+    font-size: 0.95rem;
+  }
+
+  .speakerCard {
+    border-radius: 12px;
+  }
+
+  .speakerCardContent {
+    padding: 1.25rem;
+  }
+
+  .speakerCardImageWrapper {
+    height: 200px;
+  }
+}

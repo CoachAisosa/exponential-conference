@@ -1,0 +1,659 @@
+/* ============================================================
+   FOOTER COMPLETE STYLES
+   EXPONENTIAL CONFERENCE 2026
+   Theme: Navy (#1a2a4a) + White + Orange (#e87a2a)
+   ============================================================ */
+
+/* ============================================================
+   1. FOOTER MAIN
+   ============================================================ */
+
+.footer {
+  width: 100%;
+  background: #0d1b3e;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footerMain {
+  padding: 4rem 2rem 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footerContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
+  gap: 3rem;
+}
+
+/* ============================================================
+   2. FOOTER BRAND SECTION
+   ============================================================ */
+
+.footerBrand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footerLogo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 2px;
+  line-height: 1.1;
+}
+
+.footerLogo span {
+  display: block;
+  color: #e87a2a;
+}
+
+.footerYear {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.2);
+  margin: 0;
+}
+
+.footerTheme {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #e87a2a;
+  margin: 0.25rem 0 0 0;
+  letter-spacing: 2px;
+}
+
+.footerSubtitle {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 0.75rem 0;
+}
+
+.footerDescription {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 350px;
+}
+
+/* ============================================================
+   3. FOOTER LINKS SECTION
+   ============================================================ */
+
+.footerLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footerColumnTitle {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0 0 0.25rem 0;
+}
+
+.footerLinksList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footerLinksList li {
+  margin: 0;
+}
+
+.footerLinksList a {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.footerLinksList a:hover {
+  color: #e87a2a;
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   4. FOOTER DETAILS SECTION
+   ============================================================ */
+
+.footerDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footerDetailItem {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.footerDetailItem svg {
+  font-size: 0.9rem;
+  color: #e87a2a;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.footerDetailItem p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.footerDetailItem p br {
+  display: block;
+}
+
+/* ============================================================
+   5. FOOTER CTA SECTION
+   ============================================================ */
+
+.footerCTA {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footerCTADescription {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.footerCTAButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #e87a2a;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.footerCTAButton:hover {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(232, 122, 42, 0.2);
+}
+
+.footerCTAButton svg {
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+}
+
+.footerCTAButton:hover svg {
+  transform: translateX(4px);
+}
+
+.footerDate {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0.25rem 0 0 0;
+  letter-spacing: 1px;
+}
+
+/* ============================================================
+   6. FOOTER ABU SECTION
+   ============================================================ */
+
+.footerABU {
+  padding: 3rem 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.footerABUContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.footerABUContent {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.footerABULogoWrapper {
+  flex-shrink: 0;
+}
+
+.footerABULogo img{
+  height: 60px;
+  width: 60px;
+  display: block;
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+
+.footerABULogo:hover {
+  opacity: 1;
+}
+
+.footerABUInfo {
+  flex: 1;
+}
+
+.footerABULabel {
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.2);
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.footerABUTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.15rem 0;
+  line-height: 1.3;
+}
+
+.footerABUTagline {
+  font-size: 0.85rem;
+  color: rgba(232, 122, 42, 0.6);
+  margin: 0 0 0.5rem 0;
+}
+
+.footerABUDescription {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 450px;
+}
+
+/* ============================================================
+   7. FOOTER SOCIALS
+   ============================================================ */
+
+.footerSocials {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footerSocialsTitle {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+}
+
+.footerSocialsDescription {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.footerSocialLinks {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.footerSocialLink {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.footerSocialLink:hover {
+  background: #e87a2a;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(232, 122, 42, 0.2);
+}
+
+/* ============================================================
+   8. FOOTER BOTTOM
+   ============================================================ */
+
+.footerBottom {
+  padding: 1.5rem 2rem;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.footerBottomContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footerCopyright {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.25);
+  margin: 0;
+}
+
+.footerBottomLinks {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footerBottomLinks a {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.25);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footerBottomLinks a:hover {
+  color: #e87a2a;
+}
+
+.footerCredit {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.15);
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================================
+   9. RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .footerContainer {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .footerBrand {
+    grid-column: 1 / -1;
+  }
+
+  .footerDescription {
+    max-width: 100%;
+  }
+
+  .footerABUContainer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footerABUContent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footerABUDescription {
+    max-width: 100%;
+  }
+
+  .footerSocials {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footerSocialLinks {
+    justify-content: center;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .footerMain {
+    padding: 3rem 1.5rem 2rem;
+  }
+
+  .footerContainer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footerBrand {
+    grid-column: 1;
+    text-align: center;
+  }
+
+  .footerLogo {
+    font-size: 1.5rem;
+  }
+
+  .footerDescription {
+    max-width: 100%;
+  }
+
+  .footerLinks {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footerLinksList {
+    align-items: center;
+  }
+
+  .footerLinksList a:hover {
+    transform: translateX(0);
+  }
+
+  .footerDetails {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footerDetailItem {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footerCTA {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footerCTAButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footerABU {
+    padding: 2rem 1.5rem;
+  }
+
+  .footerABUContainer {
+    text-align: center;
+  }
+
+  .footerABUContent {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footerABULogo img{
+    height: 100px;
+  }
+
+  .footerABUTitle {
+    font-size: 0.95rem;
+  }
+
+  .footerABUDescription {
+    font-size: 0.8rem;
+  }
+
+  .footerSocials {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footerSocialLinks {
+    justify-content: center;
+  }
+
+  .footerBottom {
+    padding: 1rem 1.5rem;
+  }
+
+  .footerBottomContainer {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .footerBottomLinks {
+    gap: 1rem;
+  }
+
+  .footerCopyright {
+    font-size: 0.7rem;
+  }
+
+  .footerBottomLinks a {
+    font-size: 0.7rem;
+  }
+
+  .footerCredit {
+    font-size: 0.65rem;
+  }
+
+  .footerColumnTitle {
+    font-size: 0.6rem;
+  }
+
+  .footerTheme {
+    font-size: 1rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .footerMain {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .footerContainer {
+    gap: 1.5rem;
+  }
+
+  .footerLogo {
+    font-size: 1.3rem;
+  }
+
+  .footerDescription {
+    font-size: 0.8rem;
+  }
+
+  .footerLinksList a {
+    font-size: 0.8rem;
+  }
+
+  .footerDetailItem p {
+    font-size: 0.8rem;
+  }
+
+  .footerCTADescription {
+    font-size: 0.8rem;
+  }
+
+  .footerCTAButton {
+    font-size: 0.7rem;
+    padding: 0.6rem 1.25rem;
+  }
+
+  .footerDate {
+    font-size: 0.7rem;
+  }
+
+  .footerABU {
+    padding: 1.5rem 1rem;
+  }
+
+  .footerABUTitle {
+    font-size: 0.85rem;
+  }
+
+  .footerABUTagline {
+    font-size: 0.75rem;
+  }
+
+  .footerABUDescription {
+    font-size: 0.75rem;
+  }
+
+  .footerABULogo {
+    height: 40px;
+  }
+
+  .footerSocialLink {
+    width: 34px;
+    height: 34px;
+    font-size: 0.8rem;
+  }
+
+  .footerSocialsTitle {
+    font-size: 0.6rem;
+  }
+
+  .footerSocialsDescription {
+    font-size: 0.75rem;
+  }
+
+  .footerBottomContainer {
+    gap: 0.35rem;
+  }
+
+  .footerCopyright {
+    font-size: 0.6rem;
+  }
+
+  .footerBottomLinks a {
+    font-size: 0.6rem;
+  }
+
+  .footerCredit {
+    font-size: 0.55rem;
+  }
+}

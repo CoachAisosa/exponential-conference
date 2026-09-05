@@ -1,0 +1,715 @@
+/* ============================================================
+   REGISTRATION PAGE COMPLETE STYLES
+   EXPONENTIAL CONFERENCE 2026
+   Theme: Navy (#1a2a4a) + White + Orange (#e87a2a)
+   ============================================================ */
+
+/* ============================================================
+   1. REGISTRATION PAGE LAYOUT
+   ============================================================ */
+
+.registrationPage {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   2. REGISTRATION HERO SECTION
+   ============================================================ */
+
+.registrationHeroSection {
+  background: #1a2a4a;
+  padding: 6rem 2rem 5rem;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.registrationHeroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/images/registrationhero.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  z-index: 0;
+}
+
+.registrationHeroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(26, 42, 74, 0.92) 0%, rgba(26, 42, 74, 0.80) 100%);
+  z-index: 1;
+}
+
+.registrationHeroContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.registrationHeroIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  color: #e87a2a;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+  border: 3px solid rgba(232, 122, 42, 0.2);
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(232, 122, 42, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 60px rgba(232, 122, 42, 0.2);
+  }
+}
+
+.registrationHeroContent {
+  max-width: 100%;
+}
+
+.registrationHeroEyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(232, 122, 42, 0.7);
+  margin-bottom: 0.5rem;
+}
+
+.registrationHeroTitle {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+  line-height: 1.1;
+}
+
+.registrationHeroTheme {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #e87a2a;
+  margin-bottom: 0.25rem;
+}
+
+.registrationHeroSubtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.registrationHeroDescription {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  max-width: 650px;
+}
+
+.registrationHeroDetails {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.registrationHeroDetailItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.registrationHeroDetailIcon {
+  font-size: 1.2rem;
+  color: #e87a2a;
+}
+
+.registrationHeroDetailContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.registrationHeroDetailLabel {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.registrationHeroDetailContent p {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0;
+}
+
+.registrationHeroActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.registrationHeroRegisterButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 0.9rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #e87a2a;
+  text-transform: uppercase;
+}
+
+.registrationHeroRegisterButton:hover {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(232, 122, 42, 0.3);
+}
+
+.registrationHeroRegisterButton svg {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.registrationHeroRegisterButton:hover svg {
+  transform: translateX(4px);
+}
+
+.registrationHeroExploreButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: transparent;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+}
+
+.registrationHeroExploreButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-3px);
+}
+
+.registrationHeroScripture {
+  border-left: 3px solid rgba(232, 122, 42, 0.4);
+  padding-left: 1.5rem;
+  max-width: 550px;
+}
+
+.registrationHeroScriptureReference {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(232, 122, 42, 0.6);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.registrationHeroScriptureText {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================================
+   3. REGISTRATION FORM SECTION
+   ============================================================ */
+
+.registrationFormSection {
+  padding: 5rem 2rem;
+  background: #f8f9fa;
+}
+
+.registrationFormContainer {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.registrationFormHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.registrationFormLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #e87a2a;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.registrationFormTitle {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.registrationFormDescription {
+  font-size: 1.05rem;
+  color: #4a5a7a;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* ============================================================
+   4. FORM STYLES
+   ============================================================ */
+
+.registrationForm {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: 0 4px 30px rgba(26, 42, 74, 0.06);
+}
+
+.registrationFormSectionHeader {
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #eef0f3;
+}
+
+.registrationFormSectionTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin: 0 0 0.25rem 0;
+}
+
+.registrationFormSectionDescription {
+  font-size: 0.9rem;
+  color: #7a8aaa;
+  margin: 0;
+}
+
+.registrationFormGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.registrationFormGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.registrationFormGroupFull {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.registrationFormLabelText {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #1a2a4a;
+}
+
+.registrationFormLabelText svg {
+  font-size: 0.8rem;
+  color: #e87a2a;
+}
+
+.registrationFormInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #eef0f3;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #1a2a4a;
+  transition: all 0.3s ease;
+  background: #fafbfc;
+}
+
+.registrationFormInput:focus {
+  outline: none;
+  border-color: #e87a2a;
+  box-shadow: 0 0 0 4px rgba(232, 122, 42, 0.1);
+  background: #ffffff;
+}
+
+.registrationFormInput::placeholder {
+  color: #b0b8c8;
+}
+
+.registrationFormInput:disabled {
+  background: #f0f1f3;
+  cursor: not-allowed;
+}
+
+.registrationFormSelect {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #eef0f3;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #1a2a4a;
+  transition: all 0.3s ease;
+  background: #fafbfc;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231a2a4a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  cursor: pointer;
+}
+
+.registrationFormSelect:focus {
+  outline: none;
+  border-color: #e87a2a;
+  box-shadow: 0 0 0 4px rgba(232, 122, 42, 0.1);
+  background: #ffffff;
+}
+
+.registrationFormSelect:disabled {
+  background: #f0f1f3;
+  cursor: not-allowed;
+}
+
+.registrationFormTextarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #eef0f3;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #1a2a4a;
+  transition: all 0.3s ease;
+  background: #fafbfc;
+  resize: vertical;
+  min-height: 120px;
+}
+
+.registrationFormTextarea:focus {
+  outline: none;
+  border-color: #e87a2a;
+  box-shadow: 0 0 0 4px rgba(232, 122, 42, 0.1);
+  background: #ffffff;
+}
+
+.registrationFormTextarea::placeholder {
+  color: #b0b8c8;
+}
+
+.registrationFormTextarea:disabled {
+  background: #f0f1f3;
+  cursor: not-allowed;
+}
+
+.registrationFormAgreement {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.registrationFormCheckbox {
+  width: 18px;
+  height: 18px;
+  margin-top: 0.1rem;
+  accent-color: #e87a2a;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.registrationFormAgreementLabel {
+  font-size: 0.9rem;
+  color: #4a5a7a;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.registrationFormActions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.registrationFormSubmitButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  padding: 1rem 3.5rem;
+  border-radius: 50px;
+  border: 2px solid #e87a2a;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-family: inherit;
+}
+
+.registrationFormSubmitButton:hover {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 40px rgba(232, 122, 42, 0.3);
+}
+
+.registrationFormSubmitButton:active {
+  transform: translateY(0);
+}
+
+.registrationFormSubmitButton:disabled {
+  background: #b0b8c8;
+  border-color: #b0b8c8;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.registrationFormSubmitButton svg {
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.registrationFormSubmitButton:hover svg {
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   5. RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .registrationHeroContainer {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .registrationHeroIcon {
+    width: 150px;
+    height: 150px;
+    font-size: 4rem;
+  }
+
+  .registrationHeroTitle {
+    font-size: 3rem;
+  }
+
+  .registrationHeroDescription {
+    max-width: 100%;
+  }
+
+  .registrationHeroDetails {
+    justify-content: center;
+  }
+
+  .registrationHeroActions {
+    justify-content: center;
+  }
+
+  .registrationHeroScripture {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .registrationForm {
+    padding: 2rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .registrationHeroSection {
+    padding: 4rem 1.5rem 3rem;
+    min-height: auto;
+  }
+
+  .registrationHeroTitle {
+    font-size: 2.5rem;
+  }
+
+  .registrationHeroTheme {
+    font-size: 1.4rem;
+  }
+
+  .registrationHeroDetails {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .registrationHeroActions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .registrationHeroRegisterButton,
+  .registrationHeroExploreButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .registrationHeroScripture {
+    text-align: left;
+    padding-left: 1rem;
+  }
+
+  .registrationFormSection {
+    padding: 3rem 1.5rem;
+  }
+
+  .registrationFormTitle {
+    font-size: 2rem;
+  }
+
+  .registrationFormDescription {
+    font-size: 0.95rem;
+  }
+
+  .registrationForm {
+    padding: 1.5rem;
+  }
+
+  .registrationFormGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .registrationFormSectionTitle {
+    font-size: 1rem;
+  }
+
+  .registrationFormActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .registrationFormSubmitButton {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 2rem;
+  }
+
+  .registrationFormAgreement {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .registrationHeroEyebrow {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+  }
+
+  .registrationFormLabel {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .registrationHeroTitle {
+    font-size: 2rem;
+  }
+
+  .registrationHeroIcon {
+    width: 120px;
+    height: 120px;
+    font-size: 3rem;
+  }
+
+  .registrationHeroDescription {
+    font-size: 0.95rem;
+  }
+
+  .registrationHeroScriptureText {
+    font-size: 0.85rem;
+  }
+
+  .registrationFormTitle {
+    font-size: 1.6rem;
+  }
+
+  .registrationForm {
+    padding: 1rem;
+  }
+
+  .registrationFormInput,
+  .registrationFormSelect,
+  .registrationFormTextarea {
+    font-size: 0.85rem;
+    padding: 0.6rem 0.75rem;
+  }
+
+  .registrationFormSubmitButton {
+    font-size: 0.8rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .registrationFormAgreement {
+    padding: 0.75rem;
+  }
+
+  .registrationFormAgreementLabel {
+    font-size: 0.8rem;
+  }
+}
