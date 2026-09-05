@@ -1,12 +1,12 @@
 import NewsCard from "./NewsCard";
 
 import styles from "../../pages/NewsArticle.module.css";
-import newsImg from "../../assets/images/news 3.jpg";
-import newsTwoImg from "../../assets/images/news 2.jpg";
-import newsThrImg from "../../assets/images/news 1.jpg";
+// import newsImg from "../../assets/images/news 3.jpg";
+// import newsTwoImg from "../../assets/images/news 2.jpg";
+// import newsThrImg from "../../assets/images/news 1.jpg";
 import newsForImg from "../../assets/images/IMG_0820.jpg";
 import newsFivImg from "../../assets/images/IMG_0679.jpg";
-import newsSixImg from "../../assets/images/news.jpg";
+// import newsSixImg from "../../assets/images/news.jpg";
 
 
 function NewsList() {
@@ -20,7 +20,7 @@ function NewsList() {
       title: "Exponential Conference Ghana Creates New Leadership Conversations",
       excerpt:
         "Leaders and emerging voices gathered for an impactful conference experience focused on multiplication, leadership and generational influence.",
-      image: newsImg,
+      image: newsForImg,
     },
 
     {
@@ -31,7 +31,7 @@ function NewsList() {
       title: "Kenya Hosts Another Powerful Exponential Experience",
       excerpt:
         "The Exponential movement continues across nations as leaders gather to learn, connect and strengthen their commitment to multiplying impact.",
-      image: newsTwoImg,
+      image: newsForImg,
     },
 
     {
@@ -42,7 +42,7 @@ function NewsList() {
       title: "Meet the Voices Coming to Exponential Conference Nigeria",
       excerpt:
         "Discover the speakers and leaders who will be joining the 2026 Nigerian conference experience.",
-      image: newsThrImg,
+      image: newsForImg,
     },
 
     {
@@ -75,7 +75,7 @@ function NewsList() {
       title: "Important Updates for Exponential Conference Attendees",
       excerpt:
         "Stay informed about registration, programmes, venue information and other important conference announcements.",
-      image: newsSixImg,
+      image: newsForImg,
     },
   ];
 
