@@ -1,8 +1,8 @@
-import NewsHero from "../components/news/NewsHero";
-import FeaturedNews from "../components/news/FeaturedNews";
-import NewsFilters from "../components/news/NewsFilters";
-import NewsList from "../components/news/NewsList";
-import NewsCTA from "../components/news/NewsCTA";
+import NewsHero from "../components/News/NewsHero";
+import FeaturedNews from "../components/News/FeaturedNews";
+import NewsFilters from "../components/News/NewsFilters";
+import NewsList from "../components/News/NewsList";
+import NewsCTA from "../components/News/NewsCTA";
 
 function NewsArticle() {
   return (
