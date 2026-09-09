@@ -3,9 +3,6 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 
-// ============================================================
-// AOS IMPORTS - Add these two lines
-// ============================================================
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 

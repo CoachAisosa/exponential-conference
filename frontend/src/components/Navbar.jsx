@@ -52,6 +52,7 @@ function Navbar() {
           <Link to="/speakers" onClick={closeMenu}>Speakers</Link>
           <Link to="/programme" onClick={closeMenu}>Programme</Link>
           <Link to="/register" onClick={closeMenu}>Registration</Link>
+          <Link to="/about-abu"onClick={closeMenu}>About ABU</Link>
           <Link to="/live" onClick={closeMenu}>Live Event</Link>
           <Link to="/news" onClick={closeMenu}>News& Stories</Link>
           <Link to="/contact" onClick={closeMenu}>Contact</Link>

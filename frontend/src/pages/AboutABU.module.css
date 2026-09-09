@@ -1,0 +1,1074 @@
+/* ============================================================
+   ABOUT ABU PAGE STYLES
+   Exponential Conference 2026
+   Theme: Navy (#1a2a4a) + White + Orange (#e87a2a)
+   ============================================================ */
+
+/* ============================================================
+   ABOUT ABU PAGE LAYOUT
+   ============================================================ */
+
+.aboutABUPage {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   1. ABU HERO SECTION
+   ============================================================ */
+
+.abuHeroSection {
+  background: #1a2a4a;
+  padding: 6rem 2rem 5rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.abuHeroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/images/expon\ 2.jfif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.abuHeroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(26, 42, 74, 0.92) 0%, rgba(26, 42, 74, 0.80) 100%);
+  z-index: 1;
+}
+
+.abuHeroContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.abuHeroContent {
+  grid-column: 1 / 2;
+  text-align: left;
+}
+
+.abuHeroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(232, 122, 42, 0.15);
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(232, 122, 42, 0.2);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(232, 122, 42, 0.8);
+}
+
+.abuHeroBadgeIcon {
+  font-size: 0.8rem;
+  color: #e87a2a;
+}
+
+.abuHeroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.abuHeroTitle span {
+  color: #e87a2a;
+}
+
+.abuHeroDescription {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.abuHeroStats {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.abuHeroStat {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.abuHeroStatIcon {
+  font-size: 1.8rem;
+  color: #e87a2a;
+}
+
+.abuHeroStat div {
+  display: flex;
+  flex-direction: column;
+}
+
+.abuHeroStatNumber {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.abuHeroStatLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ============================================================
+   ABU HERO - FLOATING IMAGES (ENLARGED + ANIMATED)
+   ============================================================ */
+
+.abuFloatingImages {
+  grid-column: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 1rem 0;
+}
+
+/* Floating Animation */
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes floatUpDownReverse {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Individual Image Cards - BIGGER */
+.abuFloatingImageCard {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 1.25rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* First image - floats up */
+.abuFloatingImageCard:first-child {
+  animation: floatUpDown 3.5s ease-in-out infinite;
+  margin-right: 2rem;
+}
+
+/* Second image - floats down (opposite direction) */
+.abuFloatingImageCard:last-child {
+  animation: floatUpDownReverse 3.5s ease-in-out infinite;
+  margin-left: 2rem;
+  margin-right: 0;
+}
+
+.abuFloatingImageCard:hover {
+  transform: scale(1.03);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(232, 122, 42, 0.4);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+  animation-play-state: paused; /* Pause animation on hover */
+}
+
+/* Image Wrapper - BIGGER */
+.abuFloatingImageWrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 4px solid rgba(232, 122, 42, 0.3);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 30px rgba(232, 122, 42, 0.15);
+}
+
+.abuFloatingImageCard:hover .abuFloatingImageWrapper {
+  border-color: #e87a2a;
+  box-shadow: 0 0 50px rgba(232, 122, 42, 0.3);
+}
+
+.abuFloatingImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.abuFloatingImageCard:hover .abuFloatingImage {
+  transform: scale(1.08);
+}
+
+.abuFloatingImageOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(transparent, rgba(26, 42, 74, 0.4));
+  pointer-events: none;
+}
+
+/* Image Info - BIGGER TEXT */
+.abuFloatingImageInfo {
+  flex: 1;
+}
+
+.abuFloatingImageInfo h4 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(232, 122, 42, 0.8);
+  margin: 0 0 0.2rem 0;
+}
+
+.abuFloatingImageInfo p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.abuFloatingImageInfo .abuFloatingSubtitle {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.15rem;
+}
+
+/* Vision & Mission */
+.abuVisionMission {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.abuVisionCard,
+.abuMissionCard {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s ease;
+}
+
+.abuVisionCard:hover,
+.abuMissionCard:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+}
+
+.abuVisionCard h3,
+.abuMissionCard h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #e87a2a;
+  margin-bottom: 0.75rem;
+}
+
+.abuVisionCard p,
+.abuMissionCard p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================================
+   2. ABU PROGRAMS SECTION
+   ============================================================ */
+
+.abuProgramsSection {
+  padding: 5rem 2rem;
+  background: #f8f9fa;
+}
+
+.abuProgramsContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.abuProgramsHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.abuProgramsEyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #e87a2a;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.abuProgramsTitle {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  margin-bottom: 1rem;
+}
+
+.abuProgramsDescription {
+  font-size: 1.05rem;
+  color: #4a5a7a;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.abuProgramsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+}
+
+.abuProgramCard {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(26, 42, 74, 0.04);
+  border-bottom: 4px solid transparent;
+}
+
+.abuProgramCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(26, 42, 74, 0.08);
+}
+
+.abuProgramCard:nth-child(1) { border-bottom-color: #1a2a4a; }
+.abuProgramCard:nth-child(2) { border-bottom-color: #2c3e6b; }
+.abuProgramCard:nth-child(3) { border-bottom-color: #e87a2a; }
+.abuProgramCard:nth-child(4) { border-bottom-color: #1a2a4a; }
+.abuProgramCard:nth-child(5) { border-bottom-color: #2c3e6b; }
+
+.abuProgramIcon {
+  font-size: 2.5rem;
+  color: #e87a2a;
+  margin-bottom: 0.75rem;
+}
+
+.abuProgramLevel {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin-bottom: 0.5rem;
+}
+
+.abuProgramDescription {
+  font-size: 0.85rem;
+  color: #4a5a7a;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.abuProgramDuration {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #e87a2a;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================================
+   3. ABU FACULTIES SECTION
+   ============================================================ */
+
+.abuFacultiesSection {
+  padding: 5rem 2rem;
+  background: #ffffff;
+}
+
+.abuFacultiesContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.abuFacultiesHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.abuFacultiesEyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #e87a2a;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.abuFacultiesTitle {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  margin-bottom: 0.5rem;
+}
+
+.abuFacultiesDescription {
+  font-size: 1.05rem;
+  color: #4a5a7a;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.abuFacultiesList {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.abuFacultyItem {
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.abuFacultyItem.expanded {
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(26, 42, 74, 0.06);
+}
+
+.abuFacultyButton {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  text-align: left;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.abuFacultyButton:hover {
+  background: rgba(232, 122, 42, 0.03);
+}
+
+.abuFacultyInfo {
+  flex: 1;
+}
+
+.abuFacultyName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin: 0 0 0.25rem 0;
+}
+
+.abuFacultyDescription {
+  font-size: 0.9rem;
+  color: #4a5a7a;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.abuFacultyArrow {
+  font-size: 1rem;
+  color: #e87a2a;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  transition: transform 0.3s ease;
+}
+
+.abuFacultyItem.expanded .abuFacultyArrow {
+  transform: rotate(180deg);
+}
+
+.abuFacultyDepartments {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  padding: 0 1.5rem;
+}
+
+.abuFacultyDepartments.open {
+  max-height: 300px;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.abuDepartmentsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.abuDepartmentTag {
+  display: inline-block;
+  background: rgba(232, 122, 42, 0.1);
+  color: #1a2a4a;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  border: 1px solid rgba(232, 122, 42, 0.15);
+  transition: all 0.3s ease;
+}
+
+.abuDepartmentTag:hover {
+  background: #e87a2a;
+  color: #ffffff;
+  border-color: #e87a2a;
+}
+
+/* ============================================================
+   4. ABU FAQ SECTION
+   ============================================================ */
+
+.abuFAQSection {
+  padding: 5rem 2rem;
+  background: #f8f9fa;
+}
+
+.abuFAQContainer {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.abuFAQHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.abuFAQEyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #e87a2a;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.abuFAQTitle {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  margin-bottom: 0.5rem;
+}
+
+.abuFAQDescription {
+  font-size: 1.05rem;
+  color: #4a5a7a;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.abuFAQList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.abuFAQItem {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(26, 42, 74, 0.04);
+  transition: all 0.3s ease;
+}
+
+.abuFAQItem.open {
+  box-shadow: 0 4px 20px rgba(26, 42, 74, 0.08);
+}
+
+.abuFAQButton {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.abuFAQButton:hover {
+  background: rgba(232, 122, 42, 0.03);
+}
+
+.abuFAQQuestion {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a2a4a;
+  flex: 1;
+}
+
+.abuFAQIcon {
+  font-size: 1rem;
+  color: #e87a2a;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.abuFAQItem.open .abuFAQIcon {
+  transform: rotate(180deg);
+}
+
+.abuFAQAnswer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  padding: 0 1.5rem;
+}
+
+.abuFAQAnswer.open {
+  max-height: 300px;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.abuFAQAnswer p {
+  font-size: 0.95rem;
+  color: #4a5a7a;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================================
+   5. ABU CTA SECTION
+   ============================================================ */
+
+.abuCTASection {
+  padding: 5rem 2rem;
+  background: #1a2a4a;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.abuCTASection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?w=1600');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.abuCTAContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.abuCTAIcon {
+  display: inline-flex;
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: #e87a2a;
+  margin-bottom: 1.5rem;
+  border: 2px solid rgba(232, 122, 42, 0.2);
+}
+
+.abuCTATitle {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.abuCTADescription {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.8;
+}
+
+.abuCTALink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  padding: 0.9rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #e87a2a;
+  text-transform: uppercase;
+}
+
+.abuCTALink:hover {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 40px rgba(232, 122, 42, 0.3);
+}
+
+.abuCTALinkIcon {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.abuCTALink:hover .abuCTALinkIcon {
+  transform: translateX(4px);
+}
+
+.abuCTANote {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 1.5rem;
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .abuHeroContainer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .abuHeroContent {
+    grid-column: 1 / 2;
+    text-align: center;
+  }
+
+  .abuHeroDescription {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .abuHeroStats {
+    justify-content: center;
+  }
+
+  .abuFloatingImages {
+    grid-column: 1 / 2;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 0;
+  }
+
+  .abuFloatingImageCard {
+    max-width: 320px;
+    flex: 1 1 250px;
+    margin: 0 !important;
+  }
+
+  .abuFloatingImageCard:first-child,
+  .abuFloatingImageCard:last-child {
+    margin: 0 !important;
+  }
+
+  .abuFloatingImageWrapper {
+    width: 100px;
+    height: 100px;
+  }
+
+  .abuVisionMission {
+    grid-column: 1 / 2;
+  }
+
+  .abuHeroTitle {
+    font-size: 2.8rem;
+  }
+
+  .abuProgramsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .abuProgramsTitle,
+  .abuFacultiesTitle,
+  .abuFAQTitle,
+  .abuCTATitle {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .abuHeroSection {
+    padding: 4rem 1.5rem 3rem;
+    min-height: auto;
+  }
+
+  .abuHeroTitle {
+    font-size: 2.2rem;
+  }
+
+  .abuHeroStats {
+    gap: 1.5rem;
+  }
+
+  .abuHeroStat {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .abuHeroStatNumber {
+    font-size: 1.5rem;
+  }
+
+  .abuFloatingImages {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .abuFloatingImageCard {
+    max-width: 300px;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .abuFloatingImageWrapper {
+    width: 80px;
+    height: 80px;
+  }
+
+  .abuFloatingImageInfo h4 {
+    font-size: 0.65rem;
+  }
+
+  .abuFloatingImageInfo p {
+    font-size: 0.85rem;
+  }
+
+  .abuVisionMission {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .abuProgramsSection {
+    padding: 3rem 1.5rem;
+  }
+
+  .abuProgramsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .abuProgramsTitle,
+  .abuFacultiesTitle,
+  .abuFAQTitle,
+  .abuCTATitle {
+    font-size: 1.8rem;
+  }
+
+  .abuFacultiesSection {
+    padding: 3rem 1.5rem;
+  }
+
+  .abuFacultyButton {
+    padding: 1rem 1.25rem;
+  }
+
+  .abuFacultyName {
+    font-size: 1rem;
+  }
+
+  .abuFacultyDescription {
+    font-size: 0.85rem;
+  }
+
+  .abuFacultyDepartments.open {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+  }
+
+  .abuDepartmentsGrid {
+    gap: 0.5rem;
+  }
+
+  .abuDepartmentTag {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.8rem;
+  }
+
+  .abuFAQSection {
+    padding: 3rem 1.5rem;
+  }
+
+  .abuFAQButton {
+    padding: 1rem 1.25rem;
+  }
+
+  .abuFAQQuestion {
+    font-size: 0.9rem;
+  }
+
+  .abuFAQAnswer.open {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+  }
+
+  .abuFAQAnswer p {
+    font-size: 0.9rem;
+  }
+
+  .abuCTASection {
+    padding: 3rem 1.5rem;
+  }
+
+  .abuCTATitle {
+    font-size: 1.8rem;
+  }
+
+  .abuCTALink {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .abuHeroBadge {
+    font-size: 0.55rem;
+    letter-spacing: 1px;
+  }
+
+  .abuHeroDescription {
+    font-size: 1rem;
+  }
+
+  .abuProgramsDescription,
+  .abuFacultiesDescription,
+  .abuFAQDescription {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .abuHeroTitle {
+    font-size: 1.8rem;
+  }
+
+  .abuHeroStats {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .abuFloatingImageCard {
+    max-width: 100%;
+    padding: 0.75rem;
+  }
+
+  .abuFloatingImageWrapper {
+    width: 65px;
+    height: 65px;
+  }
+
+  .abuFloatingImageInfo h4 {
+    font-size: 0.55rem;
+  }
+
+  .abuFloatingImageInfo p {
+    font-size: 0.75rem;
+  }
+
+  .abuProgramsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .abuProgramsTitle,
+  .abuFacultiesTitle,
+  .abuFAQTitle,
+  .abuCTATitle {
+    font-size: 1.5rem;
+  }
+
+  .abuProgramCard {
+    padding: 1.5rem 1rem;
+  }
+
+  .abuVisionCard,
+  .abuMissionCard {
+    padding: 1.25rem;
+  }
+
+  .abuVisionCard p,
+  .abuMissionCard p {
+    font-size: 0.85rem;
+  }
+
+  .abuDepartmentTag {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.7rem;
+  }
+}

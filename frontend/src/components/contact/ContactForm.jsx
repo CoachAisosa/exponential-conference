@@ -230,7 +230,10 @@ function ContactForm() {
 
           </div>
 
-          <form className={styles.contactForm}>
+          <form className={styles.contactForm} 
+          name="contactForm"
+          method="POST"
+          data-netlify="true">
 
             {/* FULL NAME */}
 

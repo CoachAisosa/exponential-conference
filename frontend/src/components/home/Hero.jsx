@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from '../../pages/Home.module.css';
-import {FaCalendarAlt, FaMapMarkerAlt, FaLocationArrow, FaArrowDown} from 'react-icons/fa'
+import { FaCalendarAlt, FaMapMarkerAlt, FaLocationArrow, FaArrowDown } from 'react-icons/fa';
+import conferenceFlyer from '../../assets/images/main flyer.png';
 
 function Hero() {
   return (
@@ -35,7 +36,7 @@ function Hero() {
 
           <div className={styles.heroDetails} data-aos="fade-up" data-aos-delay="600">
             <div className={styles.heroDetailItem}>
-              <span className={styles.heroDetailLabel}><FaCalendarAlt className={styles.heroIcon} />DATE</span>
+              <span className={styles.heroDetailLabel}><FaCalendarAlt className={styles.heroIcon} /> DATE</span>
               <p>9th–11th December 2026</p>
             </div>
 
@@ -45,23 +46,17 @@ function Hero() {
             </div>
 
             <div className={styles.heroDetailItem}>
-              <span className={styles.heroDetailLabel}> <FaLocationArrow className={styles.heroIcon} /> LOCATION</span>
+              <span className={styles.heroDetailLabel}><FaLocationArrow className={styles.heroIcon} /> LOCATION</span>
               <p>Benin City, Edo State, Nigeria</p>
             </div>
           </div>
 
           <div className={styles.heroActions} data-aos="fade-up" data-aos-delay="700">
-            <Link
-              to="/register"
-              className={styles.heroRegisterButton}
-            >
+            <Link to="/register" className={styles.heroRegisterButton}>
               REGISTER NOW
             </Link>
 
-            <a
-              href="#conference"
-              className={styles.heroExploreButton}
-            >
+            <a href="#conference" className={styles.heroExploreButton}>
               <FaArrowDown className={styles.heroIcon} /> EXPLORE THE CONFERENCE
             </a>
           </div>
@@ -79,6 +74,23 @@ function Hero() {
           </div>
 
         </div>
+
+        {/* Flyer Image Section */}
+        <div className={styles.heroFlyer} data-aos="fade-left" data-aos-delay="400">
+          <div className={styles.heroFlyerWrapper}>
+            <img 
+              src={conferenceFlyer} 
+              alt="Exponential Conference 2026 Flyer - THE MULTIPLIER" 
+              className={styles.heroFlyerImage}
+            />
+            <div className={styles.heroFlyerOverlay}></div>
+            <div className={styles.heroFlyerBadge}>
+              <span>2026</span>
+              <p>THE MULTIPLIER</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );

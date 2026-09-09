@@ -13,6 +13,7 @@ import LiveEvent from './pages/LiveEvent';
 import NewsArticle from './pages/NewsArticle';
 import ScrollToTop from './components/ScrollToTop';
 import BackToTop from './components/BackToTop';
+import AboutABU from './pages/AboutAbu';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
     <Route path='/speakers' element={<Speakers />} />
     <Route path='/programme' element={<Programme />} />
     <Route path='/register' element={<Registration />} />
+    <Route path='/about-abu' element={<AboutABU />} />
     <Route path='/live' element={<LiveEvent />} />
     <Route path='/news' element={<NewsArticle/>} />
     <Route path='/contact' element={<Contact />} />

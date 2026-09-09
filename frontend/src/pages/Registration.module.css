@@ -533,6 +533,396 @@
 }
 
 /* ============================================================
+   SUCCESS MESSAGE
+   ============================================================ */
+
+.successMessage {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: #ffffff;
+  border-radius: 16px;
+  margin-bottom: 3rem;
+  box-shadow: 0 4px 30px rgba(26, 42, 74, 0.06);
+  border: 2px solid rgba(232, 122, 42, 0.2);
+}
+
+.successIcon {
+  font-size: 4rem;
+  color: #28a745;
+  margin-bottom: 1rem;
+}
+
+.successMessage h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  margin-bottom: 0.5rem;
+}
+
+.successMessage p {
+  font-size: 1.05rem;
+  color: #4a5a7a;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.successMessage strong {
+  color: #e87a2a;
+}
+
+/* ============================================================
+   PAYMENT SECTION
+   ============================================================ */
+
+.paymentSection {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  box-shadow: 0 4px 30px rgba(26, 42, 74, 0.06);
+}
+
+.paymentSectionTitle {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.paymentSectionSubtitle {
+  font-size: 1rem;
+  color: #4a5a7a;
+  text-align: center;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* Payment Grid */
+.paymentGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Payment Card */
+.paymentCard {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(26, 42, 74, 0.04);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.paymentCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(26, 42, 74, 0.08);
+}
+
+.paymentCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.paymentCardIcon {
+  font-size: 2rem;
+  color: #e87a2a;
+}
+
+.paymentBadge {
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 0.2rem 0.7rem;
+  border-radius: 50px;
+  background: rgba(232, 122, 42, 0.1);
+  color: #e87a2a;
+}
+
+.paymentCardTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin-bottom: 0.25rem;
+}
+
+.paymentCardDescription {
+  font-size: 0.85rem;
+  color: #4a5a7a;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* Bank Details */
+.bankDetails {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.bankDetailItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.2rem 0;
+  flex-wrap: wrap;
+}
+
+.bankDetailLabel {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #7a8aaa;
+  min-width: 80px;
+}
+
+.bankDetailValue {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #1a2a4a;
+}
+
+.copyButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: transparent;
+  border: none;
+  color: #e87a2a;
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.1rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.copyButton:hover {
+  background: rgba(232, 122, 42, 0.1);
+}
+
+/* Payment Note */
+.paymentNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(232, 122, 42, 0.05);
+  border-radius: 6px;
+  border-left: 3px solid #e87a2a;
+  margin-bottom: 1rem;
+}
+
+.paymentNoteIcon {
+  font-size: 0.9rem;
+  color: #e87a2a;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.paymentNote p {
+  font-size: 0.8rem;
+  color: #4a5a7a;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Selar Features */
+.selarFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.selarFeature {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: #4a5a7a;
+}
+
+.selarFeatureIcon {
+  font-size: 0.7rem;
+  color: #e87a2a;
+}
+
+/* Selar Button */
+.selarButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #e87a2a;
+  margin-top: auto;
+}
+
+.selarButton:hover {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(232, 122, 42, 0.3);
+}
+
+/* WhatsApp Details */
+.whatsappDetails {
+  margin-bottom: 1rem;
+}
+
+.whatsappText {
+  font-size: 0.85rem;
+  color: #4a5a7a;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* WhatsApp Button */
+.whatsappButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #25D366;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #25D366;
+  margin-top: auto;
+}
+
+.whatsappButton:hover {
+  background: #1da851;
+  border-color: #1da851;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+}
+
+/* Payment Footer */
+.paymentFooter {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: rgba(232, 122, 42, 0.05);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.paymentFooterNote {
+  font-size: 0.9rem;
+  color: #4a5a7a;
+  margin: 0;
+}
+
+.paymentFooterIcon {
+  color: #28a745;
+  margin-right: 0.5rem;
+}
+
+/* ============================================================
+   RESPONSIVE PAYMENT
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .paymentGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .paymentSection {
+    padding: 1.5rem;
+  }
+
+  .paymentGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .paymentSectionTitle {
+    font-size: 1.4rem;
+  }
+
+  .paymentSectionSubtitle {
+    font-size: 0.95rem;
+  }
+
+  .successMessage {
+    padding: 2rem 1.5rem;
+  }
+
+  .successMessage h2 {
+    font-size: 1.5rem;
+  }
+
+  .successMessage p {
+    font-size: 0.95rem;
+  }
+
+  .bankDetailItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.1rem;
+  }
+
+  .bankDetailLabel {
+    min-width: auto;
+  }
+
+  .selarButton,
+  .whatsappButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .paymentCard {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .paymentSectionTitle {
+    font-size: 1.2rem;
+  }
+
+  .paymentCardTitle {
+    font-size: 0.95rem;
+  }
+
+  .paymentCardDescription {
+    font-size: 0.8rem;
+  }
+
+  .successMessage h2 {
+    font-size: 1.2rem;
+  }
+
+  .successMessage {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* ============================================================
    5. RESPONSIVE BREAKPOINTS
    ============================================================ */
 

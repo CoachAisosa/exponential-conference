@@ -79,12 +79,20 @@
   z-index: 1;
 }
 
+/* ============================================================
+   HERO CONTAINER - Updated with Flyer
+   ============================================================ */
+
 .heroContainer {
   max-width: 1280px;
   margin: 0 auto;
   width: 100%;
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* ← 2 columns: content + flyer */
+  gap: 3rem;
+  align-items: center;
 }
 
 .heroContent {
@@ -226,6 +234,79 @@
   font-style: italic;
   line-height: 1.7;
 }
+
+/* ============================================================
+   HERO FLYER SECTION
+   ============================================================ */
+
+.heroFlyer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroFlyerWrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  max-width: 400px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.heroFlyerWrapper:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+.heroFlyerImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 6/4;  /* Landscape flyer */
+  object-fit: cover;
+}
+
+.heroFlyerOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(transparent, rgba(26, 42, 74, 0.6));
+  pointer-events: none;
+}
+
+.heroFlyerBadge {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: rgba(232, 122, 42, 0.9);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.heroFlyerBadge span {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.heroFlyerBadge p {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
+  opacity: 0.8;
+}
+
 
 /* ============================================================
    3. WELCOME SECTION
@@ -819,6 +900,120 @@
   color: #e87a2a;
   transform: translateY(-3px);
   box-shadow: 0 10px 40px rgba(232, 122, 42, 0.3);
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .heroContainer {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .heroFlyerWrapper {
+    max-width: 320px;
+  }
+
+  .heroTitle {
+    font-size: 2.8rem;
+  }
+
+  .heroTheme {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroContainer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .heroFlyer {
+    order: -1;  /* Moves flyer above content on mobile */
+  }
+
+  .heroFlyerWrapper {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .heroFlyerBadge span {
+    font-size: 1.2rem;
+  }
+
+  .heroDetails {
+    justify-content: center;
+  }
+
+  .heroActions {
+    justify-content: center;
+  }
+
+  .heroScripture {
+    text-align: left;
+  }
+
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+
+  .heroTheme {
+    font-size: 1.6rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroFlyerWrapper {
+    max-width: 200px;
+  }
+
+  .heroFlyerBadge {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.3rem 0.7rem;
+  }
+
+  .heroFlyerBadge span {
+    font-size: 1rem;
+  }
+
+  .heroFlyerBadge p {
+    font-size: 0.5rem;
+  }
+
+  .heroTitle {
+    font-size: 1.8rem;
+  }
+
+  .heroTheme {
+    font-size: 1.3rem;
+  }
+
+  .heroDetails {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .heroActions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .heroRegisterButton,
+  .heroExploreButton {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* ============================================================

@@ -1,8 +1,8 @@
 import NewsCard from "./NewsCard";
 
 import styles from "../../pages/NewsArticle.module.css";
-// import newsImg from "../../assets/images/news 3.jpg";
-// import newsTwoImg from "../../assets/images/news 2.jpg";
+import newsImg from "../../assets/images/chad.jpg";
+import newsTwoImg from "../../assets/images/Gabon.jpg";
 // import newsThrImg from "../../assets/images/news 1.jpg";
 import newsForImg from "../../assets/images/IMG_0820.jpg";
 import newsFivImg from "../../assets/images/IMG_0679.jpg";
@@ -17,10 +17,10 @@ function NewsList() {
       category: "Conference",
       country: "Ghana",
       date: "August 2026",
-      title: "Exponential Conference Ghana Creates New Leadership Conversations",
+      title: "Exponential Conference Chad Creates New Leadership Conversations",
       excerpt:
         "Leaders and emerging voices gathered for an impactful conference experience focused on multiplication, leadership and generational influence.",
-      image: newsForImg,
+      image: newsImg,
     },
 
     {
@@ -28,10 +28,10 @@ function NewsList() {
       category: "Conference",
       country: "Kenya",
       date: "July 2026",
-      title: "Kenya Hosts Another Powerful Exponential Experience",
+      title: "Gabon Hosts Another Powerful Exponential Experience",
       excerpt:
         "The Exponential movement continues across nations as leaders gather to learn, connect and strengthen their commitment to multiplying impact.",
-      image: newsForImg,
+      image: newsTwoImg,
     },
 
     {
