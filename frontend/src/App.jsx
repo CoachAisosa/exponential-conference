@@ -13,7 +13,7 @@ import LiveEvent from './pages/LiveEvent';
 import NewsArticle from './pages/NewsArticle';
 import ScrollToTop from './components/ScrollToTop';
 import BackToTop from './components/BackToTop';
-import AboutABU from './pages/AboutAbu';
+import AboutABU from './pages/AboutABU';
 
 
 function App() {
