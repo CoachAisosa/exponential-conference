@@ -79,32 +79,35 @@ function RegistrationForm() {
     }
 
     try {
-      // Try to send to backend
-      const response = await fetch("http://localhost:5000/api/registrations", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+      // --- Send to Netlify Forms ---
+      const formDataObj = new FormData();
+      formDataObj.append('form-name', 'registration-expon');
+      formDataObj.append('fullName', formData.fullName);
+      formDataObj.append('email', formData.email);
+      formDataObj.append('phone', formData.phone);
+      formDataObj.append('country', formData.country);
+      formDataObj.append('state', formData.state);
+      formDataObj.append('city', formData.city);
+      formDataObj.append('churchOrganisation', formData.churchOrganisation || 'N/A');
+      formDataObj.append('leadershipRole', formData.leadershipRole || 'N/A');
+      formDataObj.append('registrationCategory', formData.registrationCategory);
+      formDataObj.append('message', formData.message || 'N/A');
+
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formDataObj).toString(),
       });
 
-      if (response.ok) {
-        // ✅ Backend success
-        setFormSubmitted(true);
-        setError("");
-        scrollToPayment();
-      } else {
-        // ⚠️ Backend returned error but we'll still show payment
-        setFormSubmitted(true); // ← SHOW PAYMENT ANYWAY
-        setError("");
-        scrollToPayment();
-      }
-    } catch (err) {
-      // ❌ Backend not running - BUT we still show payment!
-      console.warn("Backend not available, showing payment section anyway.");
-      setFormSubmitted(true); // ← SHOW PAYMENT SECTION!
+      // ✅ Success - Show payment section
+      setFormSubmitted(true);
       setError("");
       scrollToPayment();
+
+    } catch (err) {
+      console.error("Registration error:", err);
+      setError("Registration failed. Please try again or contact us directly.");
+      setLoading(false);
     } finally {
       setLoading(false);
     }
@@ -185,7 +188,7 @@ function RegistrationForm() {
 
                 <div className={styles.paymentNote}>
                   <FaCheckCircle className={styles.paymentNoteIcon} />
-                  <p>After payment, send proof to our WhatsApp(08062854749) or Our Email (abuexpocon@gmail.com).</p>
+                  <p>After payment, send proof to our WhatsApp (08062854749) or Email (abuexpocon@gmail.com).</p>
                 </div>
               </div>
 
@@ -250,7 +253,7 @@ function RegistrationForm() {
                 </div>
 
                 <a
-                  href="https://wa.me/2348012345678?text=I%20want%20to%20register%20for%20Exponential%20Conference%202026"
+                  href="https://wa.me/2348062854749?text=I%20want%20to%20register%20for%20Exponential%20Conference%202026"
                   target="_blank"
                   rel="noreferrer"
                   className={styles.whatsappButton}
@@ -295,11 +298,21 @@ function RegistrationForm() {
         </div>
 
         {/* REGISTRATION FORM */}
-        <form className={styles.registrationForm} 
-        name="registration-expon" 
-        method="POST" 
-        data-netlify="true" 
-        onSubmit={handleSubmit}>
+        <form
+          className={styles.registrationForm}
+          name="registration-expon"
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={handleSubmit}
+        >
+          {/* Netlify Required Hidden Input */}
+          <input type="hidden" name="form-name" value="registration-expon" />
+
+          {/* Spam Honeypot (hidden from users) */}
+          <div style={{ display: 'none' }}>
+            <input type="text" name="bot-field" />
+          </div>
 
           {/* Error Message */}
           {error && (

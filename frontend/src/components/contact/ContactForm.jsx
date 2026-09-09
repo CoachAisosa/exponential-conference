@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   FaUser,
   FaEnvelope,
@@ -10,10 +11,78 @@ import {
   FaYoutube,
   FaWhatsapp,
 } from "react-icons/fa";
-
 import styles from "../../pages/Contact.module.css";
 
 function ContactForm() {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+
+  // Handle input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    setSuccess(false);
+
+    // Validate required fields
+    if (!formData.fullName || !formData.email || !formData.message || !formData.subject) {
+      setError("Please fill in all required fields.");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      // Send to Netlify Forms
+      const formDataObj = new FormData();
+      formDataObj.append('form-name', 'contactForm');
+      formDataObj.append('fullName', formData.fullName);
+      formDataObj.append('email', formData.email);
+      formDataObj.append('phone', formData.phone || 'N/A');
+      formDataObj.append('subject', formData.subject);
+      formDataObj.append('message', formData.message);
+
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formDataObj).toString(),
+      });
+
+      // ✅ Success
+      setSuccess(true);
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
+      setError("");
+
+    } catch (err) {
+      console.error("Contact form error:", err);
+      setError("Failed to send message. Please try again or contact us directly.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section
       id="contact-form"
@@ -87,7 +156,7 @@ function ContactForm() {
                 </span>
 
                 <p>
-                    +2348119271947 
+                  +2348119271947
                 </p>
 
               </div>
@@ -107,7 +176,7 @@ function ContactForm() {
                 </span>
 
                 <p>
-                    abuexpocon@gmail.com
+                  abuexpocon@gmail.com
                 </p>
 
               </div>
@@ -230,10 +299,36 @@ function ContactForm() {
 
           </div>
 
-          <form className={styles.contactForm} 
-          name="contactForm"
-          method="POST"
-          data-netlify="true">
+          <form
+            className={styles.contactForm}
+            name="contactForm"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
+          >
+
+            {/* Netlify Required Hidden Input */}
+            <input type="hidden" name="form-name" value="contactForm" />
+
+            {/* Spam Honeypot (hidden from users) */}
+            <div style={{ display: 'none' }}>
+              <input type="text" name="bot-field" />
+            </div>
+
+            {/* Success Message */}
+            {success && (
+              <div className={styles.contactSuccessMessage}>
+                <p>✅ Your message has been sent successfully! We will get back to you soon.</p>
+              </div>
+            )}
+
+            {/* Error Message */}
+            {error && (
+              <div className={styles.contactErrorMessage}>
+                <p>{error}</p>
+              </div>
+            )}
 
             {/* FULL NAME */}
 
@@ -253,6 +348,8 @@ function ContactForm() {
                 name="fullName"
                 placeholder="Enter your full name"
                 className={styles.contactFormInput}
+                value={formData.fullName}
+                onChange={handleChange}
                 required
               />
 
@@ -276,6 +373,8 @@ function ContactForm() {
                 name="email"
                 placeholder="Enter your email address"
                 className={styles.contactFormInput}
+                value={formData.email}
+                onChange={handleChange}
                 required
               />
 
@@ -299,6 +398,8 @@ function ContactForm() {
                 name="phone"
                 placeholder="Enter your phone or WhatsApp number"
                 className={styles.contactFormInput}
+                value={formData.phone}
+                onChange={handleChange}
               />
 
             </div>
@@ -318,7 +419,8 @@ function ContactForm() {
                 id="subject"
                 name="subject"
                 className={styles.contactFormSelect}
-                defaultValue=""
+                value={formData.subject}
+                onChange={handleChange}
                 required
               >
 
@@ -387,8 +489,10 @@ function ContactForm() {
                 rows="7"
                 placeholder="Write your message here..."
                 className={styles.contactFormTextarea}
+                value={formData.message}
+                onChange={handleChange}
                 required
-              ></textarea>
+              />
 
             </div>
 
@@ -399,8 +503,9 @@ function ContactForm() {
               <button
                 type="submit"
                 className={styles.contactFormSubmitButton}
+                disabled={loading}
               >
-                SEND MESSAGE
+                {loading ? "SENDING..." : "SEND MESSAGE"}
                 <FaPaperPlane />
               </button>
 
