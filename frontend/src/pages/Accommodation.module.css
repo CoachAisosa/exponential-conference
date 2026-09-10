@@ -1,0 +1,1172 @@
+/* ============================================================
+   ACCOMMODATION & RESERVATION PAGE STYLES
+   Exponential Conference 2026
+   Theme: Navy (#1a2a4a) + White + Orange (#e87a2a)
+   ============================================================ */
+
+/* ============================================================
+   1. ACCOMMODATION PAGE LAYOUT
+   ============================================================ */
+
+.accommodationPage {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.sectionContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionEyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #e87a2a;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.sectionDescription {
+  font-size: 1.05rem;
+  color: #4a5a7a;
+  max-width: 750px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* ============================================================
+   2. ACCOMMODATION HERO SECTION
+   ============================================================ */
+
+.accommodationHeroSection {
+  background: #1a2a4a;
+  padding: 6rem 2rem 5rem;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.accommodationHeroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/images/expon\ 2.jfif');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.accommodationHeroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(26, 42, 74, 0.92) 0%, rgba(26, 42, 74, 0.80) 100%);
+  z-index: 1;
+}
+
+.accommodationHeroContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.accommodationHeroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(232, 122, 42, 0.15);
+  padding: 0.4rem 1.2rem;
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(232, 122, 42, 0.2);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(232, 122, 42, 0.8);
+}
+
+.accommodationHeroBadgeIcon {
+  font-size: 0.8rem;
+  color: #e87a2a;
+}
+
+.accommodationHeroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.accommodationHeroTitle span {
+  color: #e87a2a;
+}
+
+.accommodationHeroSubtitle {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.accommodationHeroDescription {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+.accommodationHeroStats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.accommodationHeroStat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.accommodationHeroStatIcon {
+  font-size: 1rem;
+  color: #e87a2a;
+}
+
+/* ============================================================
+   3. VENUE SECTION
+   ============================================================ */
+
+.venueSection {
+  padding: 5rem 2rem;
+  background: #ffffff;
+}
+
+.venueContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.venueInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.venueIcon {
+  display: inline-flex;
+  width: 64px;
+  height: 64px;
+  background: rgba(232, 122, 42, 0.1);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #e87a2a;
+  margin-bottom: 1.5rem;
+}
+
+.venueAddress {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #1a2a4a;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.venueDescription {
+  font-size: 1rem;
+  color: #4a5a7a;
+  line-height: 1.8;
+  margin-bottom: 1.75rem;
+}
+
+.venueButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #e87a2a;
+  text-transform: uppercase;
+}
+
+.venueButton:hover {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(232, 122, 42, 0.3);
+}
+
+.venueButton svg {
+  font-size: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.venueButton:hover svg {
+  transform: translateX(4px);
+}
+
+.venueMapWrapper {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(26, 42, 74, 0.08);
+  height: 400px;
+}
+
+.venueMap {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ============================================================
+   4. GETTING TO BENIN SECTION
+   ============================================================ */
+
+.gettingToBeninSection {
+  padding: 5rem 2rem;
+  background: #f8f9fa;
+}
+
+.travelGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.travelCard {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(26, 42, 74, 0.04);
+  transition: all 0.3s ease;
+  border-top: 4px solid #e87a2a;
+}
+
+.travelCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 50px rgba(26, 42, 74, 0.08);
+}
+
+.travelCardIcon {
+  font-size: 2.5rem;
+  color: #e87a2a;
+  margin-bottom: 1rem;
+}
+
+.travelCardTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin-bottom: 1rem;
+}
+
+.travelCardText {
+  font-size: 0.95rem;
+  color: #4a5a7a;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.travelCardText:last-child {
+  margin-bottom: 0;
+}
+
+.travelVenueBox {
+  background: rgba(232, 122, 42, 0.06);
+  border-left: 3px solid #e87a2a;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+}
+
+.travelVenueName {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin: 0 0 0.25rem 0;
+}
+
+.travelVenueAddress {
+  font-size: 0.9rem;
+  color: #4a5a7a;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================================
+   5. ACCOMMODATION OPTIONS SECTION
+   ============================================================ */
+
+.accommodationOptionsSection {
+  padding: 5rem 2rem;
+  background: #ffffff;
+}
+
+.accommodationOptionsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.accommodationOptionCard {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border-bottom: 4px solid transparent;
+}
+
+.accommodationOptionCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(26, 42, 74, 0.08);
+  border-bottom-color: #e87a2a;
+}
+
+.accommodationOptionCard:nth-child(1) { border-bottom-color: #1a2a4a; }
+.accommodationOptionCard:nth-child(2) { border-bottom-color: #2c3e6b; }
+.accommodationOptionCard:nth-child(3) { border-bottom-color: #e87a2a; }
+
+.accommodationOptionIcon {
+  font-size: 2.5rem;
+  color: #e87a2a;
+  margin-bottom: 1rem;
+}
+
+.accommodationOptionTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin-bottom: 0.5rem;
+}
+
+.accommodationOptionText {
+  font-size: 0.9rem;
+  color: #4a5a7a;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================================
+   6. CHOOSING ACCOMMODATION SECTION
+   ============================================================ */
+
+.choosingAccommodationSection {
+  padding: 5rem 2rem;
+  background: #f8f9fa;
+}
+
+.considerationsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 900px;
+  margin: 0 auto 2rem;
+}
+
+.considerationItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(26, 42, 74, 0.04);
+}
+
+.considerationItem:hover {
+  transform: translateX(5px);
+  box-shadow: 0 6px 20px rgba(26, 42, 74, 0.08);
+}
+
+.considerationIcon {
+  font-size: 1rem;
+  color: #e87a2a;
+  flex-shrink: 0;
+}
+
+.considerationItem span {
+  font-size: 0.95rem;
+  color: #1a2a4a;
+  font-weight: 500;
+}
+
+.considerationNote {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(232, 122, 42, 0.06);
+  border-left: 4px solid #e87a2a;
+  border-radius: 0 12px 12px 0;
+  padding: 1.25rem 1.75rem;
+}
+
+.considerationNote p {
+  font-size: 0.95rem;
+  color: #4a5a7a;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================================
+   7. INTERNATIONAL DELEGATES SECTION
+   ============================================================ */
+
+.internationalSection {
+  padding: 5rem 2rem;
+  background: #ffffff;
+}
+
+.internationalWrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #1a2a4a;
+  border-radius: 16px;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.internationalWrapper::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(232, 122, 42, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.internationalHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.internationalIconWrapper {
+  display: inline-flex;
+  width: 64px;
+  height: 64px;
+  background: rgba(232, 122, 42, 0.15);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  border: 2px solid rgba(232, 122, 42, 0.3);
+}
+
+.internationalIcon {
+  font-size: 1.5rem;
+  color: #e87a2a;
+}
+
+.internationalTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.internationalSubtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.internationalText {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.internationalList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.internationalItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  border-left: 3px solid #e87a2a;
+  transition: all 0.3s ease;
+}
+
+.internationalItem:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.internationalItemIcon {
+  font-size: 0.9rem;
+  color: #e87a2a;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.internationalItem span {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.5;
+}
+
+.internationalNote {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
+   8. TRAVEL PREPARATION SECTION
+   ============================================================ */
+
+.travelPrepSection {
+  padding: 5rem 2rem;
+  background: #f8f9fa;
+}
+
+.travelPrepGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+}
+
+.travelPrepCard {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.75rem 1.25rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(26, 42, 74, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.travelPrepCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(26, 42, 74, 0.08);
+}
+
+.travelPrepNumber {
+  font-size: 3rem;
+  font-weight: 800;
+  color: rgba(26, 42, 74, 0.05);
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  line-height: 1;
+}
+
+.travelPrepTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.travelPrepText {
+  font-size: 0.82rem;
+  color: #4a5a7a;
+  line-height: 1.6;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
+   9. VENUE ADDRESS SECTION
+   ============================================================ */
+
+.venueAddressSection {
+  padding: 5rem 2rem;
+  background: #ffffff;
+}
+
+.venueAddressWrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  border: 2px dashed rgba(232, 122, 42, 0.3);
+}
+
+.venueAddressIcon {
+  display: inline-flex;
+  width: 64px;
+  height: 64px;
+  background: rgba(232, 122, 42, 0.1);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #e87a2a;
+  margin-bottom: 1rem;
+}
+
+.venueAddressEyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #e87a2a;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.venueAddressTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  margin-bottom: 0.75rem;
+}
+
+.venueAddressText {
+  font-size: 1.05rem;
+  color: #4a5a7a;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.venueAddressButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #1a2a4a;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #1a2a4a;
+  text-transform: uppercase;
+}
+
+.venueAddressButton:hover {
+  background: transparent;
+  color: #1a2a4a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(26, 42, 74, 0.15);
+}
+
+/* ============================================================
+   10. TRAVEL HELP SECTION
+   ============================================================ */
+
+.travelHelpSection {
+  padding: 5rem 2rem;
+  background: #f8f9fa;
+}
+
+.travelHelpGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto 2rem;
+}
+
+.travelHelpItem {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 0.9rem 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(26, 42, 74, 0.04);
+}
+
+.travelHelpItem:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(26, 42, 74, 0.08);
+}
+
+.travelHelpIcon {
+  font-size: 0.9rem;
+  color: #e87a2a;
+  flex-shrink: 0;
+}
+
+.travelHelpItem span {
+  font-size: 0.85rem;
+  color: #1a2a4a;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.travelHelpNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  background: #1a2a4a;
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem;
+}
+
+.travelHelpNoteIcon {
+  font-size: 1.5rem;
+  color: #e87a2a;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.travelHelpNote p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ============================================================
+   11. WELCOME BENIN SECTION
+   ============================================================ */
+
+.welcomeBeninSection {
+  padding: 5rem 2rem;
+  background: #1a2a4a;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.welcomeBeninSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?w=1600');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.welcomeBeninOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(26, 42, 74, 0.92) 0%, rgba(26, 42, 74, 0.85) 100%);
+  z-index: 1;
+}
+
+.welcomeBeninSection .sectionContainer {
+  position: relative;
+  z-index: 2;
+}
+
+.welcomeBeninContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.welcomeBeninIcon {
+  display: inline-flex;
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: #e87a2a;
+  margin-bottom: 1.5rem;
+  border: 2px solid rgba(232, 122, 42, 0.2);
+}
+
+.welcomeBeninEyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(232, 122, 42, 0.7);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.welcomeBeninTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.welcomeBeninText {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.welcomeBeninHighlight {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #e87a2a;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.welcomeBeninAddress {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+  border-left: 4px solid #e87a2a;
+  text-align: left;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.welcomeBeninAddress p {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.25rem 0;
+}
+
+.welcomeBeninAddress span {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.welcomeBeninActions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.welcomeBeninButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #e87a2a;
+  text-transform: uppercase;
+}
+
+.welcomeBeninButton:hover {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 40px rgba(232, 122, 42, 0.3);
+}
+
+.welcomeBeninButton svg {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.welcomeBeninButton:hover svg {
+  transform: translateX(4px);
+}
+
+.welcomeBeninSecondaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: transparent;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+}
+
+.welcomeBeninSecondaryButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-3px);
+}
+
+.welcomeBeninNote {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .accommodationHeroTitle {
+    font-size: 2.8rem;
+  }
+
+  .venueContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .venueMapWrapper {
+    height: 300px;
+  }
+
+  .travelGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .accommodationOptionsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .internationalList {
+    grid-template-columns: 1fr;
+  }
+
+  .travelPrepGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .travelHelpGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .accommodationHeroSection {
+    padding: 4rem 1.5rem 3rem;
+    min-height: auto;
+  }
+
+  .accommodationHeroTitle {
+    font-size: 2.2rem;
+  }
+
+  .accommodationHeroSubtitle {
+    font-size: 1.1rem;
+  }
+
+  .accommodationHeroStats {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .venueSection,
+  .gettingToBeninSection,
+  .accommodationOptionsSection,
+  .choosingAccommodationSection,
+  .internationalSection,
+  .travelPrepSection,
+  .venueAddressSection,
+  .travelHelpSection,
+  .welcomeBeninSection {
+    padding: 3rem 1.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+
+  .sectionDescription {
+    font-size: 0.95rem;
+  }
+
+  .accommodationOptionsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .considerationsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .internationalWrapper {
+    padding: 2rem 1.5rem;
+  }
+
+  .internationalTitle {
+    font-size: 1.6rem;
+  }
+
+  .travelPrepGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .venueAddressWrapper {
+    padding: 2rem 1.5rem;
+  }
+
+  .venueAddressTitle {
+    font-size: 1.6rem;
+  }
+
+  .travelHelpGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .welcomeBeninTitle {
+    font-size: 1.8rem;
+  }
+
+  .welcomeBeninActions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .welcomeBeninButton,
+  .welcomeBeninSecondaryButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .travelCard {
+    padding: 1.75rem;
+  }
+
+  .venueButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .accommodationHeroTitle {
+    font-size: 1.8rem;
+  }
+
+  .accommodationHeroBadge {
+    font-size: 0.55rem;
+    letter-spacing: 1px;
+  }
+
+  .accommodationHeroDescription {
+    font-size: 0.95rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .travelPrepGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .travelCard {
+    padding: 1.5rem;
+  }
+
+  .travelCardTitle {
+    font-size: 1.2rem;
+  }
+
+  .internationalWrapper {
+    padding: 1.5rem 1rem;
+  }
+
+  .internationalTitle {
+    font-size: 1.3rem;
+  }
+
+  .venueAddressTitle {
+    font-size: 1.3rem;
+  }
+
+  .welcomeBeninTitle {
+    font-size: 1.5rem;
+  }
+
+  .welcomeBeninButton,
+  .welcomeBeninSecondaryButton {
+    font-size: 0.75rem;
+    padding: 0.85rem 1.5rem;
+  }
+}
+

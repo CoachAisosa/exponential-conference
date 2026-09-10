@@ -208,7 +208,7 @@ function ContactForm() {
               </p>
 
               <a
-                href="#contact-form"
+                href="https://wa.link/q1w9yb"
                 className={styles.contactPartnershipLink}
               >
                 ENQUIRE ABOUT PARTNERSHIP

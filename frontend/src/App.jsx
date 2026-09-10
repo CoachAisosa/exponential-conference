@@ -14,6 +14,7 @@ import NewsArticle from './pages/NewsArticle';
 import ScrollToTop from './components/ScrollToTop';
 import BackToTop from './components/BackToTop';
 import AboutABU from './pages/AboutABU';
+import Accommodation from './pages/Accommodation';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
     <Route path='/speakers' element={<Speakers />} />
     <Route path='/programme' element={<Programme />} />
     <Route path='/register' element={<Registration />} />
+    <Route path='/accommodation' element={<Accommodation />} />
     <Route path='/about-abu' element={<AboutABU />} />
     <Route path='/live' element={<LiveEvent />} />
     <Route path='/news' element={<NewsArticle/>} />

@@ -73,12 +73,12 @@ function AboutIntroduction() {
               <FaBullseye />
             </div>
 
-            <span className={styles.aboutIntroductionCardLabel}>
+            {/* <span className={styles.aboutIntroductionCardLabel}>
               OUR VISION
-            </span>
+            </span> */}
 
             <h3 className={styles.aboutIntroductionCardTitle}>
-              Raising Leaders Who Multiply
+             Our Vision
             </h3>
 
             <p className={styles.aboutIntroductionCardText}>

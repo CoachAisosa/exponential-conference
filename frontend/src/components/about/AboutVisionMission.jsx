@@ -50,7 +50,7 @@ function AboutVisionMission() {
             </span>
 
             <h3 className={styles.visionMissionCardTitle}>
-              Leaders Who Multiply
+              Vision
             </h3>
 
             <p className={styles.visionMissionCardText}>
@@ -77,15 +77,17 @@ function AboutVisionMission() {
             </span>
 
             <h3 className={styles.visionMissionCardTitle}>
-              Equip. Develop. Multiply.
+             Mission
             </h3>
 
             <p className={styles.visionMissionCardText}>
               The Exponential Conference exists to equip Christian leaders
               with biblical and practical leadership principles, develop a
               culture of intentional mentorship and discipleship, encourage
-              leaders to identify and develop emerging leaders, and promote
-              generational leadership and sustainable ministry development.
+              leaders to identify and develop emerging leaders, strengthen 
+              churches ministries,and christian organisation 
+              through leadership development and promote generational 
+              leadership and sustainable ministry development.
             </p>
 
           </article>
@@ -106,7 +108,7 @@ function AboutVisionMission() {
             </span>
 
             <h3 className={styles.visionMissionCardTitle}>
-              Generational Leadership
+              Focus
             </h3>
 
             <p className={styles.visionMissionCardText}>

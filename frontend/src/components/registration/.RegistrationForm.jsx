@@ -78,39 +78,64 @@ function RegistrationForm() {
       return;
     }
 
+    // --- 1. SEND TO NETLIFY FORMS (Always) ---
     try {
-      // --- Send to Netlify Forms ---
-      const formDataObj = new FormData();
-      formDataObj.append('form-name', 'registration-expon');
-      formDataObj.append('fullName', formData.fullName);
-      formDataObj.append('email', formData.email);
-      formDataObj.append('phone', formData.phone);
-      formDataObj.append('country', formData.country);
-      formDataObj.append('state', formData.state);
-      formDataObj.append('city', formData.city);
-      formDataObj.append('churchOrganisation', formData.churchOrganisation || 'N/A');
-      formDataObj.append('leadershipRole', formData.leadershipRole || 'N/A');
-      formDataObj.append('registrationCategory', formData.registrationCategory);
-      formDataObj.append('message', formData.message || 'N/A');
+      const netlifyData = new URLSearchParams();
+      netlifyData.append('form-name', 'registration-expon');
+      netlifyData.append('fullName', formData.fullName);
+      netlifyData.append('email', formData.email);
+      netlifyData.append('phone', formData.phone);
+      netlifyData.append('country', formData.country);
+      netlifyData.append('state', formData.state);
+      netlifyData.append('city', formData.city);
+      netlifyData.append('churchOrganisation', formData.churchOrganisation || 'N/A');
+      netlifyData.append('leadershipRole', formData.leadershipRole || 'N/A');
+      netlifyData.append('registrationCategory', formData.registrationCategory);
+      netlifyData.append('message', formData.message || 'N/A');
+      netlifyData.append('bot-field', '');
 
-      await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formDataObj).toString(),
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: netlifyData.toString(),
       });
 
-      // ✅ Success - Show payment section
-      setFormSubmitted(true);
-      setError("");
-      scrollToPayment();
+      if (!response.ok) {
+        throw new Error("Netlify form submission failed");
+      }
 
-    } catch (err) {
-      console.error("Registration error:", err);
-      setError("Registration failed. Please try again or contact us directly.");
-      setLoading(false);
-    } finally {
-      setLoading(false);
+      console.log("✅ Sent to Netlify Forms");
+    } catch (netlifyErr) {
+      console.warn("⚠️ Netlify form submission failed:", netlifyErr);
+      // Don't stop — continue to show payment
     }
+
+    // --- 2. SEND TO BACKEND (When ready) ---
+    // Uncomment this section when your backend is live
+    /*
+    try {
+      const backendResponse = await fetch("http://localhost:5000/api/registrations", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (backendResponse.ok) {
+        console.log("✅ Sent to backend successfully");
+      } else {
+        console.warn("⚠️ Backend returned an error");
+      }
+    } catch (backendErr) {
+      console.warn("⚠️ Backend not available:", backendErr);
+      // Don't stop — still show payment
+    }
+    */
+
+    // --- 3. SHOW PAYMENT SECTION ---
+    setFormSubmitted(true);
+    setError("");
+    setLoading(false);
+    scrollToPayment();
   };
 
   // Scroll to payment section
@@ -476,7 +501,6 @@ function RegistrationForm() {
                 className={styles.registrationFormSelect}
                 value={formData.registrationCategory}
                 onChange={handleChange}
-                defaultValue=""
                 required
               >
                 <option value="" disabled>Select registration category</option>

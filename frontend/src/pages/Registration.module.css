@@ -840,90 +840,511 @@
 }
 
 /* ============================================================
-   RESPONSIVE PAYMENT
+   SHARED SECTION STYLES (NEW)
    ============================================================ */
 
-@media (max-width: 1024px) {
-  .paymentGrid {
-    grid-template-columns: 1fr 1fr;
-  }
+.sectionContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-@media (max-width: 768px) {
-  .paymentSection {
-    padding: 1.5rem;
-  }
-
-  .paymentGrid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .paymentSectionTitle {
-    font-size: 1.4rem;
-  }
-
-  .paymentSectionSubtitle {
-    font-size: 0.95rem;
-  }
-
-  .successMessage {
-    padding: 2rem 1.5rem;
-  }
-
-  .successMessage h2 {
-    font-size: 1.5rem;
-  }
-
-  .successMessage p {
-    font-size: 0.95rem;
-  }
-
-  .bankDetailItem {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.1rem;
-  }
-
-  .bankDetailLabel {
-    min-width: auto;
-  }
-
-  .selarButton,
-  .whatsappButton {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .paymentCard {
-    padding: 1.25rem;
-  }
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
-@media (max-width: 480px) {
-  .paymentSectionTitle {
-    font-size: 1.2rem;
-  }
+.sectionEyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #e87a2a;
+  display: block;
+  margin-bottom: 0.5rem;
+}
 
-  .paymentCardTitle {
-    font-size: 0.95rem;
-  }
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
 
-  .paymentCardDescription {
-    font-size: 0.8rem;
-  }
-
-  .successMessage h2 {
-    font-size: 1.2rem;
-  }
-
-  .successMessage {
-    padding: 1.5rem 1rem;
-  }
+.sectionDescription {
+  font-size: 1.05rem;
+  color: #4a5a7a;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
 }
 
 /* ============================================================
-   5. RESPONSIVE BREAKPOINTS
+   WHY REGISTER EARLY (NEW)
+   ============================================================ */
+
+.whyRegisterSection {
+  padding: 5rem 2rem;
+  background: #ffffff;
+}
+
+.whyRegisterGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.whyRegisterCard {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border-bottom: 4px solid transparent;
+}
+
+.whyRegisterCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(26, 42, 74, 0.08);
+  border-bottom-color: #e87a2a;
+}
+
+.whyRegisterCard:nth-child(1) { border-bottom-color: #1a2a4a; }
+.whyRegisterCard:nth-child(2) { border-bottom-color: #2c3e6b; }
+.whyRegisterCard:nth-child(3) { border-bottom-color: #e87a2a; }
+.whyRegisterCard:nth-child(4) { border-bottom-color: #1a2a4a; }
+
+.whyRegisterIcon {
+  font-size: 2.5rem;
+  color: #e87a2a;
+  margin-bottom: 1rem;
+}
+
+.whyRegisterTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin-bottom: 0.5rem;
+}
+
+.whyRegisterText {
+  font-size: 0.9rem;
+  color: #4a5a7a;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================================
+   HOW TO REGISTER (NEW)
+   ============================================================ */
+
+.howToRegisterSection {
+  padding: 5rem 2rem;
+  background: #f8f9fa;
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.25rem;
+}
+
+.stepCard {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.75rem 1.25rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(26, 42, 74, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.stepCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(26, 42, 74, 0.08);
+}
+
+.stepNumber {
+  font-size: 3rem;
+  font-weight: 800;
+  color: rgba(26, 42, 74, 0.05);
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  line-height: 1;
+}
+
+.stepIcon {
+  font-size: 2rem;
+  color: #e87a2a;
+  margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.stepTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.stepText {
+  font-size: 0.82rem;
+  color: #4a5a7a;
+  line-height: 1.6;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
+   IMPORTANT INFORMATION (NEW)
+   ============================================================ */
+
+.importantInfoSection {
+  padding: 5rem 2rem;
+  background: #ffffff;
+}
+
+.importantInfoWrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #1a2a4a;
+  border-radius: 16px;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.importantInfoWrapper::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(232, 122, 42, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.importantInfoHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.importantInfoIconWrapper {
+  display: inline-flex;
+  width: 64px;
+  height: 64px;
+  background: rgba(232, 122, 42, 0.15);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  border: 2px solid rgba(232, 122, 42, 0.3);
+}
+
+.importantInfoIcon {
+  font-size: 1.5rem;
+  color: #e87a2a;
+}
+
+.importantInfoTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.importantInfoSubtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.importantInfoList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.importantInfoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  border-left: 3px solid #e87a2a;
+  transition: all 0.3s ease;
+}
+
+.importantInfoItem:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.importantInfoItemIcon {
+  font-size: 1rem;
+  color: #e87a2a;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.importantInfoItemText {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================================
+   BRING YOUR LEADERS (NEW)
+   ============================================================ */
+
+.bringLeadersSection {
+  padding: 5rem 2rem;
+  background: #f8f9fa;
+}
+
+.bringLeadersContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.bringLeadersHeader {
+  padding-right: 1rem;
+}
+
+.bringLeadersTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+}
+
+.bringLeadersText {
+  font-size: 1.05rem;
+  color: #4a5a7a;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.bringLeadersList {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 30px rgba(26, 42, 74, 0.06);
+}
+
+.bringLeadersListTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin-bottom: 1rem;
+}
+
+.bringLeadersTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1.5rem;
+}
+
+.bringLeadersTag {
+  display: inline-block;
+  background: rgba(232, 122, 42, 0.1);
+  color: #1a2a4a;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.5rem 1.1rem;
+  border-radius: 50px;
+  border: 1px solid rgba(232, 122, 42, 0.2);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.bringLeadersTag:hover {
+  background: #e87a2a;
+  color: #ffffff;
+  border-color: #e87a2a;
+  transform: translateY(-2px);
+}
+
+.bringLeadersIconRow {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eef0f3;
+}
+
+.bringLeadersIcon {
+  font-size: 2rem;
+  color: rgba(232, 122, 42, 0.3);
+}
+
+/* ============================================================
+   PLACE IS WAITING (NEW)
+   ============================================================ */
+
+.placeWaitingSection {
+  padding: 5rem 2rem;
+  background: #1a2a4a;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.placeWaitingOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?w=1600');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.placeWaitingSection .sectionContainer {
+  position: relative;
+  z-index: 1;
+}
+
+.placeWaitingContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.placeWaitingIcon {
+  display: inline-flex;
+  width: 80px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: #e87a2a;
+  margin-bottom: 1.5rem;
+  border: 2px solid rgba(232, 122, 42, 0.2);
+}
+
+.placeWaitingEyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(232, 122, 42, 0.7);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.placeWaitingTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  line-height: 1.3;
+}
+
+.placeWaitingQuestions {
+  margin-bottom: 2rem;
+}
+
+.placeWaitingQuestion {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  border-left: 4px solid #e87a2a;
+  text-align: left;
+}
+
+.placeWaitingQuestionLabel {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 0.5rem 0;
+}
+
+.placeWaitingQuestionText {
+  font-size: 1.15rem;
+  color: #ffffff;
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.placeWaitingDescription {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.placeWaitingActions {
+  margin-bottom: 1.5rem;
+}
+
+.placeWaitingButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 1.5px;
+  padding: 1rem 3rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #e87a2a;
+  text-transform: uppercase;
+}
+
+.placeWaitingButton:hover {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 40px rgba(232, 122, 42, 0.3);
+}
+
+.placeWaitingButton svg {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.placeWaitingButton:hover svg {
+  transform: translateX(4px);
+}
+
+.placeWaitingNote {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
    ============================================================ */
 
 /* Tablet */
@@ -963,6 +1384,35 @@
 
   .registrationForm {
     padding: 2rem;
+  }
+
+  .paymentGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .whyRegisterGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stepsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .bringLeadersContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+
+  .bringLeadersTitle {
+    font-size: 2.2rem;
+  }
+
+  .placeWaitingTitle {
+    font-size: 2.2rem;
   }
 }
 
@@ -1053,6 +1503,126 @@
     font-size: 0.6rem;
     letter-spacing: 2px;
   }
+
+  /* Payment */
+  .paymentSection {
+    padding: 1.5rem;
+  }
+
+  .paymentGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .paymentSectionTitle {
+    font-size: 1.4rem;
+  }
+
+  .paymentSectionSubtitle {
+    font-size: 0.95rem;
+  }
+
+  .successMessage {
+    padding: 2rem 1.5rem;
+  }
+
+  .successMessage h2 {
+    font-size: 1.5rem;
+  }
+
+  .successMessage p {
+    font-size: 0.95rem;
+  }
+
+  .bankDetailItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.1rem;
+  }
+
+  .bankDetailLabel {
+    min-width: auto;
+  }
+
+  .selarButton,
+  .whatsappButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .paymentCard {
+    padding: 1.25rem;
+  }
+
+  /* New sections */
+  .whyRegisterSection,
+  .howToRegisterSection,
+  .importantInfoSection,
+  .bringLeadersSection,
+  .placeWaitingSection {
+    padding: 3rem 1.5rem;
+  }
+
+  .whyRegisterGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .stepsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+
+  .sectionDescription {
+    font-size: 0.95rem;
+  }
+
+  .importantInfoWrapper {
+    padding: 2rem 1.5rem;
+  }
+
+  .importantInfoTitle {
+    font-size: 1.6rem;
+  }
+
+  .importantInfoItem {
+    padding: 0.85rem 1rem;
+  }
+
+  .bringLeadersTitle {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .bringLeadersText {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .bringLeadersHeader {
+    padding-right: 0;
+  }
+
+  .bringLeadersList {
+    padding: 1.5rem;
+  }
+
+  .placeWaitingTitle {
+    font-size: 1.8rem;
+  }
+
+  .placeWaitingQuestionText {
+    font-size: 1rem;
+  }
+
+  .placeWaitingButton {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* Small Mobile */
@@ -1101,5 +1671,59 @@
 
   .registrationFormAgreementLabel {
     font-size: 0.8rem;
+  }
+
+  .paymentSectionTitle {
+    font-size: 1.2rem;
+  }
+
+  .paymentCardTitle {
+    font-size: 0.95rem;
+  }
+
+  .paymentCardDescription {
+    font-size: 0.8rem;
+  }
+
+  .successMessage h2 {
+    font-size: 1.2rem;
+  }
+
+  .successMessage {
+    padding: 1.5rem 1rem;
+  }
+
+  /* New sections */
+  .stepsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .importantInfoTitle {
+    font-size: 1.3rem;
+  }
+
+  .importantInfoItemText {
+    font-size: 0.85rem;
+  }
+
+  .bringLeadersTitle {
+    font-size: 1.5rem;
+  }
+
+  .placeWaitingTitle {
+    font-size: 1.5rem;
+  }
+
+  .placeWaitingQuestion {
+    padding: 1.25rem;
+  }
+
+  .placeWaitingButton {
+    font-size: 0.8rem;
+    padding: 0.9rem 2rem;
   }
 }

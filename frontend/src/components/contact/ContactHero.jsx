@@ -79,7 +79,13 @@ function ContactHero() {
                   VENUE
                 </span>
 
-                <p>Dream City Christian Centre</p>
+                <p>  Dream City Christian Centre
+                <br />
+                2, Ogiemwanye Avenue,
+                <br />
+                Off Nomayo, Upper Sakponba Road,
+                <br />
+                Benin City, Edo State, Nigeria.</p>
               </div>
 
             </div>
