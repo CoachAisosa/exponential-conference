@@ -42,29 +42,43 @@ function ContactForm() {
     setSuccess(false);
 
     // Validate required fields
-    if (!formData.fullName || !formData.email || !formData.message || !formData.subject) {
+    if (
+      !formData.fullName ||
+      !formData.email ||
+      !formData.message ||
+      !formData.subject
+    ) {
       setError("Please fill in all required fields.");
       setLoading(false);
       return;
     }
 
     try {
-      // Send to Netlify Forms
-      const formDataObj = new FormData();
-      formDataObj.append('form-name', 'contactForm');
-      formDataObj.append('fullName', formData.fullName);
-      formDataObj.append('email', formData.email);
-      formDataObj.append('phone', formData.phone || 'N/A');
-      formDataObj.append('subject', formData.subject);
-      formDataObj.append('message', formData.message);
-
-      await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formDataObj).toString(),
+      // Send to backend
+      const response = await fetch("http://localhost:5000/api/contacts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone || "N/A",
+          subject: formData.subject,
+          message: formData.message,
+        }),
       });
 
-      // ✅ Success
+      const data = await response.json();
+      console.log("Contact response:", data);
+
+      if (!response.ok) {
+        throw new Error(data.message || "Failed to send message.");
+      }
+
+      console.log("✅ Contact saved:", data);
+
+      // Success
       setSuccess(true);
       setFormData({
         fullName: "",
@@ -74,10 +88,9 @@ function ContactForm() {
         message: "",
       });
       setError("");
-
     } catch (err) {
-      console.error("Contact form error:", err);
-      setError("Failed to send message. Please try again or contact us directly.");
+      console.error("❌ Contact error:", err);
+      setError(err.message || "Failed to send message. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -89,16 +102,10 @@ function ContactForm() {
       className={styles.contactFormSection}
       data-aos="fade-up"
     >
-
       <div className={styles.contactFormContainer}>
-
         {/* CONTACT INFORMATION */}
 
-        <div
-          className={styles.contactInformation}
-          data-aos="fade-right"
-        >
-
+        <div className={styles.contactInformation} data-aos="fade-right">
           <span className={styles.contactInformationLabel}>
             EXPONENTIAL CONFERENCE 2026
           </span>
@@ -116,15 +123,12 @@ function ContactForm() {
           {/* CONFERENCE DETAILS */}
 
           <div className={styles.contactDetails}>
-
             <div className={styles.contactDetailItem}>
-
               <div className={styles.contactDetailIcon}>
                 <FaMapMarkerAlt />
               </div>
 
               <div className={styles.contactDetailContent}>
-
                 <span className={styles.contactDetailLabel}>
                   CONFERENCE VENUE
                 </span>
@@ -138,69 +142,45 @@ function ContactForm() {
                   <br />
                   Benin City, Edo State, Nigeria.
                 </p>
-
               </div>
-
             </div>
 
             <div className={styles.contactDetailItem}>
-
               <div className={styles.contactDetailIcon}>
                 <FaPhone />
               </div>
 
               <div className={styles.contactDetailContent}>
-
                 <span className={styles.contactDetailLabel}>
                   PHONE / WHATSAPP
                 </span>
 
-                <p>
-                  +2348119271947
-                </p>
-
+                <p>+2348119271947</p>
               </div>
-
             </div>
 
             <div className={styles.contactDetailItem}>
-
               <div className={styles.contactDetailIcon}>
                 <FaEnvelope />
               </div>
 
               <div className={styles.contactDetailContent}>
+                <span className={styles.contactDetailLabel}>EMAIL</span>
 
-                <span className={styles.contactDetailLabel}>
-                  EMAIL
-                </span>
-
-                <p>
-                  abuexpocon@gmail.com
-                </p>
-
+                <p>abuexpocon@gmail.com</p>
               </div>
-
             </div>
-
           </div>
 
           {/* PARTNERSHIP */}
 
-          <div
-            className={styles.contactPartnership}
-            data-aos="fade-up"
-          >
-
+          <div className={styles.contactPartnership} data-aos="fade-up">
             <div className={styles.contactPartnershipIcon}>
               <FaHandshake />
             </div>
 
             <div className={styles.contactPartnershipContent}>
-
-              <h3>
-                PARTNERSHIP & SPONSORSHIP
-              </h3>
+              <h3>PARTNERSHIP & SPONSORSHIP</h3>
 
               <p>
                 Partner with the Exponential Conference and support the
@@ -213,21 +193,13 @@ function ContactForm() {
               >
                 ENQUIRE ABOUT PARTNERSHIP
               </a>
-
             </div>
-
           </div>
 
           {/* SOCIAL MEDIA */}
 
-          <div
-            className={styles.contactSocials}
-            data-aos="fade-up"
-          >
-
-            <h3 className={styles.contactSocialsTitle}>
-              CONNECT WITH US
-            </h3>
+          <div className={styles.contactSocials} data-aos="fade-up">
+            <h3 className={styles.contactSocialsTitle}>CONNECT WITH US</h3>
 
             <p className={styles.contactSocialsDescription}>
               Follow us for conference announcements, speaker updates,
@@ -236,7 +208,6 @@ function ContactForm() {
             </p>
 
             <div className={styles.contactSocialsLinks}>
-
               <a
                 href="#"
                 className={styles.contactSocialLink}
@@ -268,58 +239,32 @@ function ContactForm() {
               >
                 <FaWhatsapp />
               </a>
-
             </div>
-
           </div>
-
         </div>
 
         {/* MESSAGE FORM */}
 
-        <div
-          className={styles.contactFormWrapper}
-          data-aos="fade-left"
-        >
-
+        <div className={styles.contactFormWrapper} data-aos="fade-left">
           <div className={styles.contactFormHeader}>
+            <span className={styles.contactFormLabel}>SEND US A MESSAGE</span>
 
-            <span className={styles.contactFormLabel}>
-              SEND US A MESSAGE
-            </span>
-
-            <h2 className={styles.contactFormTitle}>
-              How Can We Help You?
-            </h2>
+            <h2 className={styles.contactFormTitle}>How Can We Help You?</h2>
 
             <p className={styles.contactFormDescription}>
               Use the contact form below and a member of the conference
               team will respond to your enquiry.
             </p>
-
           </div>
 
-          <form
-            className={styles.contactForm}
-            name="contactForm"
-            method="POST"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            onSubmit={handleSubmit}
-          >
-
-            {/* Netlify Required Hidden Input */}
-            <input type="hidden" name="form-name" value="contactForm" />
-
-            {/* Spam Honeypot (hidden from users) */}
-            <div style={{ display: 'none' }}>
-              <input type="text" name="bot-field" />
-            </div>
-
+          <form className={styles.contactForm} onSubmit={handleSubmit}>
             {/* Success Message */}
             {success && (
               <div className={styles.contactSuccessMessage}>
-                <p>✅ Your message has been sent successfully! We will get back to you soon.</p>
+                <p>
+                  ✅ Your message has been sent successfully! We will get back
+                  to you soon.
+                </p>
               </div>
             )}
 
@@ -333,11 +278,7 @@ function ContactForm() {
             {/* FULL NAME */}
 
             <div className={styles.contactFormGroup}>
-
-              <label
-                htmlFor="fullName"
-                className={styles.contactFormLabelText}
-              >
+              <label htmlFor="fullName" className={styles.contactFormLabelText}>
                 <FaUser />
                 FULL NAME
               </label>
@@ -352,17 +293,12 @@ function ContactForm() {
                 onChange={handleChange}
                 required
               />
-
             </div>
 
             {/* EMAIL */}
 
             <div className={styles.contactFormGroup}>
-
-              <label
-                htmlFor="email"
-                className={styles.contactFormLabelText}
-              >
+              <label htmlFor="email" className={styles.contactFormLabelText}>
                 <FaEnvelope />
                 EMAIL ADDRESS
               </label>
@@ -377,17 +313,12 @@ function ContactForm() {
                 onChange={handleChange}
                 required
               />
-
             </div>
 
             {/* PHONE */}
 
             <div className={styles.contactFormGroup}>
-
-              <label
-                htmlFor="phone"
-                className={styles.contactFormLabelText}
-              >
+              <label htmlFor="phone" className={styles.contactFormLabelText}>
                 <FaPhone />
                 PHONE / WHATSAPP
               </label>
@@ -401,17 +332,12 @@ function ContactForm() {
                 value={formData.phone}
                 onChange={handleChange}
               />
-
             </div>
 
             {/* SUBJECT */}
 
             <div className={styles.contactFormGroup}>
-
-              <label
-                htmlFor="subject"
-                className={styles.contactFormLabelText}
-              >
+              <label htmlFor="subject" className={styles.contactFormLabelText}>
                 SUBJECT
               </label>
 
@@ -423,63 +349,27 @@ function ContactForm() {
                 onChange={handleChange}
                 required
               >
-
                 <option value="" disabled>
                   Select enquiry type
                 </option>
 
-                <option value="registration">
-                  Registration
-                </option>
-
-                <option value="programme">
-                  Programme
-                </option>
-
-                <option value="speakers">
-                  Speakers
-                </option>
-
-                <option value="accommodation">
-                  Accommodation
-                </option>
-
-                <option value="travel">
-                  Travel
-                </option>
-
-                <option value="partnership">
-                  Partnership
-                </option>
-
-                <option value="sponsorship">
-                  Sponsorship
-                </option>
-
-                <option value="media">
-                  Media
-                </option>
-
-                <option value="general-enquiry">
-                  General Enquiry
-                </option>
-
-                <option value="other">
-                  Other
-                </option>
-
+                <option value="registration">Registration</option>
+                <option value="programme">Programme</option>
+                <option value="speakers">Speakers</option>
+                <option value="accommodation">Accommodation</option>
+                <option value="travel">Travel</option>
+                <option value="partnership">Partnership</option>
+                <option value="sponsorship">Sponsorship</option>
+                <option value="media">Media</option>
+                <option value="general-enquiry">General Enquiry</option>
+                <option value="other">Other</option>
               </select>
-
             </div>
 
             {/* MESSAGE */}
 
             <div className={styles.contactFormGroup}>
-
-              <label
-                htmlFor="message"
-                className={styles.contactFormLabelText}
-              >
+              <label htmlFor="message" className={styles.contactFormLabelText}>
                 YOUR MESSAGE
               </label>
 
@@ -493,13 +383,11 @@ function ContactForm() {
                 onChange={handleChange}
                 required
               />
-
             </div>
 
             {/* SUBMIT */}
 
             <div className={styles.contactFormActions}>
-
               <button
                 type="submit"
                 className={styles.contactFormSubmitButton}
@@ -508,44 +396,28 @@ function ContactForm() {
                 {loading ? "SENDING..." : "SEND MESSAGE"}
                 <FaPaperPlane />
               </button>
-
             </div>
-
           </form>
-
         </div>
-
       </div>
 
       {/* BOTTOM MESSAGE */}
 
-      <div
-        className={styles.contactBottomMessage}
-        data-aos="fade-up"
-      >
-
-        <h2 className={styles.contactBottomTitle}>
-          THE MULTIPLIER
-        </h2>
+      <div className={styles.contactBottomMessage} data-aos="fade-up">
+        <h2 className={styles.contactBottomTitle}>THE MULTIPLIER</h2>
 
         <p className={styles.contactBottomSubtitle}>
           Raising Leaders Who Multiply
         </p>
 
-        <p className={styles.contactBottomDate}>
-          9th–11th December 2026
-        </p>
+        <p className={styles.contactBottomDate}>9th–11th December 2026</p>
 
-        <p className={styles.contactBottomScripture}>
-          2 Timothy 2:2
-        </p>
+        <p className={styles.contactBottomScripture}>2 Timothy 2:2</p>
 
         <span className={styles.contactBottomTagline}>
           RECEIVE. DEVELOP. EMPOWER. MULTIPLY.
         </span>
-
       </div>
-
     </section>
   );
 }

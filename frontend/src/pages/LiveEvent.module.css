@@ -757,3 +757,290 @@
     font-size: 0.8rem;
   }
 }
+
+/* ============================================================
+   LIVE ACCESS GATE
+   ============================================================ */
+
+.liveGateSection {
+  background: #1a2a4a;
+  padding: 6rem 2rem 5rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.liveGateSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?w=1600');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.08;
+  z-index: 0;
+}
+
+.liveGateOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(26, 42, 74, 0.92) 0%, rgba(26, 42, 74, 0.85) 100%);
+  z-index: 1;
+}
+
+.liveGateContainer {
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.liveGateCard {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  text-align: center;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.liveGateIconWrapper {
+  display: inline-flex;
+  width: 80px;
+  height: 80px;
+  background: rgba(232, 122, 42, 0.15);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  border: 2px solid rgba(232, 122, 42, 0.3);
+}
+
+.liveGateIcon {
+  font-size: 2rem;
+  color: #e87a2a;
+}
+
+.liveGateTitle {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.liveGateSubtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.liveGateInfo {
+  background: rgba(232, 122, 42, 0.08);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  border-left: 3px solid #e87a2a;
+}
+
+.liveGateInfo p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.5;
+}
+
+.liveGateInfo p:last-child {
+  margin-bottom: 0;
+}
+
+.liveGateInfo strong {
+  color: #ffffff;
+}
+
+.liveGateForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.liveGateInput {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Courier New', monospace;
+  transition: all 0.3s ease;
+}
+
+.liveGateInput:focus {
+  outline: none;
+  border-color: #e87a2a;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 4px rgba(232, 122, 42, 0.15);
+}
+
+.liveGateInput::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 400;
+}
+
+.liveGateInput:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.liveGateButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  border: 2px solid #e87a2a;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-family: inherit;
+}
+
+.liveGateButton:hover:not(:disabled) {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(232, 122, 42, 0.3);
+}
+
+.liveGateButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.liveGateError {
+  background: rgba(220, 53, 69, 0.15);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+.liveGateError p {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.liveGateHelp {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.liveGateHelp p {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+.liveGateHelp a {
+  color: #e87a2a;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.liveGateHelp a:hover {
+  text-decoration: underline;
+}
+
+.liveGateSuccess {
+  padding: 2rem 1rem;
+}
+
+.liveGateSuccessIcon {
+  font-size: 4rem;
+  color: #28a745;
+  margin-bottom: 1rem;
+  animation: pulseSuccess 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseSuccess {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.liveGateSuccess h2 {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.liveGateSuccess p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .liveGateSection {
+    padding: 4rem 1.5rem 3rem;
+  }
+
+  .liveGateCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .liveGateTitle {
+    font-size: 1.4rem;
+  }
+
+  .liveGateSubtitle {
+    font-size: 0.9rem;
+  }
+
+  .liveGateIconWrapper {
+    width: 60px;
+    height: 60px;
+  }
+
+  .liveGateIcon {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .liveGateTitle {
+    font-size: 1.2rem;
+  }
+
+  .liveGateInput {
+    font-size: 0.9rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .liveGateButton {
+    font-size: 0.75rem;
+    padding: 0.85rem 1.5rem;
+  }
+}

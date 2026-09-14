@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect  } from "react";
 import {
   FaUser,
   FaEnvelope,
@@ -14,10 +14,12 @@ import {
   FaCopy,
   FaArrowRight,
 } from "react-icons/fa";
+import ReceiptUpload from "./ReceiptUpload";
 import styles from "../../pages/Registration.module.css";
 
 function RegistrationForm() {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [registrationId, setRegistrationId] = useState("");
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -33,6 +35,23 @@ function RegistrationForm() {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  
+      useEffect(() => {
+        const savedId = localStorage.getItem("registrationId");
+       const savedName = localStorage.getItem("registrationName");
+      const savedEmail = localStorage.getItem("registrationEmail");
+
+      if (savedId) {
+       setRegistrationId(savedId);
+       setFormData((prev) => ({
+        ...prev,
+        fullName: savedName || "",
+        email: savedEmail || "",
+        }));
+      setFormSubmitted(true);
+      }
+     }, []);
 
   // Handle input changes
   const handleChange = (e) => {
@@ -70,72 +89,70 @@ function RegistrationForm() {
     }
 
     // Validate required fields
-    if (!formData.fullName || !formData.email || !formData.phone || 
-        !formData.country || !formData.state || !formData.city || 
-        !formData.registrationCategory) {
+    if (
+      !formData.fullName ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.country ||
+      !formData.state ||
+      !formData.city ||
+      !formData.registrationCategory
+    ) {
       setError("Please fill in all required fields.");
       setLoading(false);
       return;
     }
 
-    // --- 1. SEND TO NETLIFY FORMS (Always) ---
+    // --- SEND TO BACKEND ---
     try {
-      const netlifyData = new URLSearchParams();
-      netlifyData.append('form-name', 'registration-expon');
-      netlifyData.append('fullName', formData.fullName);
-      netlifyData.append('email', formData.email);
-      netlifyData.append('phone', formData.phone);
-      netlifyData.append('country', formData.country);
-      netlifyData.append('state', formData.state);
-      netlifyData.append('city', formData.city);
-      netlifyData.append('churchOrganisation', formData.churchOrganisation || 'N/A');
-      netlifyData.append('leadershipRole', formData.leadershipRole || 'N/A');
-      netlifyData.append('registrationCategory', formData.registrationCategory);
-      netlifyData.append('message', formData.message || 'N/A');
-      netlifyData.append('bot-field', '');
-
-      const response = await fetch("/", {
+      const response = await fetch("http://localhost:5000/api/registrations", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: netlifyData.toString(),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          country: formData.country,
+          state: formData.state,
+          city: formData.city,
+          churchOrganisation: formData.churchOrganisation || "N/A",
+          leadershipRole: formData.leadershipRole || "N/A",
+          registrationCategory: formData.registrationCategory,
+          message: formData.message || "N/A",
+        }),
       });
+
+      const data = await response.json();
+      console.log("Server response:", data);
 
       if (!response.ok) {
-        throw new Error("Netlify form submission failed");
+        throw new Error(data.message || "Registration failed.");
       }
 
-      console.log("✅ Sent to Netlify Forms");
-    } catch (netlifyErr) {
-      console.warn("⚠️ Netlify form submission failed:", netlifyErr);
-      // Don't stop — continue to show payment
+      console.log("✅ Registration saved to MongoDB:", data);
+
+      // Save registration ID for payment upload
+      localStorage.setItem("registrationId", data.registration._id);
+      localStorage.setItem("registrationName", data.registration.fullName);
+      localStorage.setItem("registrationEmail", data.registration.email);
+
+      setRegistrationId(data.registration._id);
+
+      // Show payment section
+      setFormSubmitted(true);
+      setError("");
+      scrollToPayment();
+
+    } catch (error) {
+      console.error("❌ Registration error:", error);
+      setError(
+        error.message || "Unable to submit registration. Please try again."
+      );
+    } finally {
+      setLoading(false);
     }
-
-    // --- 2. SEND TO BACKEND (When ready) ---
-    // Uncomment this section when your backend is live
-    /*
-    try {
-      const backendResponse = await fetch("http://localhost:5000/api/registrations", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      if (backendResponse.ok) {
-        console.log("✅ Sent to backend successfully");
-      } else {
-        console.warn("⚠️ Backend returned an error");
-      }
-    } catch (backendErr) {
-      console.warn("⚠️ Backend not available:", backendErr);
-      // Don't stop — still show payment
-    }
-    */
-
-    // --- 3. SHOW PAYMENT SECTION ---
-    setFormSubmitted(true);
-    setError("");
-    setLoading(false);
-    scrollToPayment();
   };
 
   // Scroll to payment section
@@ -213,7 +230,8 @@ function RegistrationForm() {
 
                 <div className={styles.paymentNote}>
                   <FaCheckCircle className={styles.paymentNoteIcon} />
-                  <p>After payment, send proof to our WhatsApp (08062854749) or Email (abuexpocon@gmail.com).</p>
+                  <p>After payment, upload your payment receipt below for verification.
+                     Our team will review your payment and confirm your registration.</p>
                 </div>
               </div>
 
@@ -247,7 +265,7 @@ function RegistrationForm() {
                 </div>
 
                 <a
-                  href="https://selar.co/exponential-conference-2026"
+                  href="https://selar.com/exponcon"
                   target="_blank"
                   rel="noreferrer"
                   className={styles.selarButton}
@@ -278,7 +296,7 @@ function RegistrationForm() {
                 </div>
 
                 <a
-                  href="https://wa.me/2348062854749?text=I%20want%20to%20register%20for%20Exponential%20Conference%202026"
+                  href="https://wa.link/orweqg"
                   target="_blank"
                   rel="noreferrer"
                   className={styles.whatsappButton}
@@ -287,6 +305,15 @@ function RegistrationForm() {
                 </a>
               </div>
             </div>
+
+
+          {/* RECEIPT UPLOAD */}
+         <ReceiptUpload
+          registrationId={registrationId}
+            onUploadSuccess={(data) => {
+            console.log("✅ Receipt uploaded:", data);
+            }}
+        />
 
             <div className={styles.paymentFooter}>
               <p className={styles.paymentFooterNote}>
@@ -307,7 +334,6 @@ function RegistrationForm() {
       data-aos="fade-up"
     >
       <div className={styles.registrationFormContainer}>
-
         {/* FORM INTRODUCTION */}
         <div className={styles.registrationFormHeader} data-aos="fade-up">
           <span className={styles.registrationFormLabel}>
@@ -325,20 +351,8 @@ function RegistrationForm() {
         {/* REGISTRATION FORM */}
         <form
           className={styles.registrationForm}
-          name="registration-expon"
-          method="POST"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
           onSubmit={handleSubmit}
         >
-          {/* Netlify Required Hidden Input */}
-          <input type="hidden" name="form-name" value="registration-expon" />
-
-          {/* Spam Honeypot (hidden from users) */}
-          <div style={{ display: 'none' }}>
-            <input type="text" name="bot-field" />
-          </div>
-
           {/* Error Message */}
           {error && (
             <div className={styles.formError}>
@@ -357,7 +371,6 @@ function RegistrationForm() {
           </div>
 
           <div className={styles.registrationFormGrid}>
-
             {/* FULL NAME */}
             <div className={styles.registrationFormGroup} data-aos="fade-up">
               <label htmlFor="fullName" className={styles.registrationFormLabelText}>
@@ -459,7 +472,6 @@ function RegistrationForm() {
                 required
               />
             </div>
-
           </div>
 
           {/* CHURCH / ORGANISATION */}
@@ -489,7 +501,6 @@ function RegistrationForm() {
           </div>
 
           <div className={styles.registrationFormGrid}>
-
             {/* REGISTRATION CATEGORY */}
             <div className={styles.registrationFormGroup} data-aos="fade-up">
               <label htmlFor="registrationCategory" className={styles.registrationFormLabelText}>
@@ -526,7 +537,6 @@ function RegistrationForm() {
                 onChange={handleChange}
               />
             </div>
-
           </div>
 
           {/* MESSAGE */}
@@ -573,9 +583,7 @@ function RegistrationForm() {
               <FaPaperPlane />
             </button>
           </div>
-
         </form>
-
       </div>
     </section>
   );

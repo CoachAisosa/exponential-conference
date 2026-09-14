@@ -1,5 +1,5 @@
 import RegistrationHero from "../components/registration/RegistrationHero";
-import RegistrationForm from "../components/registration/.RegistrationForm";
+import RegistrationForm from "../components/registration/RegistrationForm";
 
 import styles from './Registration.module.css';
 import HowToRegister from "../components/registration/HowToRegister";
