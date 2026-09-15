@@ -1,8 +1,13 @@
+import { useState, useEffect } from "react";
 import DaySchedule from "./DaySchedule";
 import styles from "../../pages/Programme.module.css";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+
 function ProgrammeSchedule() {
-  const schedule = [
+
+  // Default schedule (used while loading OR if API fails)
+  const defaultSchedule = [
     {
       day: 1,
       date: "9th December 2026",
@@ -109,6 +114,42 @@ function ProgrammeSchedule() {
       ],
     },
   ];
+
+  const [schedule, setSchedule] = useState(defaultSchedule);
+
+  useEffect(() => {
+    const fetchProgramme = async () => {
+      try {
+        const response = await fetch(`${API_URL}/programme`);
+        const data = await response.json();
+
+        console.log("Programme response:", data);
+
+        if (data.success && data.programmes.length > 0) {
+          // Normalize backend data to match frontend shape
+          const apiSchedule = data.programmes.map((item) => ({
+            day: item.day,
+            date: item.date,
+            sessions: item.sessions.map((s) => ({
+              time: s.time,
+              title: s.title,
+              description: s.description || "",
+              speaker: s.speaker || "",
+              venue: s.venue || "Main Auditorium",
+            })),
+          }));
+
+          setSchedule(apiSchedule);
+        }
+        // Otherwise keep default schedule
+      } catch (err) {
+        console.error("Programme fetch error:", err);
+        // Keep default schedule on error
+      }
+    };
+
+    fetchProgramme();
+  }, []);
 
   return (
     <section

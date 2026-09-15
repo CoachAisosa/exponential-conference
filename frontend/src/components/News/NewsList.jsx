@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import NewsCard from "./NewsCard";
 
 import styles from "../../pages/NewsArticle.module.css";
@@ -8,10 +9,12 @@ import newsForImg from "../../assets/images/IMG_0820.jpg";
 import newsFivImg from "../../assets/images/IMG_0679.jpg";
 // import newsSixImg from "../../assets/images/news.jpg";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 function NewsList() {
 
-  const news = [
+  // Default news (used while loading OR if API fails)
+  const defaultNews = [
     {
       id: 1,
       category: "Conference",
@@ -78,6 +81,40 @@ function NewsList() {
       image: newsForImg,
     },
   ];
+
+  const [news, setNews] = useState(defaultNews);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const response = await fetch(`${API_URL}/news`);
+        const data = await response.json();
+
+        console.log("News response:", data);
+
+        if (data.success && data.news.length > 0) {
+          // Normalize backend data to match frontend shape
+          const apiNews = data.news.map((item) => ({
+            id: item._id, // Map MongoDB _id → id
+            category: item.category,
+            country: item.country,
+            date: item.date,
+            title: item.title,
+            excerpt: item.excerpt,
+            image: item.image || newsForImg, // Fallback image
+          }));
+
+          setNews(apiNews);
+        }
+        // Otherwise keep default news
+      } catch (err) {
+        console.error("News fetch error:", err);
+        // Keep default news on error
+      }
+    };
+
+    fetchNews();
+  }, []);
 
   return (
     <section

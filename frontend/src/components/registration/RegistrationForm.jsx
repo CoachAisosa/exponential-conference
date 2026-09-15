@@ -17,6 +17,8 @@ import {
 import ReceiptUpload from "./ReceiptUpload";
 import styles from "../../pages/Registration.module.css";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+
 function RegistrationForm() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [registrationId, setRegistrationId] = useState("");
@@ -105,7 +107,7 @@ function RegistrationForm() {
 
     // --- SEND TO BACKEND ---
     try {
-      const response = await fetch("http://localhost:5000/api/registrations", {
+      const response = await fetch(`${API_URL}/registrations`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

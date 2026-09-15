@@ -2,6 +2,8 @@ import { useState } from "react";
 import { FaLock, FaUnlock, FaArrowRight, FaCheckCircle } from "react-icons/fa";
 import styles from "../../pages/LiveEvent.module.css";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+
 function LiveAccessGate({ onAccessGranted }) {
   const [accessCode, setAccessCode] = useState("");
   const [loading, setLoading] = useState(false);
@@ -22,7 +24,7 @@ function LiveAccessGate({ onAccessGranted }) {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/payments/verify-code",
+        `${API_URL}/payments/verify-code`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

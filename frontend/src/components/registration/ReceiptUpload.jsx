@@ -2,6 +2,8 @@ import { useState } from "react";
 import { FaUpload, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import styles from "../../pages/Registration.module.css";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
+
 function ReceiptUpload({ registrationId, onUploadSuccess }) {
   const [file, setFile] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState("bank-transfer");
@@ -52,7 +54,7 @@ function ReceiptUpload({ registrationId, onUploadSuccess }) {
       formData.append("paymentMethod", paymentMethod);
 
       const response = await fetch(
-        `http://localhost:5000/api/payments/upload-receipt/${registrationId}`,
+        `${API_URL}payments/upload-receipt/${registrationId}`,
         {
           method: "POST",
           body: formData,

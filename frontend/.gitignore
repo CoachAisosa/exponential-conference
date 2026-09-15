@@ -39,3 +39,4 @@ frontend/src/assets/videos/
 .env
 .env.local
 .env.*.local
+.env.production

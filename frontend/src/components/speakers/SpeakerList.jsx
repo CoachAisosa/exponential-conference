@@ -1,11 +1,16 @@
+import { useState, useEffect } from "react";
 import SpeakerCard from "./SpeakerCard";
 
 import styles from "../../pages/Speakers.module.css";
-import founderImage from "../../assets/images/founder.jpg"
-import speakersIcon from "../../assets/images/speaker icon.png"
+import founderImage from "../../assets/images/founder.jpg";
+import speakersIcon from "../../assets/images/speaker icon.png";
+
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 function SpeakerList() {
-  const speakers = [
+
+  // Default speakers (used while loading OR if API fails)
+  const defaultSpeakers = [
     {
       id: 1,
       name: "PROF. JULIUS OYENGBOWMAN IYARE",
@@ -55,6 +60,40 @@ function SpeakerList() {
       focus: "Session / Topic",
     },
   ];
+
+  const [speakers, setSpeakers] = useState(defaultSpeakers);
+
+  useEffect(() => {
+    const fetchSpeakers = async () => {
+      try {
+        const response = await fetch(`${API_URL}/speakers`);
+        const data = await response.json();
+
+        console.log("Speakers response:", data);
+
+        if (data.success && data.speakers.length > 0) {
+          // Normalize backend data to match frontend shape
+          const apiSpeakers = data.speakers.map((item) => ({
+            id: item._id, // Map MongoDB _id → id
+            name: item.name,
+            title: item.title,
+            role: item.role || "Conference Speaker",
+            image: item.image || speakersIcon, // Fallback image
+            bio: item.bio,
+            focus: item.focus || "Session / Topic",
+          }));
+
+          setSpeakers(apiSpeakers);
+        }
+        // Otherwise keep default speakers
+      } catch (err) {
+        console.error("Speakers fetch error:", err);
+        // Keep default speakers on error
+      }
+    };
+
+    fetchSpeakers();
+  }, []);
 
   return (
     <section

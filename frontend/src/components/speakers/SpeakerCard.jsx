@@ -4,8 +4,10 @@ import {
   FaQuoteLeft,
 } from "react-icons/fa";
 
-
 import styles from "../../pages/Speakers.module.css";
+
+const FALLBACK_IMAGE =
+  "https://via.placeholder.com/400x400/1a2a4a/ffffff?text=Speaker";
 
 function SpeakerCard({ speaker }) {
   return (
@@ -17,9 +19,12 @@ function SpeakerCard({ speaker }) {
       <div className={styles.speakerCardImageWrapper}>
 
         <img
-          src={speaker.image}
+          src={speaker.image || FALLBACK_IMAGE}
           alt={speaker.name}
           className={styles.speakerCardImage}
+          onError={(e) => {
+            e.target.src = FALLBACK_IMAGE;
+          }}
         />
 
         <div className={styles.speakerCardImageOverlay}></div>
