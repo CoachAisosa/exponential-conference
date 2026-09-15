@@ -1,30 +1,36 @@
-const brevo = require("@getbrevo/brevo");
-
 const sendEmail = async ({ to, subject, text, html }) => {
-  try {
-    // Correct way to instantiate the API client
-    const apiInstance = new brevo.TransactionalEmailsApi();
-    
-    // Correct way to set the API key
-    apiInstance.setApiKey(
-      brevo.TransactionalEmailsApiApiKeys.apiKey,
-      process.env.BREVO_API_KEY
-    );
+  const url = "https://api.brevo.com/v3/smtp/email";
 
-    const sendSmtpEmail = new brevo.SendSmtpEmail();
-    sendSmtpEmail.subject = subject;
-    sendSmtpEmail.htmlContent = html || `<p>${text || ""}</p>`;
-    sendSmtpEmail.textContent = text || "";
-    sendSmtpEmail.sender = {
+  const payload = {
+    sender: {
       name: "Exponential Conference",
       email: process.env.EMAIL_USER,
-    };
-    sendSmtpEmail.to = [{ email: to }];
+    },
+    to: [{ email: to }],
+    subject: subject,
+    htmlContent: html || `<p>${text || ""}</p>`,
+    textContent: text || "",
+  };
 
-    await apiInstance.sendTransacEmail(sendSmtpEmail);
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "accept": "application/json",
+        "api-key": process.env.BREVO_API_KEY,
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || "Failed to send email via Brevo");
+    }
+
     console.log("✅ Email sent to:", to);
   } catch (error) {
-    console.error("❌ Brevo API error:", error.body || error.message);
+    console.error("❌ Brevo API Error:", error.message);
     throw error;
   }
 };
