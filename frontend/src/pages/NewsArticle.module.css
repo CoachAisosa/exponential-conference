@@ -584,6 +584,190 @@
 }
 
 /* ============================================================
+   NEWS CARD — INTERACTIVE ELEMENTS
+   ============================================================ */
+
+.interactionButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: transparent;
+  border: none;
+  color: #7a8aaa;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.interactionButton:hover {
+  color: #e87a2a;
+  background: rgba(232, 122, 42, 0.08);
+}
+
+.interactionButtonActive {
+  color: #e87a2a;
+}
+
+.interactionButtonActive .interactionIcon {
+  color: #e87a2a;
+  animation: heartBeat 0.4s ease;
+}
+
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+}
+
+/* ============================================================
+   COMMENT SECTION
+   ============================================================ */
+
+.commentSection {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eef0f3;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.commentList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.commentList::-webkit-scrollbar {
+  width: 4px;
+}
+
+.commentList::-webkit-scrollbar-thumb {
+  background: #eef0f3;
+  border-radius: 4px;
+}
+
+.commentItem {
+  background: #f8f9fa;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border-left: 3px solid #e87a2a;
+}
+
+.commentHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.35rem;
+}
+
+.commentName {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #1a2a4a;
+}
+
+.commentDate {
+  font-size: 0.7rem;
+  color: #b0b8c8;
+}
+
+.commentText {
+  font-size: 0.85rem;
+  color: #4a5a7a;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.commentEmpty {
+  font-size: 0.85rem;
+  color: #7a8aaa;
+  text-align: center;
+  padding: 1rem;
+  margin: 0 0 1rem 0;
+  font-style: italic;
+}
+
+.commentForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.commentInput,
+.commentTextarea {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  border: 2px solid #eef0f3;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-family: inherit;
+  color: #1a2a4a;
+  background: #ffffff;
+  transition: all 0.3s ease;
+  resize: vertical;
+}
+
+.commentInput:focus,
+.commentTextarea:focus {
+  outline: none;
+  border-color: #e87a2a;
+  box-shadow: 0 0 0 3px rgba(232, 122, 42, 0.1);
+}
+
+.commentInput::placeholder,
+.commentTextarea::placeholder {
+  color: #b0b8c8;
+}
+
+.commentError {
+  font-size: 0.8rem;
+  color: #dc3545;
+  margin: 0;
+}
+
+.commentSubmit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  padding: 0.65rem 1.5rem;
+  border-radius: 50px;
+  border: 2px solid #e87a2a;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-family: inherit;
+  align-self: flex-start;
+}
+
+.commentSubmit:hover:not(:disabled) {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(232, 122, 42, 0.2);
+}
+
+.commentSubmit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ============================================================
    7. NEWS CTA SECTION
    ============================================================ */
 

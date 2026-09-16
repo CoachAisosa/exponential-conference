@@ -54,7 +54,7 @@ function ReceiptUpload({ registrationId, onUploadSuccess }) {
       formData.append("paymentMethod", paymentMethod);
 
       const response = await fetch(
-        `${API_URL}payments/upload-receipt/${registrationId}`,
+        `${API_URL}/payments/upload-receipt/${registrationId}`,
         {
           method: "POST",
           body: formData,
