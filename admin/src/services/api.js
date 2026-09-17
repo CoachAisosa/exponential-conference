@@ -28,6 +28,12 @@ api.interceptors.response.use(
   }
 );
 
+// Upload image
+export const uploadImage = (formData) =>
+  api.post("/upload", formData, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+
 // Auth
 export const loginAdmin = (email, password) =>
   api.post("/auth/login", { email, password });

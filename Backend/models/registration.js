@@ -63,70 +63,70 @@ const registrationSchema = new mongoose.Schema(
       default: "N/A",
     },
 
+    // ============================================================
+    // PAYMENT FIELDS
+    // ============================================================
+    paymentStatus: {
+      type: String,
+      enum: ["pending", "submitted", "approved", "rejected"],
+      default: "pending",
+    },
 
-paymentStatus: {
-  type: String,
-  enum: ["pending", "submitted", "approved", "rejected"],
-  default: "pending",
-},
+    paymentMethod: {
+      type: String,
+      enum: ["bank-transfer", "selar", "whatsapp", "none"],
+      default: "none",
+    },
 
-paymentMethod: {
-  type: String,
-  enum: ["bank-transfer", "selar", "whatsapp", "none"],
-  default: "none",
-},
+    receiptUploadedAt: {
+      type: Date,
+    },
 
-receiptUrl: {
-  type: String,
-  default: "",
-},
+    // ============================================================
+    // RECEIPT STORAGE (Base64)
+    // ============================================================
+    receiptData: {
+      type: String,      // Base64 encoded file
+      default: "",
+    },
 
-receiptUploadedAt: {
-  type: Date,
-},
+    receiptMimeType: {
+      type: String,      // e.g., "image/jpeg", "application/pdf"
+      default: "",
+    },
 
-accessCode: {
-  type: String,
-  default: "",
-  unique: false, 
-},
+    receiptFileName: {
+      type: String,      // Original filename
+      default: "",
+    },
 
-accessCodeGeneratedAt: {
-  type: Date,
-},
+    // Legacy field — kept for backward compatibility
+    receiptUrl: {
+      type: String,
+      default: "",
+    },
 
-accessCodeUsed: {
-  type: Boolean,
-  default: false,
-},
+    // ============================================================
+    // ACCESS CODE FIELDS
+    // ============================================================
+    accessCode: {
+      type: String,
+      default: "",
+    },
 
-adminNote: {
-  type: String,
-  default: "",
-},
+    accessCodeGeneratedAt: {
+      type: Date,
+    },
 
-receiptData: {
-  type: String,      // Base64 encoded file
-  default: "",
-},
+    accessCodeUsed: {
+      type: Boolean,
+      default: false,
+    },
 
-receiptMimeType: {
-  type: String,      // e.g., "image/jpeg"
-  default: "",
-},
-
-receiptFileName: {
-  type: String,      // Original filename
-  default: "",
-},
-
-// Keep the URL field for backward compatibility
-receiptUrl: {
-  type: String,
-  default: "",
-},
-
-
+    adminNote: {
+      type: String,
+      default: "",
+    },
   },
   {
     timestamps: true,

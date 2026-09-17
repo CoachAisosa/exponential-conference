@@ -1,10 +1,8 @@
 const multer = require("multer");
 const path = require("path");
 
-// ✅ Memory storage — file kept in RAM temporarily
-const storage = multer.memoryStorage();
+const storage = multer.memoryStorage(); 
 
-// File filter
 const fileFilter = (req, file, cb) => {
   const allowedTypes = /jpeg|jpg|png|pdf/;
   const extname = allowedTypes.test(

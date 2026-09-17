@@ -1,0 +1,483 @@
+/* ============================================================
+   NEWS MANAGEMENT PAGE
+   ============================================================ */
+
+.newsPage {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pageTitle {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  margin: 0 0 0.35rem 0;
+}
+
+.pageSubtitle {
+  font-size: 0.95rem;
+  color: #7a8aaa;
+  margin: 0;
+}
+
+.addButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  border: 2px solid #e87a2a;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.addButton:hover {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   NEWS GRID
+   ============================================================ */
+
+.newsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.newsCard {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(26, 42, 74, 0.04);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.newsCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(26, 42, 74, 0.1);
+}
+
+.newsCardImageWrapper {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+  background: #f8f9fa;
+}
+
+.newsCardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.newsCardBadge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: rgba(232, 122, 42, 0.95);
+  color: #ffffff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 0.3rem 0.75rem;
+  border-radius: 50px;
+  text-transform: uppercase;
+}
+
+.newsCardBadgeFeatured {
+  background: #28a745;
+}
+
+.newsCardContent {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.newsCardTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.newsCardExcerpt {
+  font-size: 0.85rem;
+  color: #4a5a7a;
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+.newsCardMeta {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eef0f3;
+}
+
+.newsCardMetaItem {
+  font-size: 0.7rem;
+  color: #7a8aaa;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.newsCardActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.newsCardButton {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.newsCardButtonEdit {
+  background: #ffffff;
+  border-color: #eef0f3;
+  color: #4a5a7a;
+}
+
+.newsCardButtonEdit:hover {
+  border-color: #e87a2a;
+  color: #e87a2a;
+}
+
+.newsCardButtonDelete {
+  background: transparent;
+  color: #dc3545;
+  border-color: #f8d7da;
+}
+
+.newsCardButtonDelete:hover {
+  background: #dc3545;
+  color: #ffffff;
+  border-color: #dc3545;
+}
+
+/* ============================================================
+   MODAL FORM
+   ============================================================ */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 42, 74, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease;
+  overflow-y: auto;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: scaleIn 0.2s ease;
+  margin: auto;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eef0f3;
+}
+
+.modalTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin: 0;
+}
+
+.modalClose {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: #7a8aaa;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.modalClose:hover {
+  background: #f8f9fa;
+  color: #dc3545;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.formLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #1a2a4a;
+}
+
+.formInput,
+.formSelect,
+.formTextarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #eef0f3;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: #1a2a4a;
+  background: #fafbfc;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.formInput:focus,
+.formSelect:focus,
+.formTextarea:focus {
+  border-color: #e87a2a;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(232, 122, 42, 0.1);
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.formCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.formCheckbox input {
+  width: 18px;
+  height: 18px;
+  accent-color: #e87a2a;
+  cursor: pointer;
+}
+
+.formCheckbox span {
+  font-size: 0.85rem;
+  color: #4a5a7a;
+}
+
+.modalActions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eef0f3;
+}
+
+.modalButton {
+  padding: 0.75rem 1.75rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: inherit;
+  border: 2px solid transparent;
+}
+
+.modalButtonCancel {
+  background: transparent;
+  border-color: #eef0f3;
+  color: #4a5a7a;
+}
+
+.modalButtonCancel:hover {
+  border-color: #b0b8c8;
+}
+
+.modalButtonSave {
+  background: #e87a2a;
+  border-color: #e87a2a;
+  color: #ffffff;
+}
+
+.modalButtonSave:hover:not(:disabled) {
+  background: transparent;
+  color: #e87a2a;
+}
+
+.modalButtonSave:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.modalButtonDelete {
+  background: #dc3545;
+  border-color: #dc3545;
+  color: #ffffff;
+}
+
+.modalButtonDelete:hover:not(:disabled) {
+  background: #b02a37;
+  border-color: #b02a37;
+}
+
+/* ============================================================
+   LOADING / EMPTY
+   ============================================================ */
+
+.loadingState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  color: #7a8aaa;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #7a8aaa;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(26, 42, 74, 0.04);
+}
+
+.emptyStateIcon {
+  font-size: 3rem;
+  color: #eef0f3;
+  margin-bottom: 1rem;
+}
+
+.emptyState h3 {
+  font-size: 1.1rem;
+  color: #1a2a4a;
+  margin: 0 0 0.5rem 0;
+}
+
+.emptyState p {
+  font-size: 0.9rem;
+  color: #7a8aaa;
+  margin: 0 0 1.5rem 0;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .newsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .pageHeader {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .addButton {
+    justify-content: center;
+  }
+
+  .newsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .pageTitle {
+    font-size: 1.5rem;
+  }
+}

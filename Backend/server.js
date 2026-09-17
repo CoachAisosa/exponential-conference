@@ -31,6 +31,7 @@ app.use("/api/programme", require("./routes/programmeRoutes"));
 app.use("/api/conference", require("./routes/conferenceRoutes"));
 app.use("/api/news-interactions", require("./routes/newsInteractionRoutes"));
 app.use("/api/payments", require("./routes/paymentRoutes"));
+app.use("/api/upload", require("./routes/uploadRoutes"));
 
 // Health check
 app.get("/", (req, res) => {

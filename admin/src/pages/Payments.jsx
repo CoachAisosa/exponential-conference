@@ -20,11 +20,6 @@ import {
 } from "../services/api";
 import styles from "../styles/Payments.module.css";
 
-const API_BASE = (import.meta.env.VITE_API_URL || "http://localhost:5000/api").replace(
-  "/api",
-  ""
-);
-
 function Payments() {
   const [payments, setPayments] = useState([]);
   const [allCounts, setAllCounts] = useState({
@@ -36,7 +31,7 @@ function Payments() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  const [processing, setProcessing] = useState(""); // ID being processed
+  const [processing, setProcessing] = useState("");
   const [rejectTarget, setRejectTarget] = useState(null);
   const [rejectReason, setRejectReason] = useState("");
   const [rejecting, setRejecting] = useState(false);
@@ -103,7 +98,6 @@ function Payments() {
         `✅ Approved! Access code: ${response.data.accessCode}`
       );
 
-      // Reload after short delay
       setTimeout(() => {
         setSuccessMessage("");
         loadPayments(activeTab);
@@ -164,37 +158,44 @@ function Payments() {
   };
 
   // ============================================================
-  // view recipt function
+  // View receipt (Base64 storage via backend endpoint)
   // ============================================================
-
   const viewReceipt = async (registrationId) => {
-  try {
-    const token = localStorage.getItem("adminToken");
+    try {
+      const token = localStorage.getItem("adminToken");
 
-    // Fetch image as blob
-    const response = await fetch(
-      `${import.meta.env.VITE_API_URL}/payments/receipt/${registrationId}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/payments/receipt/${registrationId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Receipt not found");
       }
-    );
 
-    if (!response.ok) {
-      throw new Error("Receipt not found");
+      // Handle JSON error responses (backend might send JSON on 404/500)
+      const contentType = response.headers.get("content-type") || "";
+      if (contentType.includes("application/json")) {
+        const json = await response.json();
+        throw new Error(json.message || "Receipt not found");
+      }
+
+      // Get image as blob and open in new tab
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      window.open(url, "_blank");
+
+      // Clean up the object URL after some time
+      setTimeout(() => URL.revokeObjectURL(url), 60000);
+    } catch (err) {
+      console.error("View receipt error:", err);
+      alert("Could not load receipt. It may not be available.");
     }
-
-    const blob = await response.blob();
-    const url = URL.createObjectURL(blob);
-
-    // Open in new tab
-    window.open(url, "_blank");
-  } catch (err) {
-    console.error("View receipt error:", err);
-    alert("Could not load receipt. It may have been removed.");
-  }
-};
+  };
 
   return (
     <div className={styles.paymentsPage}>
@@ -386,14 +387,14 @@ function Payments() {
               {/* Actions */}
               <div className={styles.paymentCardActions}>
                 {(payment.receiptData || payment.receiptUrl) && (
-                    <button
-                      onClick={() => viewReceipt(payment._id)}
-                      className={`${styles.actionButton} ${styles.actionView}`}
-                    >
-                      <FaFileAlt /> View Receipt <FaExternalLinkAlt />
+                  <button
+                    onClick={() => viewReceipt(payment._id)}
+                    className={`${styles.actionButton} ${styles.actionView}`}
+                  >
+                    <FaFileAlt /> View Receipt <FaExternalLinkAlt />
                   </button>
                 )}
-                
+
                 {payment.paymentStatus === "submitted" && (
                   <>
                     <button

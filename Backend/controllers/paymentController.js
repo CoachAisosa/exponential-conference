@@ -3,7 +3,7 @@ const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
 
 // ============================================================
-// @desc    Upload payment receipt
+// @desc    Upload payment receipt (Base64 → MongoDB)
 // @route   POST /api/payments/upload-receipt/:registrationId
 // @access  Public
 // ============================================================
@@ -298,9 +298,9 @@ const verifyAccessCode = async (req, res) => {
 };
 
 // ============================================================
-// @desc    Get all payments with status
+// @desc    Get all payments with status (Admin)
 // @route   GET /api/payments/all
-// @access  Private (Admin)
+// @access  Private
 // ============================================================
 const getAllPayments = async (req, res) => {
   try {
@@ -310,13 +310,13 @@ const getAllPayments = async (req, res) => {
     if (status) {
       filter.paymentStatus = status;
     } else {
-      // Default: show non-pending (submitted, approved, rejected)
       filter.paymentStatus = { $in: ["submitted", "approved", "rejected"] };
     }
 
-    const payments = await Registration.find(filter).sort({
-      receiptUploadedAt: -1,
-    });
+    // Exclude receiptData from listing (it's heavy — only fetch on demand)
+    const payments = await Registration.find(filter)
+      .select("-receiptData")
+      .sort({ receiptUploadedAt: -1 });
 
     res.status(200).json({
       success: true,
@@ -333,9 +333,9 @@ const getAllPayments = async (req, res) => {
 };
 
 // ============================================================
-// @desc    Get receipt image for a registration
+// @desc    Get receipt image for a registration (Admin)
 // @route   GET /api/payments/receipt/:registrationId
-// @access  Private (Admin)
+// @access  Private
 // ============================================================
 const getReceiptImage = async (req, res) => {
   try {
@@ -367,7 +367,6 @@ const getReceiptImage = async (req, res) => {
     });
   }
 };
-
 
 module.exports = {
   uploadReceipt,
