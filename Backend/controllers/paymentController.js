@@ -28,8 +28,14 @@ const uploadReceipt = async (req, res) => {
       });
     }
 
-    // Save receipt info
-    registration.receiptUrl = `/uploads/receipts/${req.file.filename}`;
+    // ✅ Convert file to Base64
+    const base64Data = req.file.buffer.toString("base64");
+
+    // Save to MongoDB
+    registration.receiptData = base64Data;
+    registration.receiptMimeType = req.file.mimetype;
+    registration.receiptFileName = req.file.originalname;
+    registration.receiptUrl = ""; // No file URL anymore
     registration.receiptUploadedAt = new Date();
     registration.paymentMethod = paymentMethod || "bank-transfer";
     registration.paymentStatus = "submitted";
@@ -54,7 +60,6 @@ const uploadReceipt = async (req, res) => {
               <p><strong>Phone:</strong> ${registration.phone}</p>
               <p><strong>Category:</strong> ${registration.registrationCategory}</p>
               <p><strong>Payment Method:</strong> ${paymentMethod}</p>
-              <p><strong>Status:</strong> Awaiting Approval</p>
               <p style="margin-top: 20px;">Login to your admin dashboard to approve this payment.</p>
             </div>
           </div>
@@ -67,7 +72,10 @@ const uploadReceipt = async (req, res) => {
     res.status(200).json({
       success: true,
       message: "Receipt uploaded successfully. Awaiting admin approval.",
-      registration,
+      registration: {
+        ...registration.toObject(),
+        receiptData: undefined, // Don't send Base64 back
+      },
     });
   } catch (error) {
     console.error("Upload receipt error:", error);
@@ -324,6 +332,42 @@ const getAllPayments = async (req, res) => {
   }
 };
 
+// ============================================================
+// @desc    Get receipt image for a registration
+// @route   GET /api/payments/receipt/:registrationId
+// @access  Private (Admin)
+// ============================================================
+const getReceiptImage = async (req, res) => {
+  try {
+    const { registrationId } = req.params;
+
+    const registration = await Registration.findById(registrationId);
+
+    if (!registration || !registration.receiptData) {
+      return res.status(404).json({
+        success: false,
+        message: "Receipt not found.",
+      });
+    }
+
+    // Convert Base64 back to buffer
+    const imageBuffer = Buffer.from(registration.receiptData, "base64");
+
+    // Set content type
+    res.set("Content-Type", registration.receiptMimeType || "image/jpeg");
+    res.set("Content-Disposition", "inline");
+
+    // Send image
+    res.send(imageBuffer);
+  } catch (error) {
+    console.error("Get receipt error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Server error.",
+    });
+  }
+};
+
 
 module.exports = {
   uploadReceipt,
@@ -331,4 +375,5 @@ module.exports = {
   rejectPayment,
   verifyAccessCode,
   getAllPayments,
+  getReceiptImage,
 };

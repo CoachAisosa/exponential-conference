@@ -105,6 +105,28 @@ adminNote: {
   default: "",
 },
 
+receiptData: {
+  type: String,      // Base64 encoded file
+  default: "",
+},
+
+receiptMimeType: {
+  type: String,      // e.g., "image/jpeg"
+  default: "",
+},
+
+receiptFileName: {
+  type: String,      // Original filename
+  default: "",
+},
+
+// Keep the URL field for backward compatibility
+receiptUrl: {
+  type: String,
+  default: "",
+},
+
+
   },
   {
     timestamps: true,

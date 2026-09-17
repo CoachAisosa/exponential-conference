@@ -6,7 +6,8 @@ const {
   approvePayment,
   rejectPayment,
   verifyAccessCode,
-  getAllPayments
+  getAllPayments,
+  getReceiptImage
 } = require("../controllers/paymentController");
 const { protect, adminOnly } = require("../middleware/authMiddleware");
 
@@ -16,6 +17,7 @@ router.post("/verify-code", verifyAccessCode);
 
 // Admin routes
 router.get("/all", protect, adminOnly, getAllPayments);
+router.get("/receipt/:registrationId", protect, adminOnly, getReceiptImage); 
 router.post("/approve/:registrationId", protect, adminOnly, approvePayment);
 router.post("/reject/:registrationId", protect, adminOnly, rejectPayment);
 

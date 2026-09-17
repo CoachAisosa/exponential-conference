@@ -1,0 +1,316 @@
+/* ============================================================
+   DASHBOARD PAGE
+   ============================================================ */
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.dashboardHeader {
+  margin-bottom: 0.5rem;
+}
+
+.dashboardTitle {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  margin-bottom: 0.35rem;
+}
+
+.dashboardSubtitle {
+  font-size: 0.95rem;
+  color: #7a8aaa;
+  margin: 0;
+}
+
+/* ============================================================
+   STATS GRID
+   ============================================================ */
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+/* ============================================================
+   STAT CARD
+   ============================================================ */
+
+.statCard {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 10px rgba(26, 42, 74, 0.04);
+  border-left: 4px solid #1a2a4a;
+  transition: all 0.3s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(26, 42, 74, 0.08);
+}
+
+.statCardnavy {
+  border-left-color: #1a2a4a;
+}
+
+.statCardorange {
+  border-left-color: #e87a2a;
+}
+
+.statCardgreen {
+  border-left-color: #28a745;
+}
+
+.statCardred {
+  border-left-color: #dc3545;
+}
+
+.statCardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.statCardnavy .statCardIcon {
+  background: rgba(26, 42, 74, 0.08);
+  color: #1a2a4a;
+}
+
+.statCardorange .statCardIcon {
+  background: rgba(232, 122, 42, 0.1);
+  color: #e87a2a;
+}
+
+.statCardgreen .statCardIcon {
+  background: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+}
+
+.statCardred .statCardIcon {
+  background: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+}
+
+.statCardContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.statCardLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #7a8aaa;
+  margin: 0 0 0.25rem 0;
+}
+
+.statCardValue {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.statCardSubtitle {
+  font-size: 0.75rem;
+  color: #b0b8c8;
+  margin: 0.25rem 0 0 0;
+}
+
+/* ============================================================
+   DASHBOARD GRID (2 columns)
+   ============================================================ */
+
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.dashboardPanel {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.75rem;
+  box-shadow: 0 2px 10px rgba(26, 42, 74, 0.04);
+}
+
+.dashboardPanelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eef0f3;
+}
+
+.dashboardPanelTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin: 0;
+}
+
+.dashboardPanelLink {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #e87a2a;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.dashboardPanelLink:hover {
+  color: #1a2a4a;
+}
+
+/* ============================================================
+   CATEGORY LIST
+   ============================================================ */
+
+.categoryList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.categoryItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 3px solid #e87a2a;
+}
+
+.categoryItemLabel {
+  font-size: 0.9rem;
+  color: #4a5a7a;
+  font-weight: 500;
+}
+
+.categoryItemValue {
+  font-size: 1rem;
+  color: #1a2a4a;
+  font-weight: 700;
+}
+
+/* ============================================================
+   RECENT LIST
+   ============================================================ */
+
+.recentList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.recentItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.recentItem:hover {
+  background: #f8f9fa;
+}
+
+.recentItemInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.recentItemName {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1a2a4a;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.recentItemEmail {
+  font-size: 0.75rem;
+  color: #7a8aaa;
+  margin: 0.15rem 0 0 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.recentItemBadge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 0.3rem 0.7rem;
+  border-radius: 50px;
+  background: rgba(232, 122, 42, 0.1);
+  color: #e87a2a;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   LOADING / EMPTY
+   ============================================================ */
+
+.dashboardLoading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: #7a8aaa;
+  font-size: 1rem;
+}
+
+.dashboardEmpty {
+  text-align: center;
+  padding: 2rem;
+  color: #7a8aaa;
+  font-size: 0.9rem;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboardGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboardTitle {
+    font-size: 1.5rem;
+  }
+
+  .statCardValue {
+    font-size: 1.5rem;
+  }
+}
