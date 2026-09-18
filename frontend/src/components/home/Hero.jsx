@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from '../../pages/Home.module.css';
 import { FaCalendarAlt, FaMapMarkerAlt, FaLocationArrow, FaArrowDown } from 'react-icons/fa';
-import conferenceFlyer from '../../assets/images/main flyer 1.jpg';
+import conferenceFlyer from '../../assets/images/main-flyer1.jpg';
 
 function Hero() {
   return (
