@@ -117,7 +117,9 @@ const approvePayment = async (req, res) => {
 
     await registration.save();
 
-    // Send access code to attendee
+    // ============================================================
+    // 1. Send access code to ATTENDEE
+    // ============================================================
     try {
       await sendEmail({
         to: registration.email,
@@ -163,11 +165,52 @@ const approvePayment = async (req, res) => {
           </div>
         `,
       });
-      console.log("✅ Access code email sent");
+      console.log("✅ Access code email sent to attendee");
     } catch (emailError) {
       console.error("Access code email error:", emailError.message);
     }
 
+    // ============================================================
+    // 2. Also notify ADMIN
+    // ============================================================
+    try {
+      await sendEmail({
+        to: process.env.EMAIL_TO,
+        subject: `✅ Payment Approved: ${registration.fullName} — Code: ${accessCode}`,
+        text: `Payment approved for ${registration.fullName}. Access code: ${accessCode}`,
+        html: `
+          <div style="font-family: Arial; max-width: 600px; margin: 0 auto;">
+            <div style="background: #1a2a4a; color: white; padding: 20px; text-align: center;">
+              <h1 style="margin: 0;">✅ Payment Approved</h1>
+              <p style="color: #e87a2a; margin: 5px 0 0 0;">Exponential Conference 2026</p>
+            </div>
+            <div style="padding: 25px; background: #f8f9fa;">
+              <p><strong>Attendee:</strong> ${registration.fullName}</p>
+              <p><strong>Email:</strong> ${registration.email}</p>
+              <p><strong>Phone:</strong> ${registration.phone}</p>
+              <p><strong>Category:</strong> ${registration.registrationCategory}</p>
+              
+              <div style="background: #1a2a4a; padding: 20px; border-radius: 8px; text-align: center; margin: 20px 0;">
+                <p style="margin: 0; color: rgba(255,255,255,0.7); font-size: 12px;">ACCESS CODE SENT</p>
+                <h2 style="color: #e87a2a; margin: 8px 0; letter-spacing: 2px;">${accessCode}</h2>
+              </div>
+
+              <p style="color: #7a8aaa; font-size: 12px;">
+                The attendee has received this code via email. 
+                They can now access the live stream.
+              </p>
+            </div>
+          </div>
+        `,
+      });
+      console.log("✅ Admin notification sent");
+    } catch (emailError) {
+      console.error("Admin email error:", emailError.message);
+    }
+
+    // ============================================================
+    // 3. Return success response
+    // ============================================================
     res.status(200).json({
       success: true,
       message: "Payment approved. Access code sent to attendee.",

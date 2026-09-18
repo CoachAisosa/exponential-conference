@@ -14,7 +14,7 @@ import styles from "../styles/Dashboard.module.css";
 function Dashboard() {
   const [stats, setStats] = useState(null);
   const [recent, setRecent] = useState([]);
-  const [pendingPayments, setPendingPayments] = useState(0);
+  // const [pendingPayments, setPendingPayments] = useState(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -30,7 +30,7 @@ function Dashboard() {
         const [statsRes, recentRes, paymentsRes] = await Promise.all([
           getRegistrationStats(),
           getRegistrations({ limit: 5 }),
-          getAllPayments("submitted"),
+          // getAllPayments("submitted"),
         ]);
 
         setStats(statsRes.data.stats);
@@ -39,7 +39,7 @@ function Dashboard() {
         const recentList = recentRes.data.registrations.slice(0, 5);
         setRecent(recentList);
 
-        setPendingPayments(paymentsRes.data.count || 0);
+        // setPendingPayments(paymentsRes.data.count || 0);
       } catch (err) {
         console.error("Dashboard error:", err);
         setError("Failed to load dashboard data.");
@@ -93,18 +93,14 @@ function Dashboard() {
         <StatCard
           icon={<FaClock />}
           label="Pending Payments"
-          value={pendingPayments}
+          value={stats?.pending || 0}
           color="orange"
           subtitle="Awaiting approval"
         />
         <StatCard
           icon={<FaCheckCircle />}
           label="Approved Payments"
-          value={
-            stats?.total && pendingPayments
-              ? stats.total - pendingPayments
-              : 0
-          }
+          value={stats?.approved || 0}
           color="green"
           subtitle="Confirmed"
         />

@@ -242,11 +242,26 @@ const getRegistrationStats = async (req, res) => {
       createdAt: { $gte: sevenDaysAgo },
     });
 
+
+    // ✅ NEW: Payment status counts
+    const approved = await Registration.countDocuments({
+      paymentStatus: "approved",
+    });
+    const pending = await Registration.countDocuments({
+      paymentStatus: "submitted",
+    });
+    const rejected = await Registration.countDocuments({
+      paymentStatus: "rejected",
+    });
+
     res.status(200).json({
       success: true,
       stats: {
         total,
         recent,
+        approved,     
+        pending,      
+        rejected,     
         categories: {
           individual,
           churchGroup,

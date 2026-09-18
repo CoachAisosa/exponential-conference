@@ -6,12 +6,12 @@ import {
   FaCheck,
   FaTimes,
   FaFileAlt,
-  FaExternalLinkAlt,
   FaCopy,
   FaInbox,
   FaClock,
   FaCheckCircle,
   FaExclamationTriangle,
+  FaDownload,
 } from "react-icons/fa";
 import {
   getAllPayments,
@@ -177,23 +177,70 @@ function Payments() {
         throw new Error("Receipt not found");
       }
 
-      // Handle JSON error responses (backend might send JSON on 404/500)
       const contentType = response.headers.get("content-type") || "";
       if (contentType.includes("application/json")) {
         const json = await response.json();
         throw new Error(json.message || "Receipt not found");
       }
 
-      // Get image as blob and open in new tab
       const blob = await response.blob();
       const url = URL.createObjectURL(blob);
       window.open(url, "_blank");
 
-      // Clean up the object URL after some time
       setTimeout(() => URL.revokeObjectURL(url), 60000);
     } catch (err) {
       console.error("View receipt error:", err);
       alert("Could not load receipt. It may not be available.");
+    }
+  };
+
+  // ============================================================
+  // Download receipt as file
+  // ============================================================
+  const downloadReceipt = async (registrationId, fileName) => {
+    try {
+      const token = localStorage.getItem("adminToken");
+
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/payments/receipt/${registrationId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Receipt not found");
+      }
+
+      const contentType = response.headers.get("content-type") || "";
+      if (contentType.includes("application/json")) {
+        const json = await response.json();
+        throw new Error(json.message || "Receipt not found");
+      }
+
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+
+      // Determine extension from mime type
+      let extension = "jpg";
+      if (contentType.includes("png")) extension = "png";
+      else if (contentType.includes("pdf")) extension = "pdf";
+      else if (contentType.includes("jpeg") || contentType.includes("jpg"))
+        extension = "jpg";
+
+      link.href = url;
+      link.download = fileName || `receipt-${registrationId}.${extension}`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch (err) {
+      console.error("Download receipt error:", err);
+      alert("Could not download receipt. It may not be available.");
     }
   };
 
@@ -386,13 +433,29 @@ function Payments() {
 
               {/* Actions */}
               <div className={styles.paymentCardActions}>
-                {(payment.receiptData || payment.receiptUrl) && (
-                  <button
-                    onClick={() => viewReceipt(payment._id)}
-                    className={`${styles.actionButton} ${styles.actionView}`}
-                  >
-                    <FaFileAlt /> View Receipt <FaExternalLinkAlt />
-                  </button>
+                {(payment.receiptUploadedAt ||
+                  payment.receiptData ||
+                  payment.receiptUrl) && (
+                  <>
+                    <button
+                      onClick={() => viewReceipt(payment._id)}
+                      className={`${styles.actionButton} ${styles.actionView}`}
+                    >
+                      <FaFileAlt /> View Receipt
+                    </button>
+
+                    <button
+                      onClick={() =>
+                        downloadReceipt(
+                          payment._id,
+                          `receipt-${payment.fullName?.replace(/\s+/g, "-")}.jpg`
+                        )
+                      }
+                      className={`${styles.actionButton} ${styles.actionDownload}`}
+                    >
+                      <FaDownload /> Download
+                    </button>
+                  </>
                 )}
 
                 {payment.paymentStatus === "submitted" && (

@@ -353,6 +353,17 @@
   border-color: #1a2a4a;
 }
 
+.actionDownload {
+  background: #1a2a4a;
+  color: #ffffff;
+  border-color: #1a2a4a;
+}
+
+.actionDownload:hover:not(:disabled) {
+  background: transparent;
+  color: #1a2a4a;
+}
+
 .actionApprove {
   background: #28a745;
   color: #ffffff;
