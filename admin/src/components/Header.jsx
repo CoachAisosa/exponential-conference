@@ -1,13 +1,22 @@
-import { FaBell, FaUserCircle } from "react-icons/fa";
+import { FaBell, FaUserCircle, FaBars } from "react-icons/fa";
 import { useAuth } from "../context/AuthContext";
 import styles from "../styles/Header.module.css";
 
-function Header() {
+function Header({ onMenuClick }) {
   const { user } = useAuth();
 
   return (
     <header className={styles.header}>
       <div className={styles.headerLeft}>
+        {/* Mobile hamburger */}
+        <button
+          className={styles.headerMenuButton}
+          onClick={onMenuClick}
+          aria-label="Open menu"
+        >
+          <FaBars />
+        </button>
+
         <h1 className={styles.headerTitle}>Admin Dashboard</h1>
       </div>
 

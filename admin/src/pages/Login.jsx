@@ -56,7 +56,7 @@ function Login() {
               <FaUser className={styles.loginInputIcon} />
               <input
                 type="email"
-                placeholder="admin@exponential.com"
+                placeholder="admin111@exponential.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className={styles.loginInput}

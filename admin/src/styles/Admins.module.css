@@ -1,0 +1,505 @@
+/* ============================================================
+   ADMINS MANAGEMENT PAGE
+   ============================================================ */
+
+.adminsPage {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pageTitle {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  margin: 0 0 0.35rem 0;
+}
+
+.pageSubtitle {
+  font-size: 0.95rem;
+  color: #7a8aaa;
+  margin: 0;
+}
+
+.addButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  border: 2px solid #e87a2a;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: inherit;
+}
+
+.addButton:hover {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   ADMINS LIST
+   ============================================================ */
+
+.adminsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.adminCard {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(26, 42, 74, 0.04);
+  border-left: 4px solid #1a2a4a;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.adminCard:hover {
+  box-shadow: 0 8px 25px rgba(26, 42, 74, 0.08);
+}
+
+.adminCardSuperadmin {
+  border-left-color: #e87a2a;
+}
+
+.adminCardYou {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border: 2px solid rgba(232, 122, 42, 0.15);
+  border-left: 4px solid #e87a2a;
+}
+
+.adminAvatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  flex-shrink: 0;
+  background: #1a2a4a;
+  text-transform: uppercase;
+}
+
+.adminAvatarSuperadmin {
+  background: #e87a2a;
+}
+
+.adminInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.adminNameRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.35rem;
+}
+
+.adminName {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin: 0;
+}
+
+.adminRoleBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.adminRoleBadgeSuperadmin {
+  background: rgba(232, 122, 42, 0.1);
+  color: #e87a2a;
+}
+
+.adminRoleBadgeAdmin {
+  background: rgba(26, 42, 74, 0.08);
+  color: #1a2a4a;
+}
+
+.adminYouBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+}
+
+.adminEmail {
+  font-size: 0.9rem;
+  color: #4a5a7a;
+  margin: 0 0 0.25rem 0;
+  word-break: break-all;
+}
+
+.adminDate {
+  font-size: 0.75rem;
+  color: #b0b8c8;
+  margin: 0;
+}
+
+.adminActions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.deleteButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: transparent;
+  color: #dc3545;
+  border-color: #f8d7da;
+}
+
+.deleteButton:hover:not(:disabled) {
+  background: #dc3545;
+  color: #ffffff;
+  border-color: #dc3545;
+}
+
+.deleteButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.deleteButtonDisabledLabel {
+  font-size: 0.7rem;
+  color: #b0b8c8;
+  font-style: italic;
+  padding: 0.6rem 0.5rem;
+}
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 42, 74, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease;
+  overflow-y: auto;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: scaleIn 0.2s ease;
+  margin: auto;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eef0f3;
+}
+
+.modalTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin: 0;
+}
+
+.modalClose {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: #7a8aaa;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.modalClose:hover {
+  background: #f8f9fa;
+  color: #dc3545;
+}
+
+.modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.formLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #1a2a4a;
+}
+
+.formInput,
+.formSelect {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #eef0f3;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: #1a2a4a;
+  background: #fafbfc;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.formInput:focus,
+.formSelect:focus {
+  border-color: #e87a2a;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(232, 122, 42, 0.1);
+}
+
+.formHint {
+  font-size: 0.75rem;
+  color: #b0b8c8;
+  margin: 0;
+}
+
+.modalActions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eef0f3;
+}
+
+.modalButton {
+  padding: 0.75rem 1.75rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: inherit;
+  border: 2px solid transparent;
+}
+
+.modalButtonCancel {
+  background: transparent;
+  border-color: #eef0f3;
+  color: #4a5a7a;
+}
+
+.modalButtonCancel:hover {
+  border-color: #b0b8c8;
+}
+
+.modalButtonSave {
+  background: #e87a2a;
+  border-color: #e87a2a;
+  color: #ffffff;
+}
+
+.modalButtonSave:hover:not(:disabled) {
+  background: transparent;
+  color: #e87a2a;
+}
+
+.modalButtonSave:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.modalButtonDelete {
+  background: #dc3545;
+  border-color: #dc3545;
+  color: #ffffff;
+}
+
+.modalButtonDelete:hover:not(:disabled) {
+  background: #b02a37;
+  border-color: #b02a37;
+}
+
+.modalIcon {
+  display: inline-flex;
+  width: 60px;
+  height: 60px;
+  background: rgba(220, 53, 69, 0.1);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #dc3545;
+  margin: 0 auto 1rem;
+}
+
+.modalText {
+  font-size: 0.9rem;
+  color: #7a8aaa;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.modalText strong {
+  color: #1a2a4a;
+}
+
+/* ============================================================
+   ACCESS DENIED
+   ============================================================ */
+
+.accessDenied {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(26, 42, 74, 0.04);
+}
+
+.accessDeniedIcon {
+  font-size: 3rem;
+  color: #dc3545;
+  margin-bottom: 1rem;
+}
+
+.accessDenied h3 {
+  font-size: 1.3rem;
+  color: #1a2a4a;
+  margin: 0 0 0.5rem 0;
+}
+
+.accessDenied p {
+  font-size: 0.95rem;
+  color: #7a8aaa;
+  margin: 0;
+}
+
+/* ============================================================
+   LOADING / EMPTY
+   ============================================================ */
+
+.loadingState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  color: #7a8aaa;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .pageHeader {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .addButton {
+    justify-content: center;
+  }
+
+  .adminCard {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .adminActions {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .deleteButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pageTitle {
+    font-size: 1.5rem;
+  }
+}

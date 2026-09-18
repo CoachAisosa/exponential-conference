@@ -10,11 +10,12 @@ import {
   FaUserShield,
   FaCog,
   FaSignOutAlt,
+  FaTimes,
 } from "react-icons/fa";
 import { useAuth } from "../context/AuthContext";
 import styles from "../styles/Sidebar.module.css";
 
-function Sidebar() {
+function Sidebar({ isOpen, onClose }) {
   const { user, logout } = useAuth();
 
   const navItems = [
@@ -27,7 +28,6 @@ function Sidebar() {
     { path: "/contacts", icon: <FaEnvelope />, label: "Contacts" },
   ];
 
-  // Superadmin-only items
   if (user?.role === "superadmin") {
     navItems.push({ path: "/admins", icon: <FaUserShield />, label: "Admins" });
   }
@@ -35,11 +35,23 @@ function Sidebar() {
   navItems.push({ path: "/settings", icon: <FaCog />, label: "Settings" });
 
   return (
-    <aside className={styles.sidebar}>
-      {/* Logo */}
-      <div className={styles.sidebarLogo}>
-        <h2>EXPONENTIAL</h2>
-        <p>Admin Panel</p>
+    <aside
+      className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ""}`}
+    >
+      {/* Logo + Close button */}
+      <div className={styles.sidebarHeader}>
+        <div className={styles.sidebarLogo}>
+          <h2>EXPONENTIAL</h2>
+          <p>Admin Panel</p>
+        </div>
+
+        <button
+          className={styles.sidebarClose}
+          onClick={onClose}
+          aria-label="Close menu"
+        >
+          <FaTimes />
+        </button>
       </div>
 
       {/* Navigation */}
@@ -49,8 +61,11 @@ function Sidebar() {
             key={item.path}
             to={item.path}
             end={item.path === "/"}
+            onClick={onClose}
             className={({ isActive }) =>
-              `${styles.sidebarLink} ${isActive ? styles.sidebarLinkActive : ""}`
+              `${styles.sidebarLink} ${
+                isActive ? styles.sidebarLinkActive : ""
+              }`
             }
           >
             <span className={styles.sidebarIcon}>{item.icon}</span>

@@ -10,9 +10,13 @@
   padding: 1.5rem 1rem;
   overflow-y: auto;
   z-index: 100;
+  transition: transform 0.3s ease;
 }
 
-.sidebarLogo {
+.sidebarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   padding: 0 0.5rem 1.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   margin-bottom: 1.5rem;
@@ -32,6 +36,24 @@
   letter-spacing: 2px;
   margin: 0.25rem 0 0 0;
   text-transform: uppercase;
+}
+
+/* Close button — hidden on desktop, visible on mobile */
+.sidebarClose {
+  display: none;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.4rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.sidebarClose:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
 }
 
 .sidebarNav {
@@ -124,8 +146,28 @@
   border-color: #dc3545;
 }
 
+/* ============================================================
+   RESPONSIVE — Mobile drawer behavior
+   ============================================================ */
+
 @media (max-width: 1024px) {
   .sidebar {
     width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 280px;
+    transform: translateX(-100%); /* Hidden by default */
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .sidebarOpen {
+    transform: translateX(0); /* Slide in when open */
+  }
+
+  .sidebarClose {
+    display: inline-flex; /* Show close button on mobile */
   }
 }
