@@ -124,9 +124,9 @@ const createContact = async (req, res) => {
               </p>
               
               <ul style="color: #4a5a7a; line-height: 2; font-size: 14px; padding-left: 20px;">
-                <li>Explore our <a href="https://exponential-conference.netlify.app/speakers" style="color: #e87a2a;">Speakers</a></li>
-                <li>View the <a href="https://exponential-conference.netlify.app/programme" style="color: #e87a2a;">Programme</a></li>
-                <li>Register for the conference: <a href="https://exponential-conference.netlify.app/register" style="color: #e87a2a;">Register Now</a></li>
+                <li>Explore our <a href="https://abuexponential.org/speakers" style="color: #e87a2a;">Speakers</a></li>
+                <li>View the <a href="https://abuexponential.org/programme" style="color: #e87a2a;">Programme</a></li>
+                <li>Register for the conference: <a href="https://abuexponential.org/register" style="color: #e87a2a;">Register Now</a></li>
               </ul>
 
               <p style="color: #4a5a7a; line-height: 1.8; font-size: 15px; margin-top: 25px;">

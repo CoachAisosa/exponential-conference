@@ -153,7 +153,7 @@ const approvePayment = async (req, res) => {
               </ol>
 
               <div style="text-align: center; margin: 30px 0;">
-                <a href="https://exponentialconference.org/live" 
+                <a href="https://abuexponential.org/live" 
                    style="background: #e87a2a; color: white; padding: 14px 35px; text-decoration: none; border-radius: 50px; font-weight: bold;">
                   Go to Live Page
                 </a>
