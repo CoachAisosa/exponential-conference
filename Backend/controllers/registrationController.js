@@ -18,6 +18,7 @@ const createRegistration = async (req, res) => {
       churchOrganisation,
       leadershipRole,
       registrationCategory,
+      attendanceType, 
       message,
     } = req.body;
 
@@ -28,7 +29,8 @@ const createRegistration = async (req, res) => {
       !country ||
       !state ||
       !city ||
-      !registrationCategory
+      !registrationCategory ||
+      !attendanceType
     ) {
       return res.status(400).json({
         success: false,
@@ -57,6 +59,7 @@ const createRegistration = async (req, res) => {
       churchOrganisation,
       leadershipRole,
       registrationCategory,
+      attendanceType, 
       message,
     });
 
@@ -82,6 +85,7 @@ const createRegistration = async (req, res) => {
               <p><strong>Church/Org:</strong> ${churchOrganisation || "N/A"}</p>
               <p><strong>Role:</strong> ${leadershipRole || "N/A"}</p>
               <p><strong>Category:</strong> ${registrationCategory}</p>
+              <p><strong>Attendance:</strong> ${attendanceType === "online" ? "Online" : "Physical"}</p>
               <p><strong>Message:</strong> ${message || "N/A"}</p>
             </div>
           </div>

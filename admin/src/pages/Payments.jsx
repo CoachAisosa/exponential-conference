@@ -391,6 +391,7 @@ function Payments() {
                     {payment.paymentMethod?.replace(/-/g, " ") || "N/A"}
                   </span>
                 </div>
+                
                 <div className={styles.paymentDetailItem}>
                   <span className={styles.paymentDetailLabel}>
                     Uploaded
@@ -399,6 +400,14 @@ function Payments() {
                     {formatDate(payment.receiptUploadedAt)}
                   </span>
                 </div>
+
+                <div className={styles.paymentDetailItem}>
+                  <span className={styles.paymentDetailLabel}>Attendance</span>
+                  <span className={styles.paymentDetailValue}>
+                        {payment.attendanceType === "online" ? "Online" : "Physical"}
+                   </span>
+               </div>
+
               </div>
 
               {/* Access Code (only if approved) */}

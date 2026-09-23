@@ -57,6 +57,13 @@ const registrationSchema = new mongoose.Schema(
       trim: true,
     },
 
+    attendanceType: {
+     type: String,
+     enum: ["online", "physical"],
+     default: "physical",
+     required: true,
+    },
+
     message: {
       type: String,
       trim: true,

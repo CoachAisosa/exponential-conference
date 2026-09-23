@@ -32,6 +32,7 @@ function RegistrationForm() {
     churchOrganisation: "",
     leadershipRole: "",
     registrationCategory: "",
+    attendanceType: "",
     message: "",
     agreement: false,
   });
@@ -98,7 +99,8 @@ function RegistrationForm() {
       !formData.country ||
       !formData.state ||
       !formData.city ||
-      !formData.registrationCategory
+      !formData.registrationCategory ||
+      !formData.attendanceType
     ) {
       setError("Please fill in all required fields.");
       setLoading(false);
@@ -122,6 +124,7 @@ function RegistrationForm() {
           churchOrganisation: formData.churchOrganisation || "N/A",
           leadershipRole: formData.leadershipRole || "N/A",
           registrationCategory: formData.registrationCategory,
+          attendanceType: formData.attendanceType, 
           message: formData.message || "N/A",
         }),
       });
@@ -208,6 +211,11 @@ function RegistrationForm() {
                   Transfer directly to our Nigerian bank account.
                 </p>
 
+                <div className={styles.paymentAmount}>
+                    <span className={styles.paymentAmountLabel}>Registration Fee</span>
+                     <span className={styles.paymentAmountValue}>₦4,000</span>
+                </div>
+
                 <div className={styles.bankDetails}>
                   <div className={styles.bankDetailItem}>
                     <span className={styles.bankDetailLabel}>Bank:</span>
@@ -243,18 +251,21 @@ function RegistrationForm() {
                   <div className={styles.paymentCardIcon}>
                     <FaWallet />
                   </div>
-                  <span className={styles.paymentBadge}>Fast & Secure</span>
+                  <span className={styles.paymentBadge}>Fast & Secure(Outside Nigeria)</span>
                 </div>
 
-                <h4 className={styles.paymentCardTitle}>Pay with Selar</h4>
+                <h4 className={styles.paymentCardTitle}>
+                     International Payment (Outside Nigeria)
+                </h4>
                 <p className={styles.paymentCardDescription}>
-                  Pay securely using Selar — accepts cards, wallets, and international payments.
+                  If you are joining us from outside Nigeria, please make your
+                  payment securely through Selar.
                 </p>
 
                 <div className={styles.selarFeatures}>
                   <div className={styles.selarFeature}>
                     <FaCheckCircle className={styles.selarFeatureIcon} />
-                    <span>Secure card payments</span>
+                    <span>For attendees outside Nigeria</span>
                   </div>
                   <div className={styles.selarFeature}>
                     <FaCheckCircle className={styles.selarFeatureIcon} />
@@ -540,6 +551,66 @@ function RegistrationForm() {
               />
             </div>
           </div>
+
+          {/* ATTENDANCE TYPE */}
+<div
+  className={styles.registrationFormSectionHeader}
+  data-aos="fade-up"
+>
+  <h3 className={styles.registrationFormSectionTitle}>
+    How Will You Attend?
+  </h3>
+  <p className={styles.registrationFormSectionDescription}>
+    Please let us know if you will be joining us in person or online.
+  </p>
+</div>
+
+<div
+  className={styles.attendanceOptions}
+  data-aos="fade-up"
+>
+  <label
+    className={`${styles.attendanceOption} ${
+      formData.attendanceType === "physical"
+        ? styles.attendanceOptionActive
+        : ""
+    }`}
+  >
+    <input
+      type="radio"
+      name="attendanceType"
+      value="physical"
+      checked={formData.attendanceType === "physical"}
+      onChange={handleChange}
+      required
+    />
+    <span className={styles.attendanceOptionTitle}>Physical</span>
+    <span className={styles.attendanceOptionSubtitle}>
+      I will attend on-site
+    </span>
+  </label>
+
+  <label
+    className={`${styles.attendanceOption} ${
+      formData.attendanceType === "online"
+        ? styles.attendanceOptionActive
+        : ""
+    }`}
+  >
+    <input
+      type="radio"
+      name="attendanceType"
+      value="online"
+      checked={formData.attendanceType === "online"}
+      onChange={handleChange}
+      required
+    />
+    <span className={styles.attendanceOptionTitle}>Online</span>
+    <span className={styles.attendanceOptionSubtitle}>
+      I will join virtually
+    </span>
+  </label>
+</div>
 
           {/* MESSAGE */}
           <div className={styles.registrationFormGroupFull} data-aos="fade-up">

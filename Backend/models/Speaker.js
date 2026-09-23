@@ -21,6 +21,11 @@ const speakerSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    imagePosition: {
+      type: String,
+      enum: ["top", "upper", "center", "lower", "bottom"],
+      default: "upper",
+    },
     bio: {
       type: String,
       required: [true, "Bio is required"],

@@ -9,6 +9,14 @@ import styles from "../../pages/Speakers.module.css";
 const FALLBACK_IMAGE =
   "https://via.placeholder.com/400x400/1a2a4a/ffffff?text=Speaker";
 
+const positionMap = {
+  top: "center 0%",
+  upper: "center 20%",
+  center: "center 50%",
+  lower: "center 75%",
+  bottom: "center 100%",
+};
+
 function SpeakerCard({ speaker }) {
   return (
     <article
@@ -18,16 +26,19 @@ function SpeakerCard({ speaker }) {
 
       <div className={styles.speakerCardImageWrapper}>
 
-        <img
-          src={speaker.image || FALLBACK_IMAGE}
-          alt={speaker.name}
-          className={styles.speakerCardImage}
-          onError={(e) => {
-            e.target.src = FALLBACK_IMAGE;
+      <img
+         src={speaker.image || FALLBACK_IMAGE}
+         alt={speaker.name}
+        className={styles.speakerCardImage}
+          style={{
+            objectPosition: positionMap[speaker.imagePosition] || "center 20%",
           }}
-        />
+                 onError={(e) => {
+                    e.target.src = FALLBACK_IMAGE;
+                }}
+      />
 
-        <div className={styles.speakerCardImageOverlay}></div>
+      <div className={styles.speakerCardImageOverlay}></div>
 
         <div className={styles.speakerCardIcon}>
           <FaUserTie />

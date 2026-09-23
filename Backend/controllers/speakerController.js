@@ -77,6 +77,8 @@ const createSpeaker = async (req, res) => {
 // @access  Private
 const updateSpeaker = async (req, res) => {
   try {
+
+     console.log("🔎 UPDATE BODY RECEIVED:", req.body);   
     const speaker = await Speaker.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,

@@ -100,6 +100,7 @@ function Registrations() {
       "Church/Organisation",
       "Leadership Role",
       "Category",
+      "Attendance",
       "Message",
       "Payment Status",
       "Registered At",
@@ -116,6 +117,7 @@ function Registrations() {
       r.churchOrganisation || "N/A",
       r.leadershipRole || "N/A",
       r.registrationCategory,
+      r.attendanceType || "N/A",
       r.message || "N/A",
       r.paymentStatus || "pending",
       new Date(r.createdAt).toLocaleString(),
@@ -258,6 +260,7 @@ function Registrations() {
                   <th>Phone</th>
                   <th>Country</th>
                   <th>Category</th>
+                  <th>Attendance</th>
                   <th style={{ textAlign: "right" }}>Actions</th>
                 </tr>
               </thead>
@@ -277,6 +280,19 @@ function Registrations() {
                         {reg.registrationCategory?.replace(/-/g, " ")}
                       </span>
                     </td>
+                    
+                    <td>
+                      <span
+                        className={
+                           reg.attendanceType === "online"
+                                 ? styles.attendanceBadgeOnline
+                                 : styles.attendanceBadgePhysical
+                                  }
+                      >
+                         {reg.attendanceType === "online" ? "Online" : "Physical"}
+                     </span>
+                   </td>
+
                     <td>
                       <div className={styles.actionsCell}>
                         <button

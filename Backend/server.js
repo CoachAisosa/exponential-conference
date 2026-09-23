@@ -8,6 +8,10 @@ connectDB();
 
 const app = express();
 
+// after mongoose.connect(...)
+const Speaker = require("./models/Speaker");
+console.log("🔎 SCHEMA HAS imagePosition:", !!Speaker.schema.path("imagePosition"));
+
 // Middleware
 app.use(
   cors({

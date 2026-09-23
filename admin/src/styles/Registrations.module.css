@@ -525,3 +525,24 @@
     font-size: 1.5rem;
   }
 }
+
+.attendanceBadgeOnline,
+.attendanceBadgePhysical {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.attendanceBadgeOnline {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.attendanceBadgePhysical {
+  background: #fef3c7;
+  color: #b45309;
+}

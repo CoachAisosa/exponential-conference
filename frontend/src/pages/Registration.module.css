@@ -1899,4 +1899,90 @@
   line-height: 1.6;
 }
 
+/* ============================================================
+   ATTENDANCE TYPE OPTIONS
+   ============================================================ */
+
+.attendanceOptions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.attendanceOption {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  padding: 1.25rem 1.5rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background: #ffffff;
+  position: relative;
+}
+
+.attendanceOption input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.attendanceOption:hover {
+  border-color: #e87a2a;
+  background: #fff8f2;
+}
+
+.attendanceOptionActive {
+  border-color: #e87a2a;
+  background: #fff8f2;
+  box-shadow: 0 6px 20px rgba(232, 122, 42, 0.12);
+}
+
+.attendanceOptionTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  letter-spacing: 0.5px;
+}
+
+.attendanceOptionSubtitle {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .attendanceOptions {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.paymentAmount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  background: #fff8f2;
+  border: 1px dashed #e87a2a;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.paymentAmountLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #1a2a4a;
+}
+
+.paymentAmountValue {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #e87a2a;
+}
 

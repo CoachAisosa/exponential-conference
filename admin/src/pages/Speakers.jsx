@@ -20,11 +20,30 @@ import styles from "../styles/Speakers.module.css";
 const PLACEHOLDER_IMAGE =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='400' height='400' fill='%231a2a4a'/%3E%3Ctext x='50%25' y='50%25' fill='%23e87a2a' font-family='Arial' font-size='24' text-anchor='middle' dominant-baseline='middle'%3ESpeaker%3C/text%3E%3C/svg%3E";
 
+// ✅ Shared helper — turns position keyword into CSS object-position value
+const getObjectPosition = (position) => {
+  switch (position) {
+    case "top":
+      return "center 0%";
+    case "upper":
+      return "center 20%";
+    case "center":
+      return "center 50%";
+    case "lower":
+      return "center 75%";
+    case "bottom":
+      return "center 100%";
+    default:
+      return "center 20%";
+  }
+};
+
 const emptyForm = {
   name: "",
   title: "",
   role: "Conference Speaker",
   image: "",
+  imagePosition: "upper",
   bio: "",
   focus: "",
   order: 0,
@@ -81,6 +100,7 @@ function Speakers() {
       title: item.title || "",
       role: item.role || "Conference Speaker",
       image: item.image || "",
+      imagePosition: item.imagePosition || "upper",
       bio: item.bio || "",
       focus: item.focus || "",
       order: item.order || 0,
@@ -95,6 +115,8 @@ function Speakers() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSaving(true);
+
+     console.log("📤 SUBMITTING:", JSON.stringify(formData, null, 2)); 
 
     try {
       if (editingId) {
@@ -209,16 +231,14 @@ function Speakers() {
             <div key={item._id} className={styles.speakerCard}>
               <div className={styles.speakerCardImageWrapper}>
                 <img
-                  src={
-                    item.image ||
-                    PLACEHOLDER_IMAGE
-                  }
+                  src={item.image || PLACEHOLDER_IMAGE}
                   alt={item.name}
                   className={styles.speakerCardImage}
+                  style={{
+                    objectPosition: getObjectPosition(item.imagePosition),
+                  }}
                   onError={(e) => {
-                    e.target.src =
-                      e.target.onerror = null;  // ← Prevents infinite loop
-                      PLACEHOLDER_IMAGE;
+                    e.target.src = PLACEHOLDER_IMAGE;
                   }}
                 />
                 <span className={styles.speakerCardOrder}>
@@ -342,11 +362,17 @@ function Speakers() {
               <div className={styles.formGroup}>
                 <label className={styles.formLabel}>Speaker Image</label>
 
+                {/* ✅ Preview uses formData, not item */}
                 {formData.image && (
                   <img
                     src={formData.image}
                     alt="Preview"
                     className={styles.imagePreview}
+                    style={{
+                      objectPosition: getObjectPosition(
+                        formData.imagePosition
+                      ),
+                    }}
                     onError={(e) => (e.target.style.display = "none")}
                   />
                 )}
@@ -391,6 +417,28 @@ function Speakers() {
                   placeholder="Or paste image URL here..."
                   style={{ marginTop: "0.5rem", fontSize: "0.8rem" }}
                 />
+              </div>
+
+              {/* Image Position */}
+              <div className={styles.formGroup}>
+                <label className={styles.formLabel}>Image Crop Position</label>
+                <select
+                  name="imagePosition"
+                  value={formData.imagePosition}
+                  onChange={handleChange}
+                  className={styles.formSelect}
+                >
+                  <option value="top">Top (face very high in photo)</option>
+                  <option value="upper">
+                    Upper (recommended for headshots)
+                  </option>
+                  <option value="center">Center (face in middle)</option>
+                  <option value="lower">Lower (face low in photo)</option>
+                  <option value="bottom">Bottom (full-body shot)</option>
+                </select>
+                <small style={{ color: "#7a8aaa", fontSize: "0.75rem" }}>
+                  Controls how the image is cropped on the public speaker card.
+                </small>
               </div>
 
               {/* Bio */}

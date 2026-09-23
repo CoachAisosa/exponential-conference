@@ -240,17 +240,27 @@
 .footerABUContent {
   display: flex;
   gap: 2rem;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .footerABULogoWrapper {
   flex-shrink: 0;
+  display: flex;              
+  align-items: center;        
+  justify-content: center;  
+}
+
+.footerABULogo {
+  display: flex;              
+  align-items: center;
+  justify-content: center;
 }
 
 .footerABULogo img{
   height: 60px;
   width: 60px;
   display: block;
+  object-fit: contain;
   filter: brightness(0) invert(1);
   opacity: 0.8;
   transition: opacity 0.3s ease;
@@ -510,10 +520,22 @@
   .footerABUContent {
     flex-direction: column;
     align-items: center;
+    text-align: center;   
+    gap: 1.25rem;  
+  }
+
+  .footerABULogoWrapper {
+    margin: 0 auto;      
   }
 
   .footerABULogo img{
-    height: 100px;
+    height: 80px;
+    width: 80px;
+  }
+
+  .footerABUInfo {
+    text-align: center;
+    width: 100%;
   }
 
   .footerABUTitle {
@@ -657,3 +679,5 @@
     font-size: 0.55rem;
   }
 }
+
+
