@@ -1044,3 +1044,370 @@
     padding: 0.85rem 1.5rem;
   }
 }
+
+/* ============================================================
+   7. TRAINING SESSIONS LIST
+   ============================================================ */
+
+.sessionsSection {
+  padding: 5rem 2rem;
+  background: #ffffff;
+}
+
+.sessionsContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.sessionsHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sessionsEyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #e87a2a;
+  margin-bottom: 0.5rem;
+}
+
+.sessionsTitle {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #1a2a4a;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.2;
+}
+
+.sessionsSubtitle {
+  font-size: 1.05rem;
+  color: #4a5a7a;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.sessionsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.sessionCard {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 1.75rem;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: relative;
+}
+
+.sessionCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(26, 42, 74, 0.08);
+}
+
+.sessionCardLive {
+  border-color: #e87a2a;
+  background: #fffaf5;
+  box-shadow: 0 8px 30px rgba(232, 122, 42, 0.15);
+}
+
+.sessionCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sessionStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.sessionStatusLive {
+  background: #dc3545;
+  color: #ffffff;
+  animation: pulseLive 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseLive {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.75; }
+}
+
+.sessionStatusUpcoming {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.sessionStatusCompleted {
+  background: #eef0f3;
+  color: #7a8aaa;
+}
+
+.sessionOrder {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #b0b8c8;
+  letter-spacing: 1px;
+}
+
+.sessionTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.sessionDescription {
+  font-size: 0.85rem;
+  color: #4a5a7a;
+  line-height: 1.6;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.sessionMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #7a8aaa;
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid #eef0f3;
+}
+
+.sessionMetaIcon {
+  color: #e87a2a;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   8. FREE BOOK SECTION
+   ============================================================ */
+
+.freeBookSection {
+  padding: 5rem 2rem;
+  background: #f8f9fa;
+}
+
+.freeBookContainer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.freeBookCard {
+  background: linear-gradient(135deg, #1a2a4a 0%, #2c3e6b 100%);
+  border-radius: 24px;
+  padding: 3.5rem 2.5rem;
+  text-align: center;
+  color: #ffffff;
+  box-shadow: 0 20px 60px rgba(26, 42, 74, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.freeBookCard::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(232, 122, 42, 0.15) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.freeBookIconWrapper {
+  display: inline-flex;
+  width: 90px;
+  height: 90px;
+  background: rgba(232, 122, 42, 0.15);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  border: 2px solid rgba(232, 122, 42, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.freeBookIcon {
+  font-size: 2.5rem;
+  color: #e87a2a;
+}
+
+.freeBookEyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(232, 122, 42, 0.8);
+  margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.freeBookTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+  position: relative;
+  z-index: 1;
+}
+
+.freeBookDescription {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  max-width: 550px;
+  margin: 0 auto 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.freeBookButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #e87a2a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid #e87a2a;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+.freeBookButton:hover {
+  background: transparent;
+  color: #e87a2a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(232, 122, 42, 0.4);
+}
+
+.freeBookButton svg {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.freeBookButton:hover svg {
+  transform: translateX(4px);
+}
+
+.freeBookNote {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 1.25rem 0 0 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
+   9. NEW SECTIONS — RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .sessionsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sessionsTitle {
+    font-size: 2.4rem;
+  }
+
+  .freeBookTitle {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sessionsSection {
+    padding: 3rem 1.5rem;
+  }
+
+  .sessionsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sessionsTitle {
+    font-size: 2rem;
+  }
+
+  .sessionCard {
+    padding: 1.5rem;
+  }
+
+  .freeBookSection {
+    padding: 3rem 1.5rem;
+  }
+
+  .freeBookCard {
+    padding: 2.5rem 1.5rem;
+    border-radius: 20px;
+  }
+
+  .freeBookTitle {
+    font-size: 1.5rem;
+  }
+
+  .freeBookDescription {
+    font-size: 0.95rem;
+  }
+
+  .freeBookButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .sessionsTitle {
+    font-size: 1.6rem;
+  }
+
+  .freeBookTitle {
+    font-size: 1.3rem;
+  }
+
+  .freeBookIconWrapper {
+    width: 70px;
+    height: 70px;
+  }
+
+  .freeBookIcon {
+    font-size: 2rem;
+  }
+}
+

@@ -14,6 +14,8 @@ import {
   createConference,
   updateConference,
   deleteConference,
+  getBookSettings,
+  updateBookSettings,
 } from "../services/api";
 import styles from "../styles/Settings.module.css";
 
@@ -46,6 +48,15 @@ function Settings() {
   const [deleting, setDeleting] = useState(false);
 
   // ============================================================
+  // Free Book settings
+  // ============================================================
+  const [bookTitle, setBookTitle] = useState("");
+  const [bookUrl, setBookUrl] = useState("");
+  const [bookSaving, setBookSaving] = useState(false);
+  const [bookSaved, setBookSaved] = useState(false);
+  const [bookLoading, setBookLoading] = useState(true);
+
+  // ============================================================
   // Load conferences
   // ============================================================
   useEffect(() => {
@@ -67,6 +78,24 @@ function Settings() {
       setLoading(false);
     }
   };
+
+  // ============================================================
+  // Load book settings on mount
+  // ============================================================
+  useEffect(() => {
+    const loadBook = async () => {
+      try {
+        const res = await getBookSettings();
+        setBookTitle(res.data.settings.title || "");
+        setBookUrl(res.data.settings.url || "");
+      } catch (err) {
+        console.error("Load book settings error:", err);
+      } finally {
+        setBookLoading(false);
+      }
+    };
+    loadBook();
+  }, []);
 
   // ============================================================
   // Open modal
@@ -97,7 +126,7 @@ function Settings() {
   };
 
   // ============================================================
-  // Handle submit
+  // Handle conference submit
   // ============================================================
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -145,7 +174,7 @@ function Settings() {
   };
 
   // ============================================================
-  // Handle activate (make this conference the active one)
+  // Handle activate
   // ============================================================
   const handleActivate = async (conf) => {
     if (conf.isActive) return;
@@ -159,7 +188,6 @@ function Settings() {
     }
 
     try {
-      // Deactivate all others first
       const others = conferences.filter(
         (c) => c._id !== conf._id && c.isActive
       );
@@ -168,7 +196,6 @@ function Settings() {
         await updateConference(other._id, { isActive: false });
       }
 
-      // Activate this one
       await updateConference(conf._id, { isActive: true });
       loadConferences();
     } catch (err) {
@@ -186,6 +213,24 @@ function Settings() {
       ...prev,
       [name]: type === "checkbox" ? checked : value,
     }));
+  };
+
+  // ============================================================
+  // Save book settings
+  // ============================================================
+  const handleBookSave = async (e) => {
+    e.preventDefault();
+    try {
+      setBookSaving(true);
+      await updateBookSettings({ title: bookTitle, url: bookUrl });
+      setBookSaved(true);
+      setTimeout(() => setBookSaved(false), 2500);
+    } catch (err) {
+      console.error("Save book settings error:", err);
+      alert("Failed to save book settings.");
+    } finally {
+      setBookSaving(false);
+    }
   };
 
   return (
@@ -229,7 +274,6 @@ function Settings() {
                 conf.isActive ? styles.confCardActive : ""
               }`}
             >
-              {/* Header */}
               <div className={styles.confCardHeader}>
                 <div className={styles.confCardYear}>
                   <span
@@ -274,7 +318,6 @@ function Settings() {
                 </div>
               </div>
 
-              {/* Details */}
               <div className={styles.confDetails}>
                 <div className={styles.confDetailItem}>
                   <span className={styles.confDetailLabel}>Date</span>
@@ -292,7 +335,6 @@ function Settings() {
                 </div>
               </div>
 
-              {/* Actions */}
               <div className={styles.confActions}>
                 {!conf.isActive && (
                   <button
@@ -322,6 +364,63 @@ function Settings() {
         </div>
       )}
 
+      {/* ============================================================ */}
+      {/* FREE BOOK SECTION */}
+      {/* ============================================================ */}
+      <section className={styles.bookSection}>
+        <div className={styles.bookHeader}>
+          <h2 className={styles.bookTitle}>
+            🎁 Free Book (Paid Attendees Only)
+          </h2>
+          <p className={styles.bookSubtitle}>
+            Only approved attendees will see this book link in the live event
+            area.
+          </p>
+        </div>
+
+        {bookLoading ? (
+          <p className={styles.bookLoading}>Loading…</p>
+        ) : (
+          <form onSubmit={handleBookSave} className={styles.bookForm}>
+            <div className={styles.formGroup}>
+              <label className={styles.formLabel}>Book Title</label>
+              <input
+                type="text"
+                value={bookTitle}
+                onChange={(e) => setBookTitle(e.target.value)}
+                placeholder="e.g. The Multiplier — Free Conference Book"
+                className={styles.formInput}
+              />
+            </div>
+
+            <div className={styles.formGroup}>
+              <label className={styles.formLabel}>
+                Selar / Free Book Link
+              </label>
+              <input
+                type="url"
+                value={bookUrl}
+                onChange={(e) => setBookUrl(e.target.value)}
+                placeholder="https://selar.co/your-book-link"
+                className={styles.formInput}
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={bookSaving}
+              className={styles.bookSaveButton}
+            >
+              {bookSaving
+                ? "Saving…"
+                : bookSaved
+                ? "✅ Saved"
+                : "Save Book Settings"}
+            </button>
+          </form>
+        )}
+      </section>
+
       {/* Create/Edit Modal */}
       {showModal && (
         <div
@@ -343,7 +442,6 @@ function Settings() {
             </div>
 
             <form onSubmit={handleSubmit} className={styles.modalForm}>
-              {/* Year + Theme */}
               <div className={styles.formRow}>
                 <div className={styles.formGroup}>
                   <label className={styles.formLabel}>Year *</label>
@@ -373,7 +471,6 @@ function Settings() {
                 </div>
               </div>
 
-              {/* Subtitle */}
               <div className={styles.formGroup}>
                 <label className={styles.formLabel}>Subtitle</label>
                 <input
@@ -386,7 +483,6 @@ function Settings() {
                 />
               </div>
 
-              {/* Date + Venue */}
               <div className={styles.formRow}>
                 <div className={styles.formGroup}>
                   <label className={styles.formLabel}>Date *</label>
@@ -415,7 +511,6 @@ function Settings() {
                 </div>
               </div>
 
-              {/* Address */}
               <div className={styles.formGroup}>
                 <label className={styles.formLabel}>Address</label>
                 <input
@@ -428,7 +523,6 @@ function Settings() {
                 />
               </div>
 
-              {/* City + State + Country */}
               <div className={styles.formRow3}>
                 <div className={styles.formGroup}>
                   <label className={styles.formLabel}>City</label>
@@ -464,7 +558,6 @@ function Settings() {
                 </div>
               </div>
 
-              {/* Description */}
               <div className={styles.formGroup}>
                 <label className={styles.formLabel}>Description</label>
                 <textarea
@@ -477,7 +570,6 @@ function Settings() {
                 />
               </div>
 
-              {/* Registration Open */}
               <div className={styles.formCheckbox}>
                 <input
                   type="checkbox"
@@ -491,7 +583,6 @@ function Settings() {
                 </label>
               </div>
 
-              {/* Active */}
               <div className={styles.formCheckbox}>
                 <input
                   type="checkbox"
@@ -508,11 +599,10 @@ function Settings() {
               </div>
 
               <p className={styles.formCheckboxHint}>
-                ⚠️ Only one conference can be active at a time. Activating
-                this one will deactivate others.
+                ⚠️ Only one conference can be active at a time. Activating this
+                one will deactivate others.
               </p>
 
-              {/* Actions */}
               <div className={styles.modalActions}>
                 <button
                   type="button"

@@ -11,6 +11,7 @@ import {
   FaCog,
   FaSignOutAlt,
   FaTimes,
+  FaVideo,
 } from "react-icons/fa";
 import { useAuth } from "../context/AuthContext";
 import styles from "../styles/Sidebar.module.css";
@@ -22,6 +23,7 @@ function Sidebar({ isOpen, onClose }) {
     { path: "/", icon: <FaTachometerAlt />, label: "Dashboard" },
     { path: "/registrations", icon: <FaUsers />, label: "Registrations" },
     { path: "/payments", icon: <FaCreditCard />, label: "Payments" },
+    { path: "/trainings", icon: <FaVideo />, label: "Live Trainings" }, 
     { path: "/news", icon: <FaNewspaper />, label: "News" },
     { path: "/speakers", icon: <FaMicrophone />, label: "Speakers" },
     { path: "/programme", icon: <FaCalendarAlt />, label: "Programme" },

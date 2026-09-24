@@ -73,7 +73,7 @@ function ABUHero() {
             </div>
           </div>
 
-          {/* Image 2: Vice Chancellor */}
+          {/* Image 2: Vice Chancellor
           <div className={styles.abuFloatingImageCard} data-aos="zoom-in" data-aos-delay="500">
             <div className={styles.abuFloatingImageWrapper}>
               <img 
@@ -87,7 +87,7 @@ function ABUHero() {
               <h4>ABU Presideent</h4>
               <p>Prof. Blessing iyare</p>
             </div>
-          </div>
+          </div> */}
 
         </div>
 

@@ -108,4 +108,15 @@ export const getContacts = () => api.get("/contacts");
 
 export const deleteContact = (id) => api.delete(`/contacts/${id}`);
 
+// Trainings
+export const getTrainings = () => api.get("/trainings/all");
+export const createTraining = (data) => api.post("/trainings", data);
+export const updateTraining = (id, data) => api.put(`/trainings/${id}`, data);
+export const deleteTraining = (id) => api.delete(`/trainings/${id}`);
+export const activateTraining = (id) => api.post(`/trainings/${id}/activate`);
+
+// Settings
+export const getBookSettings = () => api.get("/settings/book");
+export const updateBookSettings = (data) => api.put("/settings/book", data);
+
 export default api;

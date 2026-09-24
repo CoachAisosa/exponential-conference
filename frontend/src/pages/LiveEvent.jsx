@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import LiveHero from "../components/live/LiveHero";
+import FreeBookCard from "../components/live/FreeBookCard";
 import LiveStream from "../components/live/LiveStream";
+import TrainingSessionsList from "../components/live/TrainingSessionsList";
 import LiveCTA from "../components/live/LiveCTA";
 import LiveAccessGate from "../components/live/LiveAccessGate";
 import styles from "./LiveEvent.module.css";
@@ -29,7 +31,9 @@ function LiveEvent() {
   return (
     <main className="liveEventPage">
       <LiveHero />
+      <FreeBookCard />
       <LiveStream />
+      <TrainingSessionsList />
       <LiveCTA />
     </main>
   );

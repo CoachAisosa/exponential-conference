@@ -8,10 +8,6 @@ connectDB();
 
 const app = express();
 
-// after mongoose.connect(...)
-const Speaker = require("./models/Speaker");
-console.log("🔎 SCHEMA HAS imagePosition:", !!Speaker.schema.path("imagePosition"));
-
 // Middleware
 app.use(
   cors({
@@ -36,6 +32,8 @@ app.use("/api/conference", require("./routes/conferenceRoutes"));
 app.use("/api/news-interactions", require("./routes/newsInteractionRoutes"));
 app.use("/api/payments", require("./routes/paymentRoutes"));
 app.use("/api/upload", require("./routes/uploadRoutes"));
+app.use("/api/trainings", require("./routes/trainingRoutes"));
+app.use("/api/settings", require("./routes/settingRoutes"));
 
 // Health check
 app.get("/", (req, res) => {

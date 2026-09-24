@@ -10,6 +10,7 @@ import Programme from "./pages/Programme";
 import Contacts from "./pages/Contacts";
 import Admins from "./pages/Admins";
 import Settings from "./pages/Settings";
+import Trainings from "./pages/Trainings";   
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<Dashboard />} />
         <Route path="/registrations" element={<Registrations />} />
         <Route path="/payments" element={<Payments />} />
+        <Route path="/trainings" element={<Trainings />} /> 
         <Route path="/news" element={<News />} />
         <Route path="/speakers" element={<Speakers />} />
         <Route path="/programme" element={<Programme />} />

@@ -94,7 +94,7 @@ function LiveCTA() {
             </p>
 
             <a
-              href="#"
+              href="/about-abu"
               className={styles.liveCTACardButton}
             >
               EXPLORE ABU
