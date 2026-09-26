@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { LanguageProvider } from './context/LanguageContext';
 import Navbar from './components/Navbar';
 
 
@@ -20,6 +21,7 @@ import Accommodation from './pages/Accommodation';
 function App() {
 
   return (
+   <LanguageProvider>
    <BrowserRouter>
     <ScrollToTop />
 
@@ -42,6 +44,7 @@ function App() {
 
    <Footer />
    </BrowserRouter>
+   </LanguageProvider>
   )
 }
 

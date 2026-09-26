@@ -45,7 +45,7 @@ function AboutABU() {
           </p>
 
           <Link
-            to="/about"
+            to="/about-abu"
             className={styles.aboutAbuButton}
           >
             LEARN MORE ABOUT ABU

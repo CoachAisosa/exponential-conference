@@ -17,7 +17,7 @@
 }
 
 .navbarContainer {
-  max-width: 1280px;
+  max-width: 1480px;
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
@@ -68,7 +68,7 @@
 .navbarLinks {
   display: flex;
   align-items: center;
-  gap: 0.2rem;
+  gap: 0.01rem;
 }
 
 .navbarLinks a {
@@ -234,32 +234,37 @@
 
   /* Mobile menu - slide in from right */
   .navbarLinks {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 75%;
-    max-width: 320px;
-    height: 100vh;
-    background: #1a2a4a;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 2rem;
-    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
-  }
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 75%;
+  max-width: 320px;
+  height: 100vh;
+  height: 100dvh;                    /* ✅ better on mobile (handles browser UI) */
+  background: #1a2a4a;
+  flex-direction: column;
+  justify-content: flex-start;       /* ✅ start from top, not centered */
+  align-items: center;
+  gap: 1rem;                         /* ✅ tighter gap */
+  padding: 5rem 1.5rem 3rem;         /* ✅ top space for X button, bottom space */
+  overflow-y: auto;                  /* ✅ SCROLL when content is tall */
+  overscroll-behavior: contain;      /* ✅ prevents background scroll bleed */
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
+  -webkit-overflow-scrolling: touch; /* ✅ smooth scroll on iOS */
+}
 
   .navbarLinks.open {
     right: 0;
   }
 
   .navbarLinks a {
-    font-size: 1.1rem;
-    padding: 0.5rem 1.5rem;
-    width: 100%;
-    text-align: center;
-  }
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;         /* ✅ slightly tighter */
+  width: 100%;
+  text-align: center;
+  flex-shrink: 0;                /* ✅ prevents squishing */
+}
 
   .navbarLinks a::after {
     display: none;
@@ -343,3 +348,208 @@
     max-width: 100%;
   }
 }
+
+/* ============================================
+   LANGUAGE SWITCHER
+   ============================================ */
+
+/* Hide secondary label by default (desktop shows only current lang) */
+.labelSecondary {
+  display: none;
+}
+
+/* Language dropdown (desktop) */
+.navbarActions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: 0.5rem;
+}
+
+.langDropdownWrapper {
+  position: relative;
+}
+
+.langButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.5rem 0.85rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.langButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(232, 122, 42, 0.5);
+}
+
+.langChevron {
+  font-size: 0.6rem;
+  transition: transform 0.3s ease;
+}
+
+.langChevronOpen {
+  transform: rotate(180deg);
+}
+
+.langDropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(26, 42, 74, 0.15);
+  overflow: hidden;
+  min-width: 150px;
+  z-index: 1100;
+  animation: langDropIn 0.2s ease;
+}
+
+@keyframes langDropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.langOption {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: none;
+  color: #1a2a4a;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+.langOption:hover {
+  background: #f8f9fa;
+}
+
+.langOptionActive {
+  background: rgba(232, 122, 42, 0.1);
+  color: #e87a2a;
+  font-weight: 700;
+}
+
+/* Mobile switcher (inside hamburger menu) */
+.mobileLangSwitcher {
+  display: none;
+}
+
+.langSwitcher.inline {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.langSwitcherBtn {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.langSwitcherBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.langSwitcherBtnActive {
+  background: #e87a2a;
+  border-color: #e87a2a;
+  color: #ffffff;
+}
+
+/* Mobile register button (inside hamburger menu) */
+.mobileRegisterBtn {
+  display: none;
+}
+
+/* ============================================
+   RESPONSIVE — Mobile behavior
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Hide desktop actions (lang dropdown + CTA) on mobile */
+  .navbarActions {
+    display: none;
+  }
+
+  /* Show mobile lang switcher when menu is open */
+  .navbarLinks.open .mobileLangSwitcher {
+    display: block;
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+
+  /* Show mobile CTA when menu is open */
+  .navbarLinks.open .mobileRegisterBtn {
+    display: inline-block;
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+    background: #e87a2a;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 80%;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  /* ⭐ Show BOTH languages stacked on mobile */
+  .labelPrimary {
+    display: block;
+    font-weight: 600;
+    font-size: 1.05rem;
+  }
+
+  .labelSecondary {
+    display: block;
+    font-weight: 400;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    font-style: italic;
+    margin-top: 0.1rem;
+  }
+
+  /* Make sure each nav link stretches for the stacked layout */
+  .navbarLinks a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.6rem 1.5rem;
+  }
+}
+
+

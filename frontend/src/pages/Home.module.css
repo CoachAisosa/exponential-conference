@@ -680,16 +680,25 @@
 }
 
 .aboutAbuContainer {
-  max-width: 1280px;
+  max-width: 1000px;
   margin: 0 auto;
-  display: grid;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
 }
 
-.abuLogo img{
+.abuLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.abuLogo img {
   width: 200px;
   height: 200px;
-  margin-left: 10px;
+  object-fit: contain;   /* ✅ keeps aspect ratio, no distortion */
+  display: block;
 }
 
 .aboutAbuContent {
@@ -698,12 +707,23 @@
   text-align: center;
 }
 
-.aboutAbuContent .sectionEyebrow {
+/* These two now match the JSX "section-eyebrow" / "section-title" */
+.aboutAbuContent :global(.section-eyebrow) {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
   color: rgba(232, 122, 42, 0.7);
+  margin-bottom: 0.75rem;
+  display: block;
 }
 
-.aboutAbuContent .sectionTitle {
+.aboutAbuContent :global(.section-title) {
+  font-size: 2.2rem;
+  font-weight: 800;
   color: #ffffff;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
 }
 
 .aboutAbuContent p {
@@ -734,6 +754,31 @@
   color: #ffffff;
   transform: translateY(-3px);
   box-shadow: 0 10px 30px rgba(232, 122, 42, 0.3);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .aboutAbuSection {
+    padding: 3rem 1.5rem;
+  }
+
+  .abuLogo img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .aboutAbuContent :global(.section-title) {
+    font-size: 1.7rem;
+  }
+
+  .aboutAbuContent p {
+    font-size: 0.95rem;
+  }
+
+  .aboutAbuButton {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* ============================================================
